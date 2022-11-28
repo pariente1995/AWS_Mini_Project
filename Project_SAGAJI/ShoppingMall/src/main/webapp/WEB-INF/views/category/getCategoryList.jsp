@@ -330,23 +330,54 @@
 <jsp:include page="${pageContext.request.contextPath }/footer.jsp"></jsp:include>
 
 <script>
-// 각 옵션 클릭 시, 옵션 리스트 열기
-$(".option-detail-field").on("click", function() {
-  let detail = $(this).closest(".option-detail-wrapper");
-
-  // 보임여부 및 아이콘 기본 설정으로 초기화
-  $(".option-detail-radio").css("display", "none");
-
-  // 현재 클릭된 옵션은 제외하고 down 아이콘으로 설정
-  $(".option-detail-field").not(this).closest(".option-detail-wrapper").find(".downImg").attr("src", "${pageContext.request.contextPath}/images/down.png");
-
-  // 닫힘/열림에 따른 리스트 목록 보이기
-  if(detail.find(".downImg").attr("src") == "${pageContext.request.contextPath}/images/up.png") {
-    detail.find(".downImg").attr("src", "${pageContext.request.contextPath}/images/down.png");
-    detail.find(".option-detail-radio").css("display", "none");
-  } else { 
-    detail.find(".downImg").attr("src", "${pageContext.request.contextPath}/images/up.png");
-    detail.find(".option-detail-radio").css("display", "block");
-  }
-});
+	// 각 옵션 클릭 시, 옵션 리스트 열기
+	$(".option-detail-field").on("click", function() {
+	  let detail = $(this).closest(".option-detail-wrapper");
+	
+	  // 보임여부 및 아이콘 기본 설정으로 초기화
+	  $(".option-detail-radio").css("display", "none");
+	
+	  // 현재 클릭된 옵션은 제외하고 down 아이콘으로 설정
+	  $(".option-detail-field").not(this).closest(".option-detail-wrapper").find(".downImg").attr("src", "${pageContext.request.contextPath}/images/down.png");
+	
+	  // 닫힘/열림에 따른 리스트 목록 보이기
+	  if(detail.find(".downImg").attr("src") == "${pageContext.request.contextPath}/images/up.png") {
+	    detail.find(".downImg").attr("src", "${pageContext.request.contextPath}/images/down.png");
+	    detail.find(".option-detail-radio").css("display", "none");
+	  } else { 
+	    detail.find(".downImg").attr("src", "${pageContext.request.contextPath}/images/up.png");
+	    detail.find(".option-detail-radio").css("display", "block");
+	  }
+	});
+	
+	// 이미지 hover 처리
+	// 이미지 hover 시, 이미지명'-hover'.확장자 파일 보임
+	// 이미지 hover 안할 시, 이미지명.확장자 파일 보임
+	$(".main-prd-img").hover(function(){
+	    $(this).attr("src", "${pageContext.request.contextPath}/images/" + $(this).data("imgnm") + "-hover" + $(this).data("ext"));
+	}, function(){
+	    $(this).attr("src", "${pageContext.request.contextPath}/images/" + $(this).data("imgnm") + $(this).data("ext"));
+	});
+	
+	// 상품 찜목록 저장
+	$(".prd-heart-img").on("click", function(){
+	    // 찜목록 수정처리 필요
+	    if($(this).attr("src").endsWith("empty.png")){
+	        // 찜 저장처리
+	        $(this).attr("src", "${pageContext.request.contextPath}/images/heart-fill.png");
+	    }else{
+	        // 찜 해제처리
+	        $(this).attr("src", "${pageContext.request.contextPath}/images/heart-empty.png");
+	    }
+	});
+	
+	// 장바구니 저장
+	$(".prd-cart-img").on("click", function(){
+	
+	});
+	
+	// 상품 상세 조회
+	$(".main-prd-info").on("click",function(){
+	
+	});
 </script>
