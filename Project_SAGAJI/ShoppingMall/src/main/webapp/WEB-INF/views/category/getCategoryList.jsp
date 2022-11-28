@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%-- jstl --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-test
+
 <style>
     #category-container {
       margin-left: 90px;
