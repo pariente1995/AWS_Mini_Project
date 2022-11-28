@@ -76,7 +76,8 @@
       margin-left: 25px;
       padding-left: 0;
     }
-        #main-page-wrapper {
+    
+    #main-page-wrapper {
       margin-left: 90px;
       margin-right: 50px;
       padding: 10px 50px;
