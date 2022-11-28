@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- jstl -->
+<%-- jstl --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -295,29 +295,29 @@
   <div id="menuList">
     <div id="imgWrapper">
       <div id="xImg-wrapper">
-        <img src="images/x.png" id="xImg">
+        <img src="${pageContext.request.contextPath}/images/x.png" id="xImg">
       </div>
-      <img src="images/logo.png" class="logoImg">
+      <img src="${pageContext.request.contextPath}/images/logo.png" class="logoImg">
     </div>
     <div id="listWrapper">
       <ul class="listField">
         <li>
-          <a href="#">모든 제품</a>
+          <a href="/product/getCategoryProductList.do">모든 제품</a>
         </li>
         <li>
-          <a href="#">옷장</a>
+          <a href="/product/getCategoryProductList.do">옷장</a>
         </li>
         <li>
-          <a href="#">테이블</a>
+          <a href="/product/getCategoryProductList.do">테이블</a>
         </li>
         <li>
-          <a href="#">침대</a>
+          <a href="/product/getCategoryProductList.do">침대</a>
         </li>
         <li>
-          <a href="#">주방가구</a>
+          <a href="/product/getCategoryProductList.do">주방가구</a>
         </li>
         <li>
-          <a href="#">쇼파</a>
+          <a href="/product/getCategoryProductList.do">쇼파</a>
         </li>
       </ul>
     </div>
@@ -327,7 +327,7 @@
     <header>
         <div id="main-header-menu">
           <div id="menuImg-wrapper">
-            <a href="#"><img src="images/menu.png" id="menuImg"></a>
+            <a href="#"><img src="${pageContext.request.contextPath}/images/menu.png" id="menuImg"></a>
           </div>
           <div id="menu">
             <a href="#">메뉴</a>
@@ -335,15 +335,15 @@
         </div>
         <div id="main-header-search">
           <div id="logo-wrapper">
-            <a href="#"><img src="images/logo.png" class="logoImg"></a>
+            <a href="#"><img src="${pageContext.request.contextPath}/images/logo.png" class="logoImg"></a>
           </div>
           <div id="search-wrapper">
-            <img src="images/search.png" id="searchImg">
+            <img src="${pageContext.request.contextPath}/images/search.png" id="searchImg">
             <input type="text" name="searchKeyword" id="searchKeyword" placeholder="검색어 입력">
           </div>
         </div>
         <div id="main-header-login">
-          <img src="images/person.png" id="personImg">
+          <img src="${pageContext.request.contextPath}/images/person.png" id="personImg">
           <a href="#">로그인 또는 가입하기</a>
         </div>
     </header>

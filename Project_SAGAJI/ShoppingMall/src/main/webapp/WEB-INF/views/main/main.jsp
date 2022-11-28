@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!-- jstl -->
+<%-- jstl --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <style>
@@ -104,22 +104,19 @@
    }
 </style>
 
-<!-- jQuery 라이브러리 -->
-<script src="${pageContext.request.contextPath}/js/jquery-3.6.1.min.js"></script>
-
-<!-- 헤더 페이지 -->
+<%-- 헤더 페이지 --%>
 <jsp:include page="${pageContext.request.contextPath }/header.jsp"></jsp:include>
 
-<!-- 메인 페이지 시작 -->
+<%-- 메인 페이지 시작 --%>
 <div id="main-page-wrapper">
-  <!-- 인기상품 -->
+  <%-- 인기상품 --%>
   <div class="main-prd-wrapper">
     <div class="main-prd-title">
       <p>인기제품 TOP5</p>
     </div>
     <div class="main-prd" id="top-prd">
       <div class="main-prd-info">
-        <img src="images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
+        <img src="${pageContext.request.contextPath}/images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
         <div class="main-prd-disc">
           <p class="prd-nm">상품명1</p>
           <p class="prd-size">제품크기</p>
@@ -128,14 +125,14 @@
                 <p>￦1,000,000</p>
             </div>
             <div class="main-prd-disc-cart">
-              <img src="images/heart-empty.png" class="prd-heart-img">
-              <img src="images/cart.png" class="prd-cart-img">
+              <img src="${pageContext.request.contextPath}/images/heart-empty.png" class="prd-heart-img">
+              <img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img">
             </div>
           </div>
         </div>
       </div>
       <div class="main-prd-info">
-        <img src="images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
+        <img src="${pageContext.request.contextPath}/images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
         <div class="main-prd-disc">
           <p class="prd-nm">상품명2</p>
           <p class="prd-size">제품크기</p>
@@ -144,14 +141,14 @@
                 <p>￦1,000,000</p>
             </div>
             <div class="main-prd-disc-cart">
-              <img src="images/heart-empty.png" class="prd-heart-img">
-              <img src="images/cart.png" class="prd-cart-img">
+              <img src="${pageContext.request.contextPath}/images/heart-empty.png" class="prd-heart-img">
+              <img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img">
             </div>
           </div>
         </div>
       </div>
       <div class="main-prd-info">
-        <img src="images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
+        <img src="${pageContext.request.contextPath}/images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
         <div class="main-prd-disc">
           <p class="prd-nm">상품명3</p>
           <p class="prd-size">제품크기</p>
@@ -160,14 +157,14 @@
               <p>￦1,000,000</p>
             </div>
             <div class="main-prd-disc-cart">
-              <img src="images/heart-empty.png" class="prd-heart-img">
-              <img src="images/cart.png" class="prd-cart-img">
+              <img src="${pageContext.request.contextPath}/images/heart-empty.png" class="prd-heart-img">
+              <img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img">
             </div>
           </div>
         </div>
       </div>
       <div class="main-prd-info">
-        <img src="images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
+        <img src="${pageContext.request.contextPath}/images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
         <div class="main-prd-disc">
           <p class="prd-nm">상품명4</p>
           <p class="prd-size">제품크기</p>
@@ -176,14 +173,14 @@
               <p>￦1,000,000</p>
             </div>
             <div class="main-prd-disc-cart">
-              <img src="images/heart-empty.png" class="prd-heart-img">
-              <img src="images/cart.png" class="prd-cart-img">
+              <img src="${pageContext.request.contextPath}/images/heart-empty.png" class="prd-heart-img">
+              <img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img">
             </div>
           </div>
         </div>
       </div>
       <div class="main-prd-info">
-        <img src="images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
+        <img src="${pageContext.request.contextPath}/images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
         <div class="main-prd-disc">
           <p class="prd-nm">상품명5</p>
           <p class="prd-size">제품크기</p>
@@ -192,8 +189,8 @@
               <p>￦1,000,000</p>
             </div>
             <div class="main-prd-disc-cart">
-              <img src="images/heart-empty.png" class="prd-heart-img">
-              <img src="images/cart.png" class="prd-cart-img">
+              <img src="${pageContext.request.contextPath}/images/heart-empty.png" class="prd-heart-img">
+              <img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img">
             </div>
           </div>
         </div>
@@ -201,7 +198,8 @@
       </div>
   </div>
 
-  <!--신제품-->
+
+  <%-- 신제품 --%>
   <div class="main-prd-wrapper">
       <div class="main-prd-title">
           <p>신제품</p>
@@ -209,7 +207,7 @@
       <div class="main-prd" id="new-prd">
           <div id="new-prd-slide">
               <div class="main-prd-info">
-                  <img src="images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
+                  <img src="${pageContext.request.contextPath}/images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
                   <div class="main-prd-disc">
                       <p class="prd-nm">상품명1</p>
                       <p class="prd-size">제품크기</p>
@@ -218,14 +216,14 @@
                               <p>￦1,000,000</p>
                           </div>
                           <div class="main-prd-disc-cart">
-                              <img src="images/heart-empty.png" class="prd-heart-img">
-                              <img src="images/cart.png" class="prd-cart-img">
+                              <img src="${pageContext.request.contextPath}/images/heart-empty.png" class="prd-heart-img">
+                              <img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img">
                           </div>
                       </div>
                   </div>
               </div>
               <div class="main-prd-info">
-                  <img src="images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
+                  <img src="${pageContext.request.contextPath}/images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
                   <div class="main-prd-disc">
                       <p class="prd-nm">상품명2</p>
                       <p class="prd-size">제품크기</p>
@@ -234,14 +232,14 @@
                               <p>￦1,000,000</p>
                           </div>
                           <div class="main-prd-disc-cart">
-                              <img src="images/heart-empty.png" class="prd-heart-img">
-                              <img src="images/cart.png" class="prd-cart-img">
+                              <img src="${pageContext.request.contextPath}/images/heart-empty.png" class="prd-heart-img">
+                              <img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img">
                           </div>
                       </div>
                   </div>
               </div>
               <div class="main-prd-info">
-                  <img src="images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
+                  <img src="${pageContext.request.contextPath}/images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
                   <div class="main-prd-disc">
                       <p class="prd-nm">상품명3</p>
                       <p class="prd-size">제품크기</p>
@@ -250,14 +248,14 @@
                               <p>￦1,000,000</p>
                           </div>
                           <div class="main-prd-disc-cart">
-                              <img src="images/heart-empty.png" class="prd-heart-img">
-                              <img src="images/cart.png" class="prd-cart-img">
+                              <img src="${pageContext.request.contextPath}/images/heart-empty.png" class="prd-heart-img">
+                              <img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img">
                           </div>
                       </div>
                   </div>
               </div>
               <div class="main-prd-info">
-                  <img src="images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
+                  <img src="${pageContext.request.contextPath}/images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
                   <div class="main-prd-disc">
                       <p class="prd-nm">상품명4</p>
                       <p class="prd-size">제품크기</p>
@@ -266,14 +264,14 @@
                               <p>￦1,000,000</p>
                           </div>
                           <div class="main-prd-disc-cart">
-                              <img src="images/heart-empty.png" class="prd-heart-img">
-                              <img src="images/cart.png" class="prd-cart-img">
+                              <img src="${pageContext.request.contextPath}/images/heart-empty.png" class="prd-heart-img">
+                              <img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img">
                           </div>
                       </div>
                   </div>
               </div>
               <div class="main-prd-info">
-                  <img src="images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
+                  <img src="${pageContext.request.contextPath}/images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
                   <div class="main-prd-disc">
                       <p class="prd-nm">상품명5</p>
                       <p class="prd-size">제품크기</p>
@@ -282,14 +280,14 @@
                               <p>￦1,000,000</p>
                           </div>
                           <div class="main-prd-disc-cart">
-                              <img src="images/heart-empty.png" class="prd-heart-img">
-                              <img src="images/cart.png" class="prd-cart-img">
+                              <img src="${pageContext.request.contextPath}/images/heart-empty.png" class="prd-heart-img">
+                              <img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img">
                           </div>
                       </div>
                   </div>
               </div>
               <div class="main-prd-info">
-                  <img src="images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
+                  <img src="${pageContext.request.contextPath}/images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
                   <div class="main-prd-disc">
                       <p class="prd-nm">상품명6</p>
                       <p class="prd-size">제품크기</p>
@@ -298,14 +296,14 @@
                               <p>￦1,000,000</p>
                           </div>
                           <div class="main-prd-disc-cart">
-                              <img src="images/heart-empty.png" class="prd-heart-img">
-                              <img src="images/cart.png" class="prd-cart-img">
+                              <img src="${pageContext.request.contextPath}/images/heart-empty.png" class="prd-heart-img">
+                              <img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img">
                           </div>
                       </div>
                   </div>
               </div>
               <div class="main-prd-info">
-                  <img src="images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
+                  <img src="${pageContext.request.contextPath}/images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
                   <div class="main-prd-disc">
                       <p class="prd-nm">상품명7</p>
                       <p class="prd-size">제품크기</p>
@@ -314,14 +312,14 @@
                               <p>￦1,000,000</p>
                           </div>
                           <div class="main-prd-disc-cart">
-                              <img src="images/heart-empty.png" class="prd-heart-img">
-                              <img src="images/cart.png" class="prd-cart-img">
+                              <img src="${pageContext.request.contextPath}/images/heart-empty.png" class="prd-heart-img">
+                              <img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img">
                           </div>
                       </div>
                   </div>
               </div>
               <div class="main-prd-info">
-                  <img src="images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
+                  <img src="${pageContext.request.contextPath}/images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
                   <div class="main-prd-disc">
                       <p class="prd-nm">상품명8</p>
                       <p class="prd-size">제품크기</p>
@@ -330,14 +328,14 @@
                               <p>￦1,000,000</p>
                           </div>
                           <div class="main-prd-disc-cart">
-                              <img src="images/heart-empty.png" class="prd-heart-img">
-                              <img src="images/cart.png" class="prd-cart-img">
+                              <img src="${pageContext.request.contextPath}/images/heart-empty.png" class="prd-heart-img">
+                              <img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img">
                           </div>
                       </div>
                   </div>
               </div>
               <div class="main-prd-info">
-                  <img src="images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
+                  <img src="${pageContext.request.contextPath}/images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
                   <div class="main-prd-disc">
                       <p class="prd-nm">상품명9</p>
                       <p class="prd-size">제품크기</p>
@@ -346,14 +344,14 @@
                               <p>￦1,000,000</p>
                           </div>
                           <div class="main-prd-disc-cart">
-                              <img src="images/heart-empty.png" class="prd-heart-img">
-                              <img src="images/cart.png" class="prd-cart-img">
+                              <img src="${pageContext.request.contextPath}/images/heart-empty.png" class="prd-heart-img">
+                              <img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img">
                           </div>
                       </div>
                   </div>
               </div>
               <div class="main-prd-info">
-                  <img src="images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
+                  <img src="${pageContext.request.contextPath}/images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
                   <div class="main-prd-disc">
                       <p class="prd-nm">상품명10</p>
                       <p class="prd-size">제품크기</p>
@@ -362,24 +360,24 @@
                               <p>￦1,000,000</p>
                           </div>
                           <div class="main-prd-disc-cart">
-                              <img src="images/heart-empty.png" class="prd-heart-img">
-                              <img src="images/cart.png" class="prd-cart-img">
+                              <img src="${pageContext.request.contextPath}/images/heart-empty.png" class="prd-heart-img">
+                              <img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img">
                           </div>
                       </div>
                   </div>
               </div>
           </div>
-          <!-- 슬라이드 -->
+          <%-- 슬라이드 --%>
           <p class="new-prd-controller">
-              <span id="prev" style="display: none;"><img src="images/slide-prev.png" class="prd-slide-img"></span>  
-              <span id="next" style="display: none;"><img src="images/slide-next.png" class="prd-slide-img"></span>
+              <span id="prev" style="display: none;"><img src="${pageContext.request.contextPath}/images/slide-prev.png" class="prd-slide-img"></span>  
+              <span id="next" style="display: none;"><img src="${pageContext.request.contextPath}/images/slide-next.png" class="prd-slide-img"></span>
           </p>
       </div>
   </div>
 </div>
-<!-- 메인 페이지 종료 -->
+<%-- 메인 페이지 종료 --%>
 
-<!-- 메인 페이지 관련 스크립트 -->
+<%-- 메인 페이지 관련 스크립트 --%>
 <script>
     // 신상품 슬라이드처리
     const slides = document.querySelector("#new-prd"); //전체 슬라이드 컨테이너
@@ -437,9 +435,9 @@
     // 이미지 hover 시, 이미지명'-hover'.확장자 파일 보임
     // 이미지 hover 안할 시, 이미지명.확장자 파일 보임
     $(".main-prd-img").hover(function(){
-        $(this).attr("src", "images/" + $(this).data("imgnm") + "-hover" + $(this).data("ext"));
+        $(this).attr("src", "${pageContext.request.contextPath}/images/" + $(this).data("imgnm") + "-hover" + $(this).data("ext"));
     }, function(){
-        $(this).attr("src", "images/" + $(this).data("imgnm") + $(this).data("ext"));
+        $(this).attr("src", "${pageContext.request.contextPath}/images/" + $(this).data("imgnm") + $(this).data("ext"));
     });
 
     // 상품 찜목록 저장
@@ -447,10 +445,10 @@
         // 찜목록 수정처리 필요
         if($(this).attr("src").endsWith("empty.png")){
             // 찜 저장처리
-            $(this).attr("src", "images/heart-fill.png");
+            $(this).attr("src", "${pageContext.request.contextPath}/images/heart-fill.png");
         }else{
             // 찜 해제처리
-            $(this).attr("src", "images/heart-empty.png");
+            $(this).attr("src", "${pageContext.request.contextPath}/images/heart-empty.png");
         }
     });
 
@@ -465,5 +463,5 @@
     });
 </script>
 
-<!-- 푸터 페이지 -->
+<%-- 푸터 페이지 --%>
 <jsp:include page="${pageContext.request.contextPath }/footer.jsp"></jsp:include>

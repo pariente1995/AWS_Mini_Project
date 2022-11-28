@@ -28,9 +28,9 @@ public class HomeController {
 //		return "home";
 //	}
 	
-	// 메인페이지로 이동(mainPage.jsp)
+	// 메인페이지로 이동(main.jsp)
 	@GetMapping
 	public String main() {
-		return "mainPage";
+		return "main/main";
 	}
 }
