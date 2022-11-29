@@ -33,5 +33,29 @@
 	]]>
 	</select>
 	
+	<insert id="join" parameterType="user">
+   <![CDATA[
+      INSERT INTO T_SGJ_USER(
+         USER_ID,
+         USER_PW,
+         USER_NM,
+         USER_TEL,
+         USER_EMAIL,
+         USER_ADDR1,
+         USER_ADDR2       
+      ) VALUES (
+         #{userId},
+         #{userPw},
+         #{userNm},
+         #{userTel},
+         #{userEmail},
+         #{userAddr1},
+         #{userAddr2}
+      )
+   ]]>
+
+   </insert>
+	
+	
 	
 </mapper>

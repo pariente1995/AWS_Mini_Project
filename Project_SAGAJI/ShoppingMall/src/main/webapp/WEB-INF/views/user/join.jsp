@@ -204,10 +204,10 @@
     
                     <!-- userPw1 -->
                     <div>
-                        <div class="label_wrapper1"><label for="userPw1">비밀번호</label></div>
+                        <div class="label_wrapper1"><label for="userPw">비밀번호</label></div>
                         <div class="input  label_wrapper2">
                             <div class="input_wrapper">
-                                <input type="password"  name="userPw1" id="userPw1" required placeholder="비밀번호를 입력하세요.">
+                                <input type="password"  name="userPw" id="userPw" required placeholder="비밀번호를 입력하세요.">
                                 <span class="input_border"></span>
                             </div>
                         </div>
@@ -306,6 +306,7 @@
             if($("#joinMsg").val() != "" && $("#joinMsg").val() != null) {
 				alert($("#joinMsg").val());
 			}
+			
 
 			var checkId = false;
 			var pwValidation = false;
@@ -356,12 +357,12 @@
 			}
 			
 			//비밀번호 입력될때마다 유효성 검사
-			$("#userPw1").on("change", function() {
+			$("#userPw").on("change", function() {
 				//비밀번호 유효성 처리
-				if(!validatePassword($("#userPw1").val())) {
+				if(!validatePassword($("#userPw").val())) {
 					pwValidation = false;
 					$("#pwValidation").show();
-					$("#userPw1").focus();
+					$("#userPw").focus();
 				} else {
 					pwValidation = true;
 					$("#pwValidation").hide();
@@ -369,7 +370,7 @@
 				
                  /* ========== userPw2 ========== */
 				//비밀번호 확인까지 입력한 후 다시 비밀번호 재설정
-				if($("#userPw1").val() == $("#userPw2").val()) {
+				if($("#userPw").val() == $("#userPw2").val()) {
 					pwCheck = true;
 					$("#pwCheckResult").css("color", "green");
 					$("#pwCheckResult").text("비밀번호가 일치합니다.");
@@ -386,7 +387,7 @@
 			$("#userPw2").on("change", function() {
 				$("#pwCheckResult").show();
 				
-				if($("#userPw1").val() == $("#userPw2").val()) {
+				if($("#userPw").val() == $("#userPw2").val()) {
 					pwCheck = true;
 					$("#pwCheckResult").css("color", "green");
 					$("#pwCheckResult").text("비밀번호가 일치합니다.");
@@ -412,7 +413,7 @@
 				//비밀번호 유효성 검사가 틀렸을 때
 				if(!pwValidation) {
 					alert("비밀번호는 영문자, 숫자, 특수문자 조합의 9자리 이상으로 설정하세요.");
-					$("#userPw1").focus();
+					$("#userPw").focus();
 					e.preventDefault();
 					return;
 				}

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.sagaji.shoppingmall.service.user.UserService;
 import com.sagaji.shoppingmall.vo.UserVO;
 
@@ -20,10 +21,14 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	//회원가입 진행
-		@RequestMapping(value="/join.do", produces="application/text; charset=UTF-8")
+		@GetMapping("/join.do")
+	    public String joinView() {
+	      return "user/join";
+	    }
+	
+		@PostMapping(value="/join.do", produces="application/text; charset=UTF-8")
 		public String join(UserVO userVO, Model model) {
 			int joinResult = userService.join(userVO);
-			
 			if(joinResult == 0) {
 				model.addAttribute("joinMsg", "회원가입에 실패하셨습니다. 관리자에게 문의해주세요.");
 				return "user/join";
@@ -32,8 +37,24 @@ public class UserController {
 			model.addAttribute("joinMsg", "회원가입에 성공했습니다. 로그인해주세요.");
 			return "user/login";
 		}
-		//로그인 처리
+		@PostMapping("/idCheck.do")
+		@ResponseBody
+		public String idCheck(UserVO userVO) throws JsonProcessingException {
+			String returnStr = "";
+			
+			int idCnt = userService.idCheck(userVO.getUserId());
+			
+			if(idCnt > 0) {
+				returnStr = "duplicatedId";
+			} else {
+				returnStr = "idOk";
+			}
+			
+			return returnStr;
+		}
 		
+		
+	//로그인 처리	
 		@GetMapping("/login.do")
 		public String login(UserVO userVO) {
 			return "/user/login";
