@@ -28,8 +28,8 @@ public class HomeController {
 //		return "home";
 //	}
 	
-	// 메인페이지로 이동(main.jsp)
-	@GetMapping
+	// 메인 화면으로 이동(main.jsp)
+	@GetMapping("/")
 	public String main() {
 		return "main/main";
 	}
