@@ -191,10 +191,10 @@
     
                     <!-- userPw1 -->
                     <div>
-                        <div class="label_wrapper1"><label for="userPw1">비밀번호</label></div>
+                        <div class="label_wrapper1"><label for="userPw">비밀번호</label></div>
                         <div class="input  label_wrapper2">
                             <div class="input_wrapper">
-                                <input type="password"  name="userPw1" id="userPw1" required placeholder="비밀번호를 입력하세요.">
+                                <input type="password"  name="userPw" id="userPw" required placeholder="비밀번호를 입력하세요.">
                                 <span class="input_border"></span>
                             </div>
                         </div>
@@ -205,7 +205,7 @@
     
                     <!-- login button -->
                     <div>
-                        <button type="submit" class="btn2" id="btnlogin">
+                        <button type="button" class="btn2" id="btnLogin">
                         <span class="btn_inner">로그인</span>
                         </button>
                     </div>
@@ -247,12 +247,12 @@
 						//pw 체크
 						if(obj =="pwFail") {
 							alert("비밀번호가 틀렸습니다. 비밀번호를 확인해주세요.");
-							$("#userPw1").focus();
+							$("#userPw").focus();
 							return;
 						}
 						
 						//로그인 처리
-						location.href="/index.jsp";
+						location.href="/";
 					},
 					error: function(e) {
 						console.log(e);

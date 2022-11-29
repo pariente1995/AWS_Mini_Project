@@ -344,7 +344,7 @@
         </div>
         <div id="main-header-login">
           <img src="${pageContext.request.contextPath}/images/person.png" id="personImg">
-          <a href="#">로그인 또는 가입하기</a>
+          <a href="/user/login.do">로그인 또는 가입하기</a>
         </div>
     </header>
     <nav>

@@ -17,7 +17,7 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
-	// 카테고리에 해당하는 제품 리스트 조회
+	// 移댄뀒怨좊━�뿉 �빐�떦�븯�뒗 �젣�뭹 由ъ뒪�듃 議고쉶
 	@RequestMapping("/getCategoryProductList.do")
 	public String getCategoryProductList(@RequestParam("categoryCd") int categoryCd, Model model) {		
 		List<Map<String, Object>> cateProductList = productService.getCategoryProductList(categoryCd);
