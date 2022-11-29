@@ -160,7 +160,15 @@
 <jsp:include page="${pageContext.request.contextPath }/header.jsp"></jsp:include>
 
   <div id="category-container">
-    <h1>침대</h1>
+<%--   	<c:choose>
+		<c:when test="${categoryProductList.CATEGORY_CD != 1}">
+			<h1>모든 제품</h1>
+		</c:when>
+		<c:otherwise>
+			<h1>${categoryProductList.CATEGORY_NM}</h1>
+		</c:otherwise>
+	</c:choose> --%>
+	<h1>모든 제품</h1>
     <div id="option-wrapper">
       <div class="option-detail-wrapper">
         <div class="option-detail-field">
@@ -330,6 +338,7 @@
 <jsp:include page="${pageContext.request.contextPath }/footer.jsp"></jsp:include>
 
 <script>
+console.log(categoryProductList.CATEGORY_CD);
 	// 각 옵션 클릭 시, 옵션 리스트 열기
 	$(".option-detail-field").on("click", function() {
 	  let detail = $(this).closest(".option-detail-wrapper");

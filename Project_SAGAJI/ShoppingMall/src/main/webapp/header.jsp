@@ -302,22 +302,22 @@
     <div id="listWrapper">
       <ul class="listField">
         <li>
-          <a href="/product/getCategoryProductList.do">모든 제품</a>
+          <a href="/product/getCategoryProductList.do?categoryCd=1">모든 제품</a>
         </li>
         <li>
-          <a href="/product/getCategoryProductList.do">옷장</a>
+          <a href="/product/getCategoryProductList.do?categoryCd=2">옷장</a>
         </li>
         <li>
-          <a href="/product/getCategoryProductList.do">테이블</a>
+          <a href="/product/getCategoryProductList.do?categoryCd=3">테이블</a>
         </li>
         <li>
-          <a href="/product/getCategoryProductList.do">침대</a>
+          <a href="/product/getCategoryProductList.do?categoryCd=4">침대</a>
         </li>
         <li>
-          <a href="/product/getCategoryProductList.do">주방가구</a>
+          <a href="/product/getCategoryProductList.do?categoryCd=5">주방가구</a>
         </li>
         <li>
-          <a href="/product/getCategoryProductList.do">쇼파</a>
+          <a href="/product/getCategoryProductList.do?categoryCd=6">쇼파</a>
         </li>
       </ul>
     </div>

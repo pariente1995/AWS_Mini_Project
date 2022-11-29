@@ -461,6 +461,8 @@
     $(".main-prd-info").on("click",function(){
 
     });
+    
+    // 화면 오픈 시, 인기제품 및 신제품 조회 -> ajax 사용?
 </script>
 
 <%-- 푸터 페이지 --%>
