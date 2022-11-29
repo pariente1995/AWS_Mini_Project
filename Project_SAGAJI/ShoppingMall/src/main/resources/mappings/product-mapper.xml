@@ -17,6 +17,7 @@
 		</if>
 	</select>
 	
+
 	<!-- 카테고리 정보 조회 -->
 	<select id="getCategoryInfo" parameterType="int" resultType="camelHashMap">
 		<![CDATA[
@@ -26,4 +27,24 @@
 		]]>
 	</select>	
 
+
+	<!-- 제품 등록 -->
+	<insert id="insertProductDetail" parameterType="product">
+		INSERT INTO T_SGJ_PRDCT_DETAIL
+		VALUES(
+				#{prdctNo},
+				(SELECT IFNULL(MAX(A.PRDCT_DETAIL_NO), 0) + 1 FROM T_SGJ_PRDCT_DETAIL A),
+				#{prdctCategoryCd},
+				#{prdctSize},
+				#{prdctColor},
+				#{prdctMaterial},
+				#{prdctPrice},
+				#{prdctRemain},
+				now(),
+				now(),
+				'Y'				
+			)
+	</insert>
+	
+	
 </mapper>

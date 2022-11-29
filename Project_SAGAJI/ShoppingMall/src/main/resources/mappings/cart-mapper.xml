@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="CartDAO">
+	<!-- 장바구니 담기 -->
+	<select id="addCart">
+		INSERT INTO T_SGJ_CART (userId, prdctNo, prdctDetailNo, cartCnt)
+			VALUES ( #{userId}, #{prdctNo}, #{prdctDetailNo}, #{cartCnt})
+	</select>
+	
+	
+</mapper>
