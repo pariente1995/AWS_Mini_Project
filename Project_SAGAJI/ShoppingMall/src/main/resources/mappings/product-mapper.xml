@@ -5,7 +5,7 @@
 	
 <mapper namespace="ProductDAO">
 	<!-- 카테고리에 해당하는 제품 리스트 조회 -->
-	<select id="getCategoryProductList" parameterType="int" resultType="map">
+	<select id="getCategoryProductList" parameterType="int" resultType="camelHashMap">
 		<![CDATA[
 			SELECT * 
 			  FROM T_SGJ_PRDCT A, T_SGJ_PRDCT_DETAIL B, T_SGJ_CATEGORY C
@@ -16,5 +16,14 @@
 			AND B.PRDCT_CATEGORY_CD = #{categoryCd}
 		</if>
 	</select>
+	
+	<!-- 카테고리 정보 조회 -->
+	<select id="getCategoryInfo" parameterType="int" resultType="camelHashMap">
+		<![CDATA[
+			SELECT * 
+			  FROM T_SGJ_CATEGORY
+			 WHERE CATEGORY_CD = #{categoryCd}
+		]]>
+	</select>	
 
 </mapper>

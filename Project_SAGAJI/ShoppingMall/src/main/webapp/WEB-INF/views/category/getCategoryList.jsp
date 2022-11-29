@@ -161,11 +161,11 @@
 
   <div id="category-container">
   	<c:choose>
-		<c:when test="${categoryCd != 1}">
-			<h1>모든 제품</h1>
+		<c:when test="${categoryInfo.categoryCd != 1}">
+			<h1>${categoryInfo.categoryNm}</h1>
 		</c:when>
 		<c:otherwise>
-			<h1>${categoryProductList.CATEGORY_NM}</h1>
+			<h1>모든 제품</h1>
 		</c:otherwise>
 	</c:choose>
     <div id="option-wrapper">
@@ -248,8 +248,31 @@
     <hr/>
 	<%-- 제품 리스트 --%>
     <div class="main-prd-wrapper">
-      <div class="main-prd" id="top-prd">
-        <div class="main-prd-info">
+   			<c:forEach items="${categoryProductList}" var ="cate" varStatus="status">
+   				<c:if test="${status.count % 5 eq 1 }">
+   					<c:out value="<div class='main-prd' id='top-prd'>" escapeXml="false"/>
+   				</c:if>
+			    	<div class="main-prd-info">
+			          <img src="${pageContext.request.contextPath }/images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
+			          <div class="main-prd-disc">
+			            <p class="prd-nm">상품명1</p>
+			            <p class="prd-size">제품크기</p>
+			            <div class="main-prd-disc-wrapper">
+			              <div class="main-prd-disc-amount">
+			                  <p>￦1,000,000</p>
+			              </div>
+			              <div class="main-prd-disc-cart">
+			                <img src="${pageContext.request.contextPath }/images/heart-empty.png" class="prd-heart-img">
+			                <img src="${pageContext.request.contextPath }/images/cart.png" class="prd-cart-img">
+			              </div>
+			            </div>
+			          </div>
+			        </div>       
+				<c:if test="${status.count % 5 eq 0 }">
+   					<c:out value="</div>" escapeXml="false"/>
+   				</c:if>
+			</c:forEach>
+<%--         <div class="main-prd-info">
           <img src="${pageContext.request.contextPath }/images/top1.jpg" data-imgnm="top1"  data-ext=".jpg" class="main-prd-img">
           <div class="main-prd-disc">
             <p class="prd-nm">상품명1</p>
@@ -328,8 +351,8 @@
               </div>
             </div>
           </div>
+        </div> --%>
         </div>
-      </div>
     </div>
   </div>
 
@@ -337,7 +360,6 @@
 <jsp:include page="${pageContext.request.contextPath }/footer.jsp"></jsp:include>
 
 <script>
-console.log(categoryProductList.CATEGORY_CD);
 	// 각 옵션 클릭 시, 옵션 리스트 열기
 	$(".option-detail-field").on("click", function() {
 	  let detail = $(this).closest(".option-detail-wrapper");
