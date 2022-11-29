@@ -2,7 +2,7 @@ package com.sagaji.shoppingmall.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.sagaji.shoppingmall.service.WishService;
+import com.sagaji.shoppingmall.service.wish.WishService;
 
 public class WishController {
 	@Autowired
