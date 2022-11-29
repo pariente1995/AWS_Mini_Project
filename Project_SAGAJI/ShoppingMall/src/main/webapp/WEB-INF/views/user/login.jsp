@@ -223,7 +223,7 @@
 	
 	<script>
 		$(function() {
-			//회원가입 성공 시 메시지 출력
+			//로그인 성공 시 메시지 출력
 			if($("#loginMsg").val() != "" && $("#loginMsg").val() != null) {
 				alert($("#loginMsg").val());
 			}
