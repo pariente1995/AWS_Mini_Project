@@ -3,111 +3,123 @@ package com.sagaji.shoppingmall.vo;
 import java.sql.Date;
 
 public class UserVO {
-	
+
 	/*
-	CREATE TABLE T_SGJ_USER (
-	USER_ID VARCHAR(30) PRIMARY KEY,
-	USER_PW VARCHAR(45) NOT NULL,
-	USER_NM VARCHAR(30) NOT NULL,
-	USER_TEL VARCHAR(20) NOT NULL,
-	USER_EMAIL VARCHAR(30) NOT NULL,
-	USER_ADDR1 VARCHAR(200) NOT NULL,
-	USER_ADDR2 VARCHAR(200) NOT NULL,
-	USER_TYPE VARCHAR(5) NOT NULL DEFAULT 'USER',
-	USER_RGST_DATE DATETIME NOT NULL DEFAULT NOW(),
-	USER_MODF_DATE DATETIME NOT NULL DEFAULT NOW(),
-	USER_USE_YN CHAR(1) NOT NULL DEFAULT 'Y'
-);
+	 * CREATE TABLE T_SGJ_USER ( USER_ID VARCHAR(30) PRIMARY KEY, USER_PW
+	 * VARCHAR(45) NOT NULL, USER_NM VARCHAR(30) NOT NULL, USER_TEL VARCHAR(20) NOT
+	 * NULL, USER_EMAIL VARCHAR(30) NOT NULL, USER_ADDR1 VARCHAR(200) NOT NULL,
+	 * USER_ADDR2 VARCHAR(200) NOT NULL, USER_TYPE VARCHAR(5) NOT NULL DEFAULT
+	 * 'USER', USER_RGST_DATE DATETIME NOT NULL DEFAULT NOW(), USER_MODF_DATE
+	 * DATETIME NOT NULL DEFAULT NOW(), USER_USE_YN CHAR(1) NOT NULL DEFAULT 'Y' );
 	 * 
 	 */
-	
-	private String USER_ID;
-	private String USER_PW;
-	private String USER_NM;
-	private String USER_TEL;
-	private String USER_EMAIL;
-	private String USER_ADDR1;
-	private String USER_ADDR2;
-	private String USER_TYPE;
-	private Date USER_RGST_DATE;
-	private Date USER_MODF_DATE;
-	private String USER_USE_YN;
-	public String getUSER_ID() {
-		return USER_ID;
+
+	private String userId;
+	private String userPw;
+	private String userNm;
+	private String userTel;
+	private String userEmail;
+	private String userAddr1;
+	private String userAddr2;
+	private String userType;
+	private Date userRgstDate;
+	private Date userModfDate;
+	private String userUseYn;
+
+	public String getUserId() {
+		return userId;
 	}
-	public void setUSER_ID(String uSER_ID) {
-		USER_ID = uSER_ID;
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
-	public String getUSER_PW() {
-		return USER_PW;
+
+	public String getUserPw() {
+		return userPw;
 	}
-	public void setUSER_PW(String uSER_PW) {
-		USER_PW = uSER_PW;
+
+	public void setUserPw(String userPw) {
+		this.userPw = userPw;
 	}
-	public String getUSER_NM() {
-		return USER_NM;
+
+	public String getUserNm() {
+		return userNm;
 	}
-	public void setUSER_NM(String uSER_NM) {
-		USER_NM = uSER_NM;
+
+	public void setUserNm(String userNm) {
+		this.userNm = userNm;
 	}
-	public String getUSER_TEL() {
-		return USER_TEL;
+
+	public String getUserTel() {
+		return userTel;
 	}
-	public void setUSER_TEL(String uSER_TEL) {
-		USER_TEL = uSER_TEL;
+
+	public void setUserTel(String userTel) {
+		this.userTel = userTel;
 	}
-	public String getUSER_EMAIL() {
-		return USER_EMAIL;
+
+	public String getUserEmail() {
+		return userEmail;
 	}
-	public void setUSER_EMAIL(String uSER_EMAIL) {
-		USER_EMAIL = uSER_EMAIL;
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
-	public String getUSER_ADDR1() {
-		return USER_ADDR1;
+
+	public String getUserAddr1() {
+		return userAddr1;
 	}
-	public void setUSER_ADDR1(String uSER_ADDR1) {
-		USER_ADDR1 = uSER_ADDR1;
+
+	public void setUserAddr1(String userAddr1) {
+		this.userAddr1 = userAddr1;
 	}
-	public String getUSER_ADDR2() {
-		return USER_ADDR2;
+
+	public String getUserAddr2() {
+		return userAddr2;
 	}
-	public void setUSER_ADDR2(String uSER_ADDR2) {
-		USER_ADDR2 = uSER_ADDR2;
+
+	public void setUserAddr2(String userAddr2) {
+		this.userAddr2 = userAddr2;
 	}
-	public String getUSER_TYPE() {
-		return USER_TYPE;
+
+	public String getUserType() {
+		return userType;
 	}
-	public void setUSER_TYPE(String uSER_TYPE) {
-		USER_TYPE = uSER_TYPE;
+
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
-	public Date getUSER_RGST_DATE() {
-		return USER_RGST_DATE;
+
+	public Date getUserRgstDate() {
+		return userRgstDate;
 	}
-	public void setUSER_RGST_DATE(Date uSER_RGST_DATE) {
-		USER_RGST_DATE = uSER_RGST_DATE;
+
+	public void setUserRgstDate(Date userRgstDate) {
+		this.userRgstDate = userRgstDate;
 	}
-	public Date getUSER_MODF_DATE() {
-		return USER_MODF_DATE;
+
+	public Date getUserModfDate() {
+		return userModfDate;
 	}
-	public void setUSER_MODF_DATE(Date uSER_MODF_DATE) {
-		USER_MODF_DATE = uSER_MODF_DATE;
+
+	public void setUserModfDate(Date userModfDate) {
+		this.userModfDate = userModfDate;
 	}
-	public String getUSER_USE_YN() {
-		return USER_USE_YN;
+
+	public String getUserUseYn() {
+		return userUseYn;
 	}
-	public void setUSER_USE_YN(String uSER_USE_YN) {
-		USER_USE_YN = uSER_USE_YN;
+
+	public void setUserUseYn(String userUseYn) {
+		this.userUseYn = userUseYn;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "UserVO [USER_ID=" + USER_ID + ", USER_PW=" + USER_PW + ", USER_NM=" + USER_NM + ", USER_TEL=" + USER_TEL
-				+ ", USER_EMAIL=" + USER_EMAIL + ", USER_ADDR1=" + USER_ADDR1 + ", USER_ADDR2=" + USER_ADDR2
-				+ ", USER_TYPE=" + USER_TYPE + ", USER_RGST_DATE=" + USER_RGST_DATE + ", USER_MODF_DATE="
-				+ USER_MODF_DATE + ", USER_USE_YN=" + USER_USE_YN + "]";
+		return "UserVO [userId=" + userId + ", userPw=" + userPw + ", userNm=" + userNm + ", userTel=" + userTel
+				+ ", userEmail=" + userEmail + ", userAddr1=" + userAddr1 + ", userAddr2=" + userAddr2 + ", userType="
+				+ userType + ", userRgstDate=" + userRgstDate + ", userModfDate=" + userModfDate + ", userUseYn="
+				+ userUseYn + "]";
 	}
-	
-	
-	
-	
+
 }
