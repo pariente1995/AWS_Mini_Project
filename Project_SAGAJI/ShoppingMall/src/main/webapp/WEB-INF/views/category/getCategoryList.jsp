@@ -160,15 +160,14 @@
 <jsp:include page="${pageContext.request.contextPath }/header.jsp"></jsp:include>
 
   <div id="category-container">
-<%--   	<c:choose>
-		<c:when test="${categoryProductList.CATEGORY_CD != 1}">
+  	<c:choose>
+		<c:when test="${categoryCd != 1}">
 			<h1>모든 제품</h1>
 		</c:when>
 		<c:otherwise>
 			<h1>${categoryProductList.CATEGORY_NM}</h1>
 		</c:otherwise>
-	</c:choose> --%>
-	<h1>모든 제품</h1>
+	</c:choose>
     <div id="option-wrapper">
       <div class="option-detail-wrapper">
         <div class="option-detail-field">

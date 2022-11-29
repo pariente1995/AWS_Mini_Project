@@ -21,12 +21,14 @@ public class ProductController {
 	@RequestMapping("/getCategoryProductList.do")
 	public String getCategoryProductList(@RequestParam("categoryCd") int categoryCd, Model model) {		
 		List<Map<String, Object>> cateProductList = productService.getCategoryProductList(categoryCd);
+		Map<String, Object> categroyMap = productService.getCategoryInfo(categoryCd);
 		
 		System.out.println(cateProductList);
 		System.out.println("test" + cateProductList.get(0));
 		System.out.println("test111" + cateProductList.get(0).get("PRDCT_COLOR"));
 		
 		model.addAttribute("categoryProductList", cateProductList);
+		model.addAttribute("categoryInfo", categroyMap);
 		System.out.println(model);
 		return "category/getCategoryList";
 	}
