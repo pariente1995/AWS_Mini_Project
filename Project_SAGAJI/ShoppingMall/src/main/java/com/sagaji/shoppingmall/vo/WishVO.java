@@ -5,7 +5,7 @@ import java.sql.Date;
 public class WishVO {
 	private String userId;
 	private String prdcNo;
-	private int prdcDetailNo;
+	private int prdctDetailNo;
 	private Date wishRgstDate;
 	
 	public String getUserId() {
@@ -20,11 +20,11 @@ public class WishVO {
 	public void setPrdcNo(String prdcNo) {
 		this.prdcNo = prdcNo;
 	}
-	public int getPrdcDetailNo() {
-		return prdcDetailNo;
+	public int getPrdctDetailNo() {
+		return prdctDetailNo;
 	}
-	public void setPrdcDetailNo(int prdcDetailNo) {
-		this.prdcDetailNo = prdcDetailNo;
+	public void setPrdctDetailNo(int prdcDetailNo) {
+		this.prdctDetailNo = prdcDetailNo;
 	}
 	public Date getWishRgstDate() {
 		return wishRgstDate;
@@ -35,7 +35,7 @@ public class WishVO {
 	
 	@Override
 	public String toString() {
-		return "WishVO [userId=" + userId + ", prdcNo=" + prdcNo + ", prdcDetailNo=" + prdcDetailNo + ", wishRgstDate="
+		return "WishVO [userId=" + userId + ", prdcNo=" + prdcNo + ", prdctDetailNo=" + prdctDetailNo + ", wishRgstDate="
 				+ wishRgstDate + "]";
 	}
 	
