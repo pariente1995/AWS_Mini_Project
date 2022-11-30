@@ -170,7 +170,7 @@
     
                 <!-- copyright 내용 -->
                 <div class="copyright">
-                    <p>© 2022. SAGAJI Co. All rights reserved.</p>
+                    <p>ⓒ Inter SAGAJI MALL Systems 2022</p>
                 </div>
             </div>
             
@@ -228,6 +228,9 @@
 				alert($("#loginMsg").val());
 			}
 			
+			var pwValidation = false;
+			$("#pwValidation").hide();
+			
 			//로그인 시 아이디나 비밀번호가 틀렸을 경우에
 			//대비하여 폼 서브밋 대신 ajax로 처리
 			$("#btnLogin").on("click", function() {
@@ -259,17 +262,22 @@
 					}
 				});
 			});
+			function validatePassword(character) {
+				return /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*+=-])(?=.*[0-9]).{9,}$/.test(character);
+			}
+			$("#userPw").on("change", function() {
+				//비밀번호 유효성 처리
+				if(!validatePassword($("#userPw").val())) {
+					pwValidation = false;
+					$("#pwValidation").show();
+					$("#userPw").focus();
+				} else {
+					pwValidation = true;
+					$("#pwValidation").hide();
+				}
+			});
 		});
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 	</script>
 </body>
 </html>
