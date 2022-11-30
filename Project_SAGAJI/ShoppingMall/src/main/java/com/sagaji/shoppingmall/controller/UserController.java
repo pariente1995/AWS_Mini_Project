@@ -1,5 +1,6 @@
 package com.sagaji.shoppingmall.controller;
 
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,6 +89,35 @@ public class UserController {
 		public String logout(HttpSession session) {
 			session.invalidate();
 			
-			return "redirect:/main/main.jsp";
+			return "redirect:/";
 		}
+		
+//		내정보 이동
+		@GetMapping("/myInfo.do")
+		public String myInfoView(HttpSession session) {
+			
+			return "user/myInfo";
+		}
+		
+		@PostMapping("/myInfo.do")
+		public String myInfo(UserVO userVO){
+			userService.myInfo(userVO);
+			return"redirect:/user/myInfo";
+		}
+		
+		//내정보 수정
+		@PostMapping("/updateUser.do")
+		public String updateUser(UserVO userVO) {
+			userService.updateUser(userVO);
+			
+			return "redirect:/user/myInfo.do";
+		}
+		
+//		//회원 탈퇴(사용유무"N")
+//		@RequestMapping("/deleteBoard.do")
+//		public String deleteBoard(@RequestParam("boardNo") int boardNo) {
+//			boardService.deleteBoard(boardNo);
+//			
+//			return "redirect:/board/getBoardList.do";
+//		}
 }

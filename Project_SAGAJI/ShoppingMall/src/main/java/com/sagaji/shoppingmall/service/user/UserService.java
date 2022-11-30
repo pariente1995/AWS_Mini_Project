@@ -10,4 +10,7 @@ public interface UserService {
 
 	int join(UserVO userVO);
 
+	void myInfo(UserVO userVO);
+
+	void updateUser(UserVO userVO);
 }
