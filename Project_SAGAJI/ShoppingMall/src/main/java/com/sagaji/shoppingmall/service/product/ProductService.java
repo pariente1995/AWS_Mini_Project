@@ -13,6 +13,12 @@ public interface ProductService {
 	// 카테고리 리스트 조회
 	List<Map<String, Object>> getCategoryList();
 	
+	// 인기제품 TOP5 조회
+	List<Map<String, Object>> getPopularProductList();
+	
+	// 신제품 조회
+	List<Map<String, Object>> getNewProductList();
+
 	//제품저장
 	public void insertProduct(Map<String,Object> map);
 	

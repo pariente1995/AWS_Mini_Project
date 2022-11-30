@@ -28,6 +28,15 @@ public class ProductServiceImpl implements ProductService {
 		return productDAO.getCategoryList();
 	}
 	
+	@Override
+	public List<Map<String, Object>> getPopularProductList() {
+		return productDAO.getPopularProductList();
+	}
+	
+	@Override
+	public List<Map<String, Object>> getNewProductList() {
+		return productDAO.getNewProductList();
+  }
 	
 	public void insertProduct(Map<String,Object> map) {
 		productDAO.insertProduct(map);
@@ -36,7 +45,6 @@ public class ProductServiceImpl implements ProductService {
 	public void insertProductDetail(Map<String,Object> map) {
 		productDAO.insertProductDetail(map);
 	}
-	
 	
 	public void updateProduct(Map<String,Object> map) {
 		productDAO.updateProduct(map);
