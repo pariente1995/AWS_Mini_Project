@@ -83,7 +83,7 @@
 
     /* 돋보기 아이콘 및 검색어 입력 영역*/
     #main-header-search #search-wrapper {
-      width: 1000px;
+      width: 900px;
       height: 55px;
       display: flex;
       align-items: center;
@@ -117,12 +117,20 @@
       align-items: center;
       margin-left: 60px;
     }
+    
+    #main-header-logout {
+      width: 130px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
     #main-header-login #personImg {
       margin-right: 10px;
     }
 
-    #main-header-login:hover {
+    #main-header-login:hover, #main-header-logout:hover {
       background-color: #f3f1f1;
       border-radius: 20px;
     }
@@ -193,7 +201,7 @@
     }
 
     /* 로그인 영역, nav항목들 글씨 설정 */
-    #main-header-login, .main-nav-field, .detail-nav-field {
+    #main-header-login, .main-nav-field, .detail-nav-field, #main-header-logout {
       font-size: 0.9rem;
       font-weight: bold;
     }
@@ -339,15 +347,13 @@
           			<img src="${pageContext.request.contextPath}/images/person.png" id="personImg">
           			<a href="/user/myInfo.do">${loginUser.userId }님 환영합니다.</a>
         			</div>
-        			
 				</li>
 				<li>
-					<span id="main-header-login">
+					<div id="main-header-logout">
 						<a href="/user/logout.do">로그아웃</a>
-					</span>
+					</div>
 				</li>
         	</c:otherwise>
-        	
         </c:choose>
     </header>
     <nav>

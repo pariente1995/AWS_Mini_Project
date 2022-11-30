@@ -5,6 +5,7 @@
 
 <style>
    #main-page-wrapper {
+   	   max-width: 1500px;
        margin-left: 90px;
        margin-right: 50px;
        padding: 10px 50px;
@@ -493,7 +494,9 @@
 			}
 		});
     }
-    // 화면 오픈 시, 인기제품 및 신제품 조회 -> ajax 사용?
+    
+    // 화면 오픈 시, 인기제품 및 신제품 조회
+    
 </script>
 
 <%-- 푸터 페이지 --%>
