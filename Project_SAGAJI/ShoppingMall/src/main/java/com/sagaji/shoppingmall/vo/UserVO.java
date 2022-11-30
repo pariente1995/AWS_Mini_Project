@@ -37,6 +37,7 @@ public class UserVO {
 	public String getUserPw() {
 		return userPw;
 	}
+	
 
 	public void setUserPw(String userPw) {
 		this.userPw = userPw;

@@ -23,4 +23,13 @@ public class UserDAO {
 		return mybatis.selectOne("UserDAO.login", userVO);
 	}
 
+	public void myInfo(UserVO userVO) {
+		mybatis.selectOne("UserDAO.selectUser", userVO);
+	}
+
+	public void updateUser(UserVO userVO) {
+		mybatis.update("UserDAO.updateUser", userVO);
+		
+	}
+
 }

@@ -326,10 +326,29 @@
             <input type="text" name="searchKeyword" id="searchKeyword" placeholder="검색어 입력">
           </div>
         </div>
-        <div id="main-header-login">
-          <img src="${pageContext.request.contextPath}/images/person.png" id="personImg">
-          <a href="/user/login.do">로그인 또는 가입하기</a>
-        </div>
+        <c:choose>
+        	<c:when test="${loginUser eq null}">
+        		<div id="main-header-login">
+          			<img src="${pageContext.request.contextPath}/images/person.png" id="personImg">
+          			<a href="/user/login.do">로그인 또는 가입하기</a>
+        		</div>
+        	</c:when>
+        	<c:otherwise>
+        		<li>
+        			<div id="main-header-login">
+          			<img src="${pageContext.request.contextPath}/images/person.png" id="personImg">
+          			<a href="/user/myinfo.do">${loginUser.userId }님 환영합니다.</a>
+        			</div>
+        			
+				</li>
+				<li>
+					<span id="main-header-login">
+						<a href="/user/logout.do">로그아웃</a>
+					</span>
+				</li>
+        	</c:otherwise>
+        	
+        </c:choose>
     </header>
     <nav>
       <div id="nav-wrapper">
@@ -348,15 +367,25 @@
         </div>
         <div id="detail-nav">
           <ul class="detail-nav-field">
-            <li>
-              <a href="#">문의사항</a>
-            </li>
-            <li>
-              <a href="#">주문조회</a>
-            </li>
-            <li>
-              <a href="#">내 정보</a>
-            </li>
+          
+            <c:choose>
+            	<c:when test="${loginUser.userType eq 'USER'}">
+            		<li>
+		              <a href="#">문의사항</a>
+		            </li>
+		            <li>
+		              <a href="#">주문조회</a>
+		            </li>
+		            <li>
+		            	<a href="/user/myInfo.do">내 정보</a>
+		            </li>
+		        </c:when>
+	            <c:when test="${loginUser.userType eq 'ADMIN'}">
+	            	<li>
+		            	<a href="#">관리자</a>
+		            </li>
+	            </c:when>
+            </c:choose>
           </ul>
         </div>
         <hr/>
