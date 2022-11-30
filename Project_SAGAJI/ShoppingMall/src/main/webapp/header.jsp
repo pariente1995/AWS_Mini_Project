@@ -241,6 +241,7 @@
     #imgWrapper {
       display: flex;
       align-items: center;
+      cursor: pointer;
     }
 
     #xImg-wrapper {
@@ -305,7 +306,7 @@
       */
       z-index: 8888; 
     }
-    .prd-heart-img {
+    .main-prd-heart-img {
        width: 20px;
        height: 20px;
        margin-right: 13px;
@@ -328,7 +329,7 @@
       <div id="xImg-wrapper">
         <img src="${pageContext.request.contextPath}/images/x.png" id="xImg">
       </div>
-      <img src="${pageContext.request.contextPath}/images/logo.png" class="logoImg">
+      <a href="/"><img src="${pageContext.request.contextPath}/images/logo.png" class="logoImg"></a>
     </div>
     <div id="listWrapper">
       <%-- 카테고리 리스트 출력하는 부분 --%>
@@ -350,7 +351,7 @@
         </div>
         <div id="main-header-search">
           <div id="logo-wrapper">
-            <a href="#"><img src="${pageContext.request.contextPath}/images/logo.png" class="logoImg"></a>
+            <a href="/"><img src="${pageContext.request.contextPath}/images/logo.png" class="logoImg"></a>
           </div>
           <div id="search-wrapper">
             <img src="${pageContext.request.contextPath}/images/search.png" id="searchImg">
@@ -364,7 +365,7 @@
         				<img src="${pageContext.request.contextPath}/images/person.png" id="personImg">
           				<a href="/user/login.do">로그인 또는 가입하기</a>
         			</div>
-          			<a href="/user/login.do"><img src="/images/heart-empty.png" class="prd-heart-img"></a>
+          			<a href="/user/login.do"><img src="/images/heart-empty.png" class="main-prd-heart-img"></a>
           			<a href="/user/login.do"><img src="/images/cart.png" class="prd-cart-img"></a>
         		</div>
         	</c:when>
@@ -375,7 +376,7 @@
 	          				<img src="${pageContext.request.contextPath}/images/person.png" id="personImg">
 	          				<a href="/user/myInfo.do">${loginUser.userId }님 환영합니다.</a>
 	          			</div>
-          				<a href="/wish/getWishList.do"><img src="/images/heart-empty.png" class="prd-heart-img"></a>
+          				<a href="/wish/getWishList.do"><img src="/images/heart-empty.png" class="main-prd-heart-img"></a>
           				<a href="/cart/getCartList.do"><img src="/images/cart.png" class="prd-cart-img"></a>
         			</div>
 				</li>
@@ -392,13 +393,13 @@
         <div id="main-nav">
           <ul class="main-nav-field">
             <li>
-              <a href="#">모든 제품</a>
+              <a href="/product/getCategoryProductList.do?categoryCd=1">모든 제품</a>
             </li>
             <li>
-              <a href="#">신제품</a>
+              <a href="/#main-new">신제품</a>
             </li>
             <li>
-              <a href="#">SAGAJI 인기제품</a>
+              <a href="/#main-popular">SAGAJI 인기제품</a>
             </li>
           </ul>
         </div>
@@ -480,10 +481,14 @@
 			}
 		});
       	
+      	/*
+      	아래부분 주석처리 후, img 태그를 a태그 감쌈.
+      	
       	// 헤더의 로고 이미지 클릭 시, main 화면으로 이동
       	$(".logoImg").on("click", function() {
       		location.href="/";
       	});
+      	*/
     });
   </script>
 </body>
