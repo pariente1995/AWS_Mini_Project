@@ -158,13 +158,12 @@
 </head>
 <body>
     <div class="form-wrapper">
-        <!-- ★action 수정하기 -->
         <form id="joinForm" action="/user/join.do" method="post">
             <input type="hidden" id="joinMsg" value="${joinMsg}">
     
             <!-- ========== 왼쪽사이드 ========== -->
             <div class="section1">
-                <!-- 메인페이지 버튼, 로고 (★href 메인페이지로 입력) -->
+                <!-- 메인페이지 버튼, 로고  -->
                 <div>
                     <a href="javascript:history.back();" class="back">←</a>
                     <a href="/"; class="logo"><h1>SAGAJI</h1></a>
@@ -177,7 +176,7 @@
     
                 <!-- copyright 내용 -->
                 <div class="copyright">
-                    <p>© 2022. SAGAJI Co. All rights reserved.</p>
+                    <p>ⓒ Inter SAGAJI MALL Systems 2022</p>
                 </div>
             </div>
             
@@ -255,7 +254,7 @@
                         <div class="label_wrapper1"><label for="userAddr2">주소</label></div>
                         <div class="input  label_wrapper2">
                             <div class="input_wrapper">
-                                <input type="text"  name="userAddr1" id="userAddr1"  placeholder="도로명주소" style="background: #cfcfcf;" readonly>
+                                <input type="text"  name="userAddr1" id="userAddr1"  required laceholder="도로명주소" style="background: #cfcfcf;" readonly>
                                 <span class="input_border"></span>
                             </div>&emsp;
     
@@ -302,12 +301,10 @@
     
     <script>
         $(function() {
-			//회원가입 실패 시 메시지 출력
+			//회원가입 성공 시 메시지 출력
             if($("#joinMsg").val() != "" && $("#joinMsg").val() != null) {
 				alert($("#joinMsg").val());
 			}
-			
-			//회원가입 성공 시 메시지 출력
 			
 
 			var checkId = false;
