@@ -55,8 +55,6 @@ public class ProductController {
 		return jsonStr;
 	}
 	
-	// 인기제품 TOP5 조회
-	
 	// 제품 등록
 			@RequestMapping("/insertProduct.do")
 			public String insertProduct(@RequestParam Map<String, Object> paramMap)  {
