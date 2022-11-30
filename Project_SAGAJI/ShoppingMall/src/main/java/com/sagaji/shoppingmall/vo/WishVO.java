@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class WishVO {
 	private String userId;
-	private String prdcNo;
+	private String prdctNo;
 	private int prdctDetailNo;
 	private Date wishRgstDate;
 	
@@ -15,10 +15,10 @@ public class WishVO {
 		this.userId = userId;
 	}
 	public String getPrdcNo() {
-		return prdcNo;
+		return prdctNo;
 	}
 	public void setPrdcNo(String prdcNo) {
-		this.prdcNo = prdcNo;
+		this.prdctNo = prdcNo;
 	}
 	public int getPrdctDetailNo() {
 		return prdctDetailNo;
@@ -35,7 +35,7 @@ public class WishVO {
 	
 	@Override
 	public String toString() {
-		return "WishVO [userId=" + userId + ", prdcNo=" + prdcNo + ", prdctDetailNo=" + prdctDetailNo + ", wishRgstDate="
+		return "WishVO [userId=" + userId + ", prdctNo=" + prdctNo + ", prdctDetailNo=" + prdctDetailNo + ", wishRgstDate="
 				+ wishRgstDate + "]";
 	}
 	
