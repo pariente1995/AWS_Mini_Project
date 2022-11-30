@@ -35,23 +35,87 @@
 			  FROM T_SGJ_CATEGORY
 		]]>
 	</select>
-
-
+	
 	<!-- 제품 등록 -->
-<!-- 	<insert id="insertProductDetail" parameterType="product">
-		INSERT INTO T_SGJ_PRDCT_DETAIL
-		VALUES(
-				#{prdctNo},
-				(SELECT IFNULL(MAX(A.PRDCT_DETAIL_NO), 0) + 1 FROM T_SGJ_PRDCT_DETAIL A),
-				#{prdctCategoryCd},
-				#{prdctSize},
-				#{prdctColor},
-				#{prdctMaterial},
-				#{prdctPrice},
-				#{prdctRemain},
-				now(),
-				now(),
-				'Y'				
+	<insert id="insertProduct" parameterType="map">
+		INSERT INTO T_SGJ_PRDCT
+			(
+				PRDCT_NO
+				,PRDCT_NM
+				,PRDCT_RGST_DATE
+				,PRDCT_USE_YN
 			)
-	</insert> -->
+		VALUES(
+				#{prdctNo}
+				,#{prdctNm}
+				,now()
+				,'Y'
+			)
+	</insert>
+			
+	<insert id="insertProductDetail" parameterType="map">
+		INSERT INTO T_SGJ_PRDCT_DETAIL
+			(
+				PRDCT_NO
+				,PRDCT_DETAIL_NO 
+				,PRDCT_CATEGORY_CD
+				,PRDCT_SIZE 
+				,PRDCT_COLOR
+				,PRDCT_MATERIAL
+				,PRDCT_PRICE
+				,PRDCT_REMAIN
+				,PRDCT_DETAIL_RGST_DATE
+				,PRDCT_MODF_DATE
+				,PRDCT_DETAIL_USE_YN
+			)
+		VALUES(
+				#{prdctNo}
+				,(
+					SELECT IFNULL(MAX(PRDCT_DETAIL_NO), 0) + 1 
+						FROM PRDCT_DETAIL_NO
+						WHERE PRDCT_NO = #{prdctNo}
+				 )
+				,#{prdctCategoryCd}
+				,#{prdctSize}
+				,#{prdctColor}
+				,#{prdctMaterial}
+				,#{prdctPrice}
+				,#{prdctRemain}
+				,now()
+				,now()
+				,'Y'				
+			)
+	</insert>
+	
+	<!-- 제품 수정 -->
+	<update id="updateProduct" parameterType="map">
+		UPDATE T_SGJ_PRDCT
+		SET PRDCT_NM = #{prdctNm}		
+		WHERE PRDCT_NO = #{prdctNo}
+		
+			
+	  	UPDATE T_SGJ_PRDCT_DETAIL
+		SET PRDCT_SIZE = #{prdctSize}
+			,PRDCT_COLOR = #{prdctColor}
+			,PRDCT_MATERIAL = #{prdctMaterial}
+			,PRDCT_PRICE = #{prdctPrice}
+			,PRDCT_REMAIN = #{prdctRemain}
+			,PRDCT_MODF_DATE = NOW()
+		WHERE PRDCT_NO = #{prdctNo}
+		AND	  PRDCT_DETAIL_NO = #{prdctDetailNo}
+	</update>
+	
+	<!-- 제품 삭제 -->
+	<update id="useYnProduct" parameterType="map">
+		UPDATE T_SGJ_PRDCT
+		SET PRDCT_USE_YN = #{prdctUseYn}		
+		WHERE PRDCT_NO = #{prdctNo}
+		
+	  	UPDATE T_SGJ_PRDCT_DETAIL
+		SET PRDCT_USE_YN = #{prdctUseYn}
+		WHERE PRDCT_NO = #{prdctNo}
+		AND	  PRDCT_DETAIL_NO = #{prdctDetailNo}
+	</update>
+
+	
 </mapper>
