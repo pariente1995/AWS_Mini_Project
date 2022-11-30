@@ -31,4 +31,20 @@ public class ProductDAO {
 	public List<Map<String, Object>> getNewProductList() {
 		return mybatis.selectList("ProductDAO.getNewProductList");
 	}
+
+	public void insertProduct(Map<String,Object> map) {
+		mybatis.insert("ProductDAO.insertProduct", map);
+	}
+	
+	public void insertProductDetail(Map<String,Object> map) {
+		mybatis.insert("ProductDAO.insertProductDetail", map);
+	}
+	
+	public void updateProduct(Map<String,Object> map) {
+		mybatis.update("ProductDAO.updateProduct", map);
+	}
+	
+	public void useYnProduct(Map<String,Object> map) {
+		mybatis.update("ProductDAO.useYnProduct", map);
+	}
 }

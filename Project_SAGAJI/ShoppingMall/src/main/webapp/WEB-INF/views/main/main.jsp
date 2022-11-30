@@ -329,7 +329,7 @@
                           </div>
                           <div class="main-prd-disc-cart">
                               <img src="${pageContext.request.contextPath}/images/heart-empty.png" class="prd-heart-img">
-                              <img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img">
+                              <img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img" onclick="insertCart(${prdct.prdctNo}, ${prdct.prdctDetailNo })">
                           </div>
                       </div>
                   </div>
@@ -388,7 +388,7 @@
     const next = document.querySelector(".new-prd-controller #next"); //다음 버튼
     var prevDisplay = "none";
     var nextDisplay = "block";
-
+	
     prev.addEventListener("click", function () {
 
         if(currentIdx > 0){
@@ -453,15 +453,46 @@
     });
 
     // 장바구니 저장
-    $(".prd-cart-img").on("click", function(){
-
-    });
+    /* $(".prd-cart-img").on("click", function(){
+		$.ajax({
+			url: "/cart/insertCart.do",
+			type: "post",
+			data: {
+				prdctNo: 
+			}
+		});
+    }); */
 
     // 상품 상세 조회
     $(".main-prd-info").on("click",function(){
 
     });
     
+    function insertCart(prdctNo, prdctDetailNo) {
+    	//로그인 체크
+    	//로그인 안한 사람은 로그인페이지로
+    	//const loginUserId = '${loginUser.userId}';
+    	//if(loginUserId != null && loginUserId != '') => ajax 실행
+    	//else => window.location.href = "/user/login.do";
+    	$.ajax({
+			url: "/cart/insertCart.do",
+			type: "post",
+			data: {
+				prdctNo: prdctNo,
+				prdctDetailNo: prdctDetailNo
+			},
+			success: function(obj) {
+				if(obj == 1) {
+					alert("장바구니에 등록했습니다.");
+				} else {
+					alert("장바구니 등록에 실패했습니다. 관리자에게 문의해주세요.");
+				}
+			},
+			error: function(e) {
+				console.log(e);
+			}
+		});
+    }
     // 화면 오픈 시, 인기제품 및 신제품 조회 -> ajax 사용?
 </script>
 
