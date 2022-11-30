@@ -160,14 +160,14 @@
     <div class="form-wrapper">
         <!-- ★action 수정하기 -->
         <form id="joinForm" action="/user/join.do" method="post">
-            <input type="hidden" id="joinMsg" value="${joinMsg }">
+            <input type="hidden" id="joinMsg" value="${joinMsg}">
     
             <!-- ========== 왼쪽사이드 ========== -->
             <div class="section1">
                 <!-- 메인페이지 버튼, 로고 (★href 메인페이지로 입력) -->
                 <div>
                     <a href="javascript:history.back();" class="back">←</a>
-                    <div class="logo"><h1>SAGAJI</h1></div>
+                    <a href="/"; class="logo"><h1>SAGAJI</h1></a>
                 </div>
     
                 <!-- 타이틀: 회원가입 -->
@@ -307,6 +307,8 @@
 				alert($("#joinMsg").val());
 			}
 			
+			//회원가입 성공 시 메시지 출력
+			
 
 			var checkId = false;
 			var pwValidation = false;
@@ -426,6 +428,16 @@
 					return;
 				}
 			});
+            
+            // 회원가입 성공 후 alert창 
+			$("#joinForm").on("submit", function(){
+				if(!checkId || !pwValidation || !pwCheck) {
+			
+				} else {
+					alert("회원가입에 성공했습니다. 로그인해주세요.");
+					}
+			});
+         
 		});	
 
         /* ========== userAddr1 API 연동 ========== */
