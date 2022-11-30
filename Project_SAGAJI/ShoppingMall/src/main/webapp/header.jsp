@@ -110,7 +110,7 @@
     }
 
     #main-header-login {
-      width: 200px;
+      width: 250px;
       height: 50px;
       display: flex;
       justify-content: center;
@@ -130,7 +130,7 @@
       margin-right: 10px;
     }
 
-    #main-header-login:hover, #main-header-logout:hover {
+    #main-header-login :hover, #main-header-logout:hover {
       background-color: #f3f1f1;
       border-radius: 20px;
     }
@@ -295,6 +295,19 @@
       */
       z-index: 8888; 
     }
+    .prd-heart-img {
+       width: 20px;
+       height: 20px;
+       margin-right: 10px;
+       margin-bottom: 3px;
+       cursor: pointer;
+   }
+
+   .prd-cart-img {
+       width: 30px;
+       height: 30px;
+       cursor: pointer;
+   }
   </style>
   <script src="${pageContext.request.contextPath}/js/jquery-3.6.1.min.js"></script>
 </head>
@@ -338,14 +351,18 @@
         	<c:when test="${loginUser eq null}">
         		<div id="main-header-login">
           			<img src="${pageContext.request.contextPath}/images/person.png" id="personImg">
-          			<a href="/user/login.do">로그인 또는 가입하기</a>
+          			<a href="/user/login.do">로그인 또는 가입하기</a>&emsp;
+          			<a href="/user/login.do"><img src="/images/heart-empty.png" class="prd-heart-img"></a>
+          			<a href="/user/login.do"><img src="/images/cart.png" class="prd-cart-img"></a>
         		</div>
         	</c:when>
         	<c:otherwise>
         		<li>
         			<div id="main-header-login">
-          			<img src="${pageContext.request.contextPath}/images/person.png" id="personImg">
-          			<a href="/user/myInfo.do">${loginUser.userId }님 환영합니다.</a>
+          				<img src="${pageContext.request.contextPath}/images/person.png" id="personImg">
+          				<a href="/user/myInfo.do">${loginUser.userId }님 환영합니다.</a>&emsp;
+          				<a href="#"><img src="/images/heart-empty.png" class="prd-heart-img"></a>
+          				<a href="#"><img src="/images/cart.png" class="prd-cart-img"></a>
         			</div>
 				</li>
 				<li>

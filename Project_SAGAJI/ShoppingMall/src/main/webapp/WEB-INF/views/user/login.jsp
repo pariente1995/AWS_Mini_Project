@@ -160,7 +160,7 @@
                 <!-- 메인페이지 버튼, 로고 (★href 메인페이지로 입력) -->
                 <div>
                     <a href="javascript:history.back();" class="back">←</a>
-                    <a href="/"; class="logo"><h1>SAGAJI</h1></a>
+                    <a href="/" class="logo"><h1>SAGAJI</h1></a>
                 </div>
     
                 <!-- 타이틀: 로그인 -->

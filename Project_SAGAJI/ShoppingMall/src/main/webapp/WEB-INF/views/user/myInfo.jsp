@@ -90,7 +90,7 @@
         min-height: 3rem;
         border: none;
         border-radius: 64px;
-        background: #0058A3;;
+        background: #0058A3;
         color: white;
         cursor: pointer;
     }
@@ -114,7 +114,7 @@
         <form id="myInfoForm" action="/user/updateUser.do" method="post">
             <input type="hidden" id="insertMsg" value="${insertMsg }">
             
-            <!-- ========== 오른쪽사이드 ========== --><!-- ★value 값 넣기 -->
+            <!-- ========== 오른쪽사이드 ========== -->
             <div class="section2">
                 <div class="content">
                     <h1 style="margin-bottom: 100px; font-size: 3em;">내 정보 수정</h1>
@@ -134,7 +134,7 @@
                         <div class="label_wrapper1"><label for="userPw">비밀번호</label></div>
                         <div class="input  label_wrapper2">
                             <div class="input_wrapper">
-                                <input type="password"  name="userPw" id="userPw" value="${loginUser.userPw}" required placeholder="비밀번호를 입력하세요.">
+                                <input type="password"  name="userPw" id="userPw" value="" required placeholder="비밀번호를 입력하세요.">
                                 <span class="input_border"></span>
                             </div>
                         </div>
@@ -148,7 +148,7 @@
                         <div class="label_wrapper1"><label for="userPw2">비밀번호 재확인</label></div>
                         <div class="input  label_wrapper2">
                             <div class="input_wrapper">
-                                <input type="password"  name="userPw2" id="userPw2" value="${loginUser.userPw}" required placeholder="비밀번호를 한 번 더 입력하세요.">
+                                <input type="password"  name="userPw2" id="userPw2" value="" required placeholder="비밀번호를 한 번 더 입력하세요.">
                                 <span class="input_border"></span>
                             </div>
                         </div>
@@ -219,12 +219,12 @@
                     
                     <div style="float: right; margin-top: 32px;">
                         <!-- delete button -->
-                        <button type="submit" class="btn1" id="btnJoin" style="border: 1px solid #0058A3; background-color: white; color: #0058A3; font-weight: 700;">
+                        <button type="submit" class="btn1" id="btnWithdrawUser" value="withdrawUser"style="border: 1px solid #0058A3; background-color: white; color: #0058A3; font-weight: 700;">
                         <span class="btn_inner" >회원탈퇴</span>
                         </button>&emsp;
 
                         <!-- update button -->
-                        <button type="submit" class="btn1" id="updateUser">
+                        <button type="submit" class="btn1" id="updateUser" value="updateUser">
                             <span class="btn_inner">수정</span>
                         </button>
                     </div> 
@@ -320,6 +320,8 @@
 					alert("내정보를 수정하였습니다.");
 					}
 			});
+            
+			/* ========== withdrawUser_submit ========== */
          
 		});	
 
