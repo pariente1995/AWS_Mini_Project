@@ -32,10 +32,10 @@ public class UserController {
 			if(joinResult == 0) {
 				model.addAttribute("joinMsg", "회원가입에 실패하셨습니다. 관리자에게 문의해주세요.");
 				return "user/join";
-			}
-			
+			} else {
 			model.addAttribute("joinMsg", "회원가입에 성공했습니다. 로그인해주세요.");
 			return "user/login";
+			}
 		}
 		@PostMapping("/idCheck.do")
 		@ResponseBody

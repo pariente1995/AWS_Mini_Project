@@ -160,7 +160,7 @@
                 <!-- 메인페이지 버튼, 로고 (★href 메인페이지로 입력) -->
                 <div>
                     <a href="javascript:history.back();" class="back">←</a>
-                    <div class="logo"><h1>SAGAJI</h1></div>
+                    <a href="/"; class="logo"><h1>SAGAJI</h1></a>
                 </div>
     
                 <!-- 타이틀: 로그인 -->
@@ -212,7 +212,7 @@
 
                     <!-- join button -->
                     <div>
-                        <button type="button" class="btn2" id="btnJoin" style=" margin-top: 18px; border: 1px solid #0058A3; background-color: white; color: #0058A3; font-weight: 700;">
+                        <button type="button" onclick = "location.href='/user/join.do'" class="btn2" id="btnJoin" style=" margin-top: 18px; border: 1px solid #0058A3; background-color: white; color: #0058A3; font-weight: 700;">
                         <a href="/user/join.do" style= "color: #0058A3;">회원가입</a>
                         </button>
                     </div>
