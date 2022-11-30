@@ -160,7 +160,7 @@
                 <!-- 메인페이지 버튼, 로고 (★href 메인페이지로 입력) -->
                 <div>
                     <a href="javascript:history.back();" class="back">←</a>
-                    <div class="logo"><h1>SAGAJI</h1></div>
+                    <a href="/"; class="logo"><h1>SAGAJI</h1></a>
                 </div>
     
                 <!-- 타이틀: 로그인 -->
@@ -170,7 +170,7 @@
     
                 <!-- copyright 내용 -->
                 <div class="copyright">
-                    <p>© 2022. SAGAJI Co. All rights reserved.</p>
+                    <p>ⓒ Inter SAGAJI MALL Systems 2022</p>
                 </div>
             </div>
             
@@ -191,10 +191,10 @@
     
                     <!-- userPw1 -->
                     <div>
-                        <div class="label_wrapper1"><label for="userPw1">비밀번호</label></div>
+                        <div class="label_wrapper1"><label for="userPw">비밀번호</label></div>
                         <div class="input  label_wrapper2">
                             <div class="input_wrapper">
-                                <input type="password"  name="userPw1" id="userPw1" required placeholder="비밀번호를 입력하세요.">
+                                <input type="password"  name="userPw" id="userPw" required placeholder="비밀번호를 입력하세요.">
                                 <span class="input_border"></span>
                             </div>
                         </div>
@@ -205,14 +205,14 @@
     
                     <!-- login button -->
                     <div>
-                        <button type="submit" class="btn2" id="btnlogin">
+                        <button type="button" class="btn2" id="btnLogin">
                         <span class="btn_inner">로그인</span>
                         </button>
                     </div>
 
                     <!-- join button -->
                     <div>
-                        <button type="button" class="btn2" id="btnJoin" style=" margin-top: 18px; border: 1px solid #0058A3; background-color: white; color: #0058A3; font-weight: 700;">
+                        <button type="button" onclick = "location.href='/user/join.do'" class="btn2" id="btnJoin" style=" margin-top: 18px; border: 1px solid #0058A3; background-color: white; color: #0058A3; font-weight: 700;">
                         <a href="/user/join.do" style= "color: #0058A3;">회원가입</a>
                         </button>
                     </div>
@@ -223,10 +223,13 @@
 	
 	<script>
 		$(function() {
-			//회원가입 성공 시 메시지 출력
+			//로그인 성공 시 메시지 출력
 			if($("#loginMsg").val() != "" && $("#loginMsg").val() != null) {
 				alert($("#loginMsg").val());
 			}
+			
+			var pwValidation = false;
+			$("#pwValidation").hide();
 			
 			//로그인 시 아이디나 비밀번호가 틀렸을 경우에
 			//대비하여 폼 서브밋 대신 ajax로 처리
@@ -247,29 +250,34 @@
 						//pw 체크
 						if(obj =="pwFail") {
 							alert("비밀번호가 틀렸습니다. 비밀번호를 확인해주세요.");
-							$("#userPw1").focus();
+							$("#userPw").focus();
 							return;
 						}
 						
 						//로그인 처리
-						location.href="/index.jsp";
+						location.href="/";
 					},
 					error: function(e) {
 						console.log(e);
 					}
 				});
 			});
+			function validatePassword(character) {
+				return /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*+=-])(?=.*[0-9]).{9,}$/.test(character);
+			}
+			$("#userPw").on("change", function() {
+				//비밀번호 유효성 처리
+				if(!validatePassword($("#userPw").val())) {
+					pwValidation = false;
+					$("#pwValidation").show();
+					$("#userPw").focus();
+				} else {
+					pwValidation = true;
+					$("#pwValidation").hide();
+				}
+			});
 		});
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 	</script>
 </body>
 </html>

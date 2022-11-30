@@ -301,24 +301,7 @@
     </div>
     <div id="listWrapper">
       <ul class="listField">
-        <li>
-          <a href="/product/getCategoryProductList.do?categoryCd=1">모든 제품</a>
-        </li>
-        <li>
-          <a href="/product/getCategoryProductList.do?categoryCd=2">옷장</a>
-        </li>
-        <li>
-          <a href="/product/getCategoryProductList.do?categoryCd=3">테이블</a>
-        </li>
-        <li>
-          <a href="/product/getCategoryProductList.do?categoryCd=4">침대</a>
-        </li>
-        <li>
-          <a href="/product/getCategoryProductList.do?categoryCd=5">주방가구</a>
-        </li>
-        <li>
-          <a href="/product/getCategoryProductList.do?categoryCd=6">쇼파</a>
-        </li>
+
       </ul>
     </div>
   </div>
@@ -344,7 +327,7 @@
         </div>
         <div id="main-header-login">
           <img src="${pageContext.request.contextPath}/images/person.png" id="personImg">
-          <a href="#">로그인 또는 가입하기</a>
+          <a href="/user/login.do">로그인 또는 가입하기</a>
         </div>
     </header>
     <nav>
@@ -381,28 +364,54 @@
   </div>
   <script>
     $(function() {
-      // 메뉴 아이콘 클릭 시
-      $("#menuImg").on("click", function() {
-        $("#transparent-background").css("display", "block");
-        $("#menuList").css("display", "block");
-        $("#menuList").css("overflow", "scroll");
-        $("html").css("overflow", "hidden");
-        /* 메뉴 리스트 이외에 마우스 포인터 먹지 않게 설정 */
-        $("#header-container").css("pointer-events", "none");
-      });
-
-      // X 아이콘 클릭 시
-      $("#xImg").on("click", function() {
-        $("#transparent-background").css("display", "none");
-        $("#menuList").css("display", "none");
-        $("html").css("overflow", "auto");
-        $("#header-container").css("pointer-events", "auto");
-      });
-
-      // 메뉴 리스트 영역 이외에 다른 영역 클릭 시, 메인 페이지로 돌아옴
-      $("#transparent-background").on("click", function() {
-        $("#xImg").trigger("click");
-      });
+		// 메뉴 아이콘 클릭 시
+		$("#menuImg").on("click", function() {
+		  $("#transparent-background").css("display", "block");
+		  $("#menuList").css("display", "block");
+		  $("#menuList").css("overflow", "scroll");
+		  $("html").css("overflow", "hidden");
+		  /* 메뉴 리스트 이외에 마우스 포인터 먹지 않게 설정 */
+		  $("#header-container").css("pointer-events", "none");
+		});
+		
+		// X 아이콘 클릭 시
+		$("#xImg").on("click", function() {
+		  $("#transparent-background").css("display", "none");
+		  $("#menuList").css("display", "none");
+		  $("html").css("overflow", "auto");
+		  $("#header-container").css("pointer-events", "auto");
+		});
+		
+		// 메뉴 리스트 영역 이외에 다른 영역 클릭 시, 메인 페이지로 돌아옴
+		$("#transparent-background").on("click", function() {
+		  $("#xImg").trigger("click");
+		});
+      
+      	// 카테고리 리스트 조회
+		$.ajax({
+			url:"/product/getCategoryList.do",
+			type: "post",
+			success: function(obj) {
+				console.log(obj);
+				// JSON 형태로 변환하여 키를 통해 값을 꺼냄
+				let data = JSON.parse(obj);
+				
+				let htmlStr = "";
+				
+				for(let i=0; i<data.categoryList.length; i++) {
+					htmlStr += "<li>";
+					htmlStr += "<a href='/product/getCategoryProductList.do?categoryCd=" + data.categoryList[i].categoryCd + 
+								"'>" + data.categoryList[i].categoryNm + "</a>";
+					htmlStr += "</li>";
+				}
+				
+				// ul에 직접 만들어준 li 생성
+				$(".listField").append(htmlStr);
+			},
+			error: function(e) {
+				console.log(e);
+			}
+		});
     });
   </script>
 </body>
