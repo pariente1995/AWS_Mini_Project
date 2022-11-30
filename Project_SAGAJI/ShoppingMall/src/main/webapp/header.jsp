@@ -375,7 +375,7 @@
 	          				<img src="${pageContext.request.contextPath}/images/person.png" id="personImg">
 	          				<a href="/user/myInfo.do">${loginUser.userId }님 환영합니다.</a>
 	          			</div>
-          				<a href="#"><img src="/images/heart-empty.png" class="prd-heart-img"></a>
+          				<a href="/wish/getWishList.do"><img src="/images/heart-empty.png" class="prd-heart-img"></a>
           				<a href="/cart/getCartList.do"><img src="/images/cart.png" class="prd-cart-img"></a>
         			</div>
 				</li>
