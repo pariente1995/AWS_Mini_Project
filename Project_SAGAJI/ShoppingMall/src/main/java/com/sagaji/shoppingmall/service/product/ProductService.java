@@ -9,4 +9,7 @@ public interface ProductService {
 	
 	// 카테고리 정보 조회
 	Map<String, Object> getCategoryInfo(int categoryCd);
+	
+	// 카테고리 리스트 조회
+	List<Map<String, Object>> getCategoryList();
 }

@@ -19,7 +19,7 @@
 	<!-- 사용할 SQL 매퍼 위치 지정 -->
 	<mappers>
 		<!-- *로 지정시 -mapper.xml로 끝나는 모든 파일을 불러온다. -->
-		<!-- <mapper resource="mappings/product-mapper.xml"></mapper> -->
+		<mapper resource="mappings/product-mapper.xml"></mapper>
 		<mapper resource="mappings/user-mapper.xml"></mapper>
 	</mappers>
 </configuration>
