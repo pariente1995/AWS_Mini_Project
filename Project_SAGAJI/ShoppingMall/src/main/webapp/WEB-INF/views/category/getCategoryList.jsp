@@ -301,11 +301,6 @@
 	  }
 	});
 	
-	$("body:not(.option-detail-wrapper)").on("click", function() {
-		$(".option-detail-field").not(this).closest(".option-detail-wrapper").find(".downImg").attr("src", "${pageContext.request.contextPath}/images/down.png");
-		$(".option-detail-radio").css("display", "none");
-	});
-	
 	// 이미지 hover 처리
 	// 이미지 hover 시, 이미지명'-hover'.확장자 파일 보임
 	// 이미지 hover 안할 시, 이미지명.확장자 파일 보임
