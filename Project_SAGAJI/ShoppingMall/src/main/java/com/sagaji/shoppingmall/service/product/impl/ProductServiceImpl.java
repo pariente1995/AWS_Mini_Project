@@ -27,4 +27,22 @@ public class ProductServiceImpl implements ProductService {
 	public List<Map<String, Object>> getCategoryList() {
 		return productDAO.getCategoryList();
 	}
+	
+	
+	public void insertProduct(Map<String,Object> map) {
+		productDAO.insertProduct(map);
+	}
+
+	public void insertProductDetail(Map<String,Object> map) {
+		productDAO.insertProductDetail(map);
+	}
+	
+	
+	public void updateProduct(Map<String,Object> map) {
+		productDAO.updateProduct(map);
+	}
+	
+	public void useYnProduct(Map<String,Object> map) {
+		productDAO.useYnProduct(map);
+	}
 }
