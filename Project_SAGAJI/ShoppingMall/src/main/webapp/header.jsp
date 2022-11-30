@@ -115,24 +115,34 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-left: 60px;
+      margin-left: 50px;
     }
     
     #main-header-logout {
-      width: 130px;
-      height: 50px;
+      width: 90px;
+      height: 45px;
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-left: 13px;
     }
 
     #main-header-login #personImg {
       margin-right: 10px;
     }
 
-    #main-header-login :hover, #main-header-logout:hover {
+    #main-header-login .main-login-field:hover, #main-header-logout:hover {
       background-color: #f3f1f1;
       border-radius: 20px;
+    }
+    
+    .main-login-field {
+      width: 200px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 10px;
     }
 
     /* SAGAJI 로고 크기 */
@@ -148,8 +158,8 @@
     }
 
     ul, li {
-		  list-style: none;
-	  }
+	  list-style: none;
+	}
 
     .listField, .main-nav-field, .detail-nav-field {
       margin-left: 0;
@@ -298,16 +308,16 @@
     .prd-heart-img {
        width: 20px;
        height: 20px;
-       margin-right: 10px;
+       margin-right: 13px;
        margin-bottom: 3px;
        cursor: pointer;
-   }
+    }
 
-   .prd-cart-img {
+    .prd-cart-img {
        width: 30px;
        height: 30px;
        cursor: pointer;
-   }
+    }
   </style>
   <script src="${pageContext.request.contextPath}/js/jquery-3.6.1.min.js"></script>
 </head>
@@ -350,8 +360,10 @@
         <c:choose>
         	<c:when test="${loginUser eq null}">
         		<div id="main-header-login">
-          			<img src="${pageContext.request.contextPath}/images/person.png" id="personImg">
-          			<a href="/user/login.do">로그인 또는 가입하기</a>&emsp;
+        			<div class="main-login-field">
+        				<img src="${pageContext.request.contextPath}/images/person.png" id="personImg">
+          				<a href="/user/login.do">로그인 또는 가입하기</a>
+        			</div>
           			<a href="/user/login.do"><img src="/images/heart-empty.png" class="prd-heart-img"></a>
           			<a href="/user/login.do"><img src="/images/cart.png" class="prd-cart-img"></a>
         		</div>
@@ -359,8 +371,10 @@
         	<c:otherwise>
         		<li>
         			<div id="main-header-login">
-          				<img src="${pageContext.request.contextPath}/images/person.png" id="personImg">
-          				<a href="/user/myInfo.do">${loginUser.userId }님 환영합니다.</a>&emsp;
+        				<div class="main-login-field">
+	          				<img src="${pageContext.request.contextPath}/images/person.png" id="personImg">
+	          				<a href="/user/myInfo.do">${loginUser.userId }님 환영합니다.</a>
+	          			</div>
           				<a href="#"><img src="/images/heart-empty.png" class="prd-heart-img"></a>
           				<a href="#"><img src="/images/cart.png" class="prd-cart-img"></a>
         			</div>
