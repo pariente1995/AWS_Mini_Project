@@ -22,4 +22,9 @@ public class ProductServiceImpl implements ProductService {
 	public Map<String, Object> getCategoryInfo(int categoryCd) {
 		return productDAO.getCategoryInfo(categoryCd);
 	}
+	
+	@Override
+	public List<Map<String, Object>> getCategoryList() {
+		return productDAO.getCategoryList();
+	}
 }
