@@ -27,4 +27,14 @@ public class ProductServiceImpl implements ProductService {
 	public List<Map<String, Object>> getCategoryList() {
 		return productDAO.getCategoryList();
 	}
+	
+	@Override
+	public List<Map<String, Object>> getPopularProductList() {
+		return productDAO.getPopularProductList();
+	}
+	
+	@Override
+	public List<Map<String, Object>> getNewProductList() {
+		return productDAO.getNewProductList();
+	}
 }

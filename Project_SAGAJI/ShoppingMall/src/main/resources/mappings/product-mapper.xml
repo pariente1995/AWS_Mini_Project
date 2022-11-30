@@ -35,6 +35,45 @@
 			  FROM T_SGJ_CATEGORY
 		]]>
 	</select>
+	
+	<!-- 
+		인기제품 TOP5 조회
+		-> 주문내역이 많은 제품 순으로 TOP 5
+	-->
+	<select id="getPopularProductList" resultType="camelHashMap">
+		<![CDATA[
+			SELECT A.PRDCT_NO, B.PRDCT_DETAIL_NO, A.PRDCT_NM, B.PRDCT_SIZE, B.PRDCT_PRICE
+			  FROM T_SGJ_PRDCT A, T_SGJ_PRDCT_DETAIL B
+			  JOIN (SELECT B.PRDCT_NO, B.PRDCT_DETAIL_NO, COUNT(B.PRDCT_NO) AS "ORDER_CNT"
+					  FROM T_SGJ_ORDER A, T_SGJ_ORDER_ITEM B
+					 WHERE A.ORDER_NO = B.ORDER_NO
+					 GROUP BY B.PRDCT_NO, B.PRDCT_DETAIL_NO) C ON B.PRDCT_NO = C.PRDCT_NO
+															  AND B.PRDCT_DETAIL_NO = C.PRDCT_DETAIL_NO
+			 WHERE A.PRDCT_NO = B.PRDCT_NO
+			 ORDER BY C.ORDER_CNT DESC
+			 LIMIT 5
+		]]>
+	</select>
+	
+	<!-- 
+		신제품 조회
+		-> 현재일자를 기준으로 이전 일주일까지 등록된 제품을 신제품으로 간주!
+		-> 마스터 테이블의 등록일자를 기준으로 할 것인지, 아님 디테일 테이블의 등록일자를 할 것인지 고민..
+	-->
+	<select id="getNewProductList" resultType="camelHashMap">
+		<![CDATA[
+			SELECT A.PRDCT_NO, B.PRDCT_DETAIL_NO, A.PRDCT_NM, B.PRDCT_SIZE, B.PRDCT_PRICE
+			  FROM T_SGJ_PRDCT A, T_SGJ_PRDCT_DETAIL B
+			  JOIN (SELECT B.PRDCT_NO, B.PRDCT_DETAIL_NO, COUNT(B.PRDCT_NO) AS "ORDER_CNT"
+					  FROM T_SGJ_ORDER A, T_SGJ_ORDER_ITEM B
+					 WHERE A.ORDER_NO = B.ORDER_NO
+					 GROUP BY B.PRDCT_NO, B.PRDCT_DETAIL_NO) C ON B.PRDCT_NO = C.PRDCT_NO
+															  AND B.PRDCT_DETAIL_NO = C.PRDCT_DETAIL_NO
+			 WHERE A.PRDCT_NO = B.PRDCT_NO
+			 ORDER BY C.ORDER_CNT DESC
+			 LIMIT 5
+		]]>
+	</select>
 
 
 	<!-- 제품 등록 -->

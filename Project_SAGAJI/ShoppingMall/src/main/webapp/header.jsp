@@ -300,6 +300,7 @@
       <img src="${pageContext.request.contextPath}/images/logo.png" class="logoImg">
     </div>
     <div id="listWrapper">
+      <%-- 카테고리 리스트 출력하는 부분 --%>
       <ul class="listField">
 
       </ul>
@@ -412,6 +413,11 @@
 				console.log(e);
 			}
 		});
+      	
+      	// 헤더의 로고 이미지 클릭 시, main 화면으로 이동
+      	$(".logoImg").on("click", function() {
+      		location.href="/";
+      	});
     });
   </script>
 </body>

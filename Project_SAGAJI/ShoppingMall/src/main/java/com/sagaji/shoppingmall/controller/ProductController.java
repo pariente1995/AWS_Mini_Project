@@ -22,6 +22,7 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
+	// 메뉴 리스트에서 선택된 카테고리별 제품 리스트 조회
 	@RequestMapping("/getCategoryProductList.do")
 	public String getCategoryProductList(@RequestParam("categoryCd") int categoryCd, Model model) {
 		// 카테고리별 리스트 조회
@@ -37,6 +38,7 @@ public class ProductController {
 		return "category/getCategoryList";
 	}
 	
+	// 카테고리 리스트 조회
 	@PostMapping(value="/getCategoryList.do", produces="application/text; charset=UTF-8")
 	@ResponseBody
 	public String getCategoryList() throws JsonProcessingException {
@@ -52,4 +54,7 @@ public class ProductController {
 		
 		return jsonStr;
 	}
+	
+	// 인기제품 TOP5 조회
+	
 }

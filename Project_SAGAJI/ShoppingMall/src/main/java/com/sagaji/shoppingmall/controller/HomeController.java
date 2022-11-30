@@ -1,6 +1,7 @@
 package com.sagaji.shoppingmall.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 /**
@@ -30,7 +31,8 @@ public class HomeController {
 	
 	// 메인 화면으로 이동(main.jsp)
 	@GetMapping("/")
-	public String main() {
+	public String main(Model model) {
+		
 		return "main/main";
 	}
 }

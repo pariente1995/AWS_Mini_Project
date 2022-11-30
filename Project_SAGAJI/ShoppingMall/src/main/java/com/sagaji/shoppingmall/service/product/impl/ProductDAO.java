@@ -23,4 +23,12 @@ public class ProductDAO {
 	public List<Map<String, Object>> getCategoryList() {
 		return mybatis.selectList("ProductDAO.getCategoryList");
 	}
+	
+	public List<Map<String, Object>> getPopularProductList() {
+		return mybatis.selectList("ProductDAO.getPopularProductList");
+	}
+	
+	public List<Map<String, Object>> getNewProductList() {
+		return mybatis.selectList("ProductDAO.getNewProductList");
+	}
 }
