@@ -1,0 +1,322 @@
+[33mcommit 8af40b4177d38faf6937cc5e6a03357c23ff1ae2[m[33m ([m[1;36mHEAD -> [m[1;32mpsh[m[33m, [m[1;31morigin/main[m[33m)[m
+Merge: 210f7c8 508e527
+Author: 박세혁 <pariente@naver.com>
+Date:   Wed Nov 30 09:16:13 2022 +0900
+
+    Merge pull request #18 from pariente1995/hjy
+    
+    join.jsp, login.jsp수정
+
+[33mcommit 508e527f6a7d50e5a5e45d4057c1bbb50ab89239[m[33m ([m[1;31morigin/hjy[m[33m)[m
+Author: Jayeong423 <wkdud423@gmail.com>
+Date:   Wed Nov 30 09:13:13 2022 +0900
+
+    join.jsp, login.jsp수정
+
+[33mcommit 210f7c8bbb1ded6848575970b801f751108062c8[m
+Merge: 63fffe7 491504f
+Author: 박세혁 <pariente@naver.com>
+Date:   Wed Nov 30 01:00:04 2022 +0900
+
+    Merge pull request #17 from pariente1995/hjy
+    
+    회원가입 완성
+
+[33mcommit 491504fa6167e9880665091beafdc15d38162411[m
+Author: Jayeong423 <wkdud423@gmail.com>
+Date:   Wed Nov 30 00:58:33 2022 +0900
+
+    회원가입 완성
+
+[33mcommit 63fffe7e6dc95502c436c9f0716726239543961e[m
+Merge: ab7a5ca d8316a9
+Author: 박세혁 <pariente@naver.com>
+Date:   Wed Nov 30 00:16:46 2022 +0900
+
+    Merge pull request #16 from pariente1995/hjy
+    
+    login.jsp수정
+
+[33mcommit d8316a962622905247176b83690088fd409b764c[m
+Author: Jayeong423 <wkdud423@gmail.com>
+Date:   Tue Nov 29 23:32:58 2022 +0900
+
+    login.jsp수정
+
+[33mcommit ab7a5cac52bf3db2a38f7d4f879adbfbfeee81b8[m
+Merge: 582e89b 76ecfaa
+Author: 박세혁 <pariente@naver.com>
+Date:   Tue Nov 29 21:02:44 2022 +0900
+
+    Merge pull request #14 from pariente1995/psh
+    
+    프로젝트 수정
+
+[33mcommit 76ecfaae105a7ea0c7aae79069d95e71cf18ce13[m[33m ([m[1;31morigin/psh[m[33m)[m
+Merge: bbd7dd9 582e89b
+Author: 박세혁 <pariente@naver.com>
+Date:   Tue Nov 29 21:02:32 2022 +0900
+
+    Merge branch 'main' into psh
+
+[33mcommit bbd7dd9a0157b0fd84c704ea6ad48efcab87ceaf[m
+Author: pariente1995 <pariente@naver.com>
+Date:   Tue Nov 29 20:59:49 2022 +0900
+
+    프로젝트 수정
+
+[33mcommit 582e89b183a032e8f56a03cfdd38c0e9719017fd[m
+Merge: 21cb148 2a2a7b1
+Author: 박세혁 <pariente@naver.com>
+Date:   Tue Nov 29 20:56:52 2022 +0900
+
+    Merge pull request #13 from pariente1995/hjy
+    
+    User클래스, Usermapper 및sql-map-config 수정
+
+[33mcommit 2a2a7b179a868aa7a4a4cdffbb7b2407acb39214[m
+Author: JAYEONG0423 <hello.git.jayeong423@gmail.com>
+Date:   Tue Nov 29 19:31:49 2022 +0900
+
+    User클래스, Usermapper 및sql-map-config 수정
+
+[33mcommit 21cb148b8c47a4fba7f7bfc5b4c0204509aa05ef[m
+Merge: bce1ace dee5a14
+Author: 박세혁 <pariente@naver.com>
+Date:   Tue Nov 29 18:00:30 2022 +0900
+
+    Merge pull request #12 from pariente1995/asm
+    
+    CartController~DAO_asm
+
+[33mcommit dee5a1471efbc4859985f35b8a4ca223d513278a[m[33m ([m[1;31morigin/asm[m[33m)[m
+Author: seonminz <hello.git.sma708@naver.com>
+Date:   Tue Nov 29 17:47:58 2022 +0900
+
+    CartController~DAO_asm
+
+[33mcommit bce1ace8957f6f98215d8e16a801bde2a6a7e869[m
+Merge: 622dd70 70649ad
+Author: 박세혁 <pariente@naver.com>
+Date:   Tue Nov 29 15:43:09 2022 +0900
+
+    Merge pull request #11 from pariente1995/jyn
+    
+    userVO 수정했어영..쏘리..
+
+[33mcommit 70649ad5f51de14cb2ea41385d0c94194754a569[m[33m ([m[1;31morigin/jyn[m[33m)[m
+Author: YunnaJeong <hello.git.jeongyunna@gmail.com>
+Date:   Tue Nov 29 15:41:29 2022 +0900
+
+    userVO 만들었어영
+
+[33mcommit 622dd70746063c552695612aaf8ada6cfe61a0d9[m
+Merge: eb77198 54c718e
+Author: 박세혁 <pariente@naver.com>
+Date:   Tue Nov 29 15:17:33 2022 +0900
+
+    Merge pull request #10 from pariente1995/jyn
+    
+    userVO 만들었어영
+
+[33mcommit 54c718e8c0683c5818a8b09157c7a14b1703c8a0[m
+Author: YunnaJeong <hello.git.jeongyunna@gmail.com>
+Date:   Tue Nov 29 15:16:15 2022 +0900
+
+    userVO 만들었어영
+
+[33mcommit eb77198be6920ee49345f2843714b79ecb9d258a[m
+Merge: 9e9f92b ab16fd5
+Author: 박세혁 <pariente@naver.com>
+Date:   Tue Nov 29 15:03:38 2022 +0900
+
+    Merge pull request #9 from pariente1995/bjh
+    
+    product-mapper 수정
+
+[33mcommit ab16fd575ed8b561678d94acb143a2cf1694d243[m[33m ([m[1;31morigin/bjh[m[33m)[m
+Author: bjh <vkdnj9585@naver.com>
+Date:   Tue Nov 29 15:00:12 2022 +0900
+
+    product-mapper 수정
+
+[33mcommit 9e9f92b02b1fa6d8160fded3561cb804a8f9b1a3[m
+Merge: d211561 1498b31
+Author: 박세혁 <pariente@naver.com>
+Date:   Tue Nov 29 14:56:08 2022 +0900
+
+    Merge pull request #8 from pariente1995/hjy
+    
+    Hjy
+
+[33mcommit 1498b31318e86c67cc9d5ae324c51eb2687e9d3c[m
+Merge: f3af98e d211561
+Author: JAYEONG0423 <hello.git.jayeong423@gmail.com>
+Date:   Tue Nov 29 14:50:36 2022 +0900
+
+    Merge branch 'main' of https://github.com/pariente1995/AWS_Mini_Project into hjy
+
+[33mcommit f3af98e1db8420a6d85b6f21409078ddea51dca1[m
+Author: JAYEONG0423 <hello.git.jayeong423@gmail.com>
+Date:   Tue Nov 29 14:49:37 2022 +0900
+
+    UserController, UserVO 추가
+
+[33mcommit d211561b381e6e415ec06f862ad14b3a1ddde1d0[m
+Merge: bf17c76 1bacb4a
+Author: 박세혁 <pariente@naver.com>
+Date:   Tue Nov 29 14:29:40 2022 +0900
+
+    Merge pull request #7 from pariente1995/psh
+    
+    camel케이스 관련 추가
+
+[33mcommit 1bacb4a50c1a4fc8b887e708add1ecbf035695d2[m
+Author: pariente1995 <pariente@naver.com>
+Date:   Tue Nov 29 14:28:58 2022 +0900
+
+    camel케이스 관련 추가
+
+[33mcommit bf17c76ba70f96b1953042d4c93d3061079fabbc[m
+Merge: bc55045 ae1eacb
+Author: 박세혁 <pariente@naver.com>
+Date:   Tue Nov 29 14:21:05 2022 +0900
+
+    Merge pull request #6 from pariente1995/hjy
+    
+    view에 user폴더 생성
+
+[33mcommit ae1eacb09cd36c5a0e772930976816cf73120324[m
+Author: JAYEONG0423 <hello.git.jayeong423@gmail.com>
+Date:   Tue Nov 29 14:10:23 2022 +0900
+
+    view에 user폴더 생성
+
+[33mcommit bc5504586df7b95f1a9b4e0d11ae2627d530d492[m
+Merge: 3273a51 02f1d25
+Author: 박세혁 <pariente@naver.com>
+Date:   Tue Nov 29 14:05:19 2022 +0900
+
+    Merge pull request #5 from pariente1995/psh
+    
+    new 수정사항
+
+[33mcommit 02f1d25de866f4ae7dd25824007df8de98724095[m
+Author: pariente1995 <pariente@naver.com>
+Date:   Tue Nov 29 13:10:16 2022 +0900
+
+    new 수정사항
+
+[33mcommit 3273a516692bab779d5da93328ca6858372461df[m
+Merge: 590d189 1ef6915
+Author: 박세혁 <pariente@naver.com>
+Date:   Tue Nov 29 12:41:39 2022 +0900
+
+    Merge pull request #4 from pariente1995/psh
+    
+    프로젝트 경로 수정
+
+[33mcommit 1ef6915deff68148d87d832f03cfef87e8da1734[m
+Author: pariente1995 <pariente@naver.com>
+Date:   Tue Nov 29 12:40:59 2022 +0900
+
+    프로젝트 경로 수정
+
+[33mcommit 590d18959b47f68747f1dc3f0aed38d3de24318c[m
+Merge: 8b56713 0285d88
+Author: 박세혁 <pariente@naver.com>
+Date:   Tue Nov 29 11:55:23 2022 +0900
+
+    Merge pull request #3 from pariente1995/asm
+    
+    test
+
+[33mcommit 0285d883d5dce9d497bd302160e11ae0e67633bc[m
+Author: seonminz <hello.git.sma708@naver.com>
+Date:   Tue Nov 29 11:52:54 2022 +0900
+
+    test
+
+[33mcommit 8b5671308f69de72e74f7c0bebc82983e11915b9[m
+Merge: 75173ed 294aafc
+Author: 박세혁 <pariente@naver.com>
+Date:   Tue Nov 29 11:24:11 2022 +0900
+
+    Merge pull request #2 from pariente1995/psh
+    
+    Psh
+
+[33mcommit 294aafcf4281705df3d6f9e49a0791b0f83389db[m
+Author: pariente1995 <pariente@naver.com>
+Date:   Tue Nov 29 11:22:33 2022 +0900
+
+    20221129 프로젝트 반영사항
+
+[33mcommit ac21b3be06d3a1a9d9656804901ce40061bbca16[m
+Author: pariente1995 <pariente@naver.com>
+Date:   Mon Nov 28 22:06:38 2022 +0900
+
+    rollback
+
+[33mcommit bea7e8e211553cab341f271cd10eed9a49549d21[m
+Author: pariente1995 <pariente@naver.com>
+Date:   Mon Nov 28 22:05:01 2022 +0900
+
+    test
+
+[33mcommit 75173ede84a17a7a5f5b1bcf04f990526ee91a43[m[33m ([m[1;32mmain[m[33m)[m
+Merge: 66e1e01 0e09616
+Author: 박세혁 <pariente@naver.com>
+Date:   Mon Nov 28 21:59:25 2022 +0900
+
+    Merge pull request #1 from pariente1995/psh
+    
+    이미지 호버 처리 추가
+
+[33mcommit 0e096160520c7d563ca26b60fa5c90e20060f4db[m
+Author: pariente1995 <pariente@naver.com>
+Date:   Mon Nov 28 21:54:55 2022 +0900
+
+    이미지 호버 처리 추가
+
+[33mcommit 66e1e019687da581f42d936458216546ceba1adc[m
+Author: pariente1995 <pariente@naver.com>
+Date:   Mon Nov 28 21:43:34 2022 +0900
+
+    프로젝트_20221128
+
+[33mcommit 932a593629a16a224cec81d155bfa78b4aa7d42b[m
+Author: pariente1995 <pariente@naver.com>
+Date:   Mon Nov 28 17:50:50 2022 +0900
+
+    초기 프로젝트
+
+[33mcommit 1ccef49531a19b097787c074be252dccacfeedd1[m
+Author: pariente1995 <pariente@naver.com>
+Date:   Mon Nov 28 01:23:18 2022 +0900
+
+    프로젝트 초기 테스트_20221128_박세혁
+
+[33mcommit abe13171a59985d9257a3ab294cf976f8a9fcbdd[m
+Author: pariente1995 <pariente@naver.com>
+Date:   Sun Nov 27 23:41:51 2022 +0900
+
+    servlet-context.xml 파일 수정
+
+[33mcommit 900327b1c5fcc1bd6b44bd61314e3ea7b40a36e8[m
+Author: pariente1995 <pariente@naver.com>
+Date:   Sun Nov 27 23:32:19 2022 +0900
+
+    root-context.xml DB 정보 수정 및 서버 포트 번호 수정
+
+[33mcommit 531d07f8636de183bbb6089ab60f5da32cea3296[m
+Author: pariente1995 <pariente@naver.com>
+Date:   Sun Nov 27 23:12:15 2022 +0900
+
+    pom.xml 수정
+
+[33mcommit 6c33bb3ee94813d73112bf9d8466c7cac09f3cda[m
+Author: pariente1995 <pariente@naver.com>
+Date:   Thu Nov 24 17:17:18 2022 +0900
+
+    초기 프로젝트

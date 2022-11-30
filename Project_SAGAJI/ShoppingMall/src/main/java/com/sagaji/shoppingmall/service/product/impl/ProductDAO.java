@@ -19,4 +19,8 @@ public class ProductDAO {
 	public Map<String, Object> getCategoryInfo(int categoryCd) {
 		return mybatis.selectOne("ProductDAO.getCategoryInfo", categoryCd);
 	}
+	
+	public List<Map<String, Object>> getCategoryList() {
+		return mybatis.selectList("ProductDAO.getCategoryList");
+	}
 }

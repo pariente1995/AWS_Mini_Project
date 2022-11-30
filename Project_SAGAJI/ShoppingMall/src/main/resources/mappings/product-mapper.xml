@@ -4,19 +4,20 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="ProductDAO">
-	<!-- 카테고리에 해당하는 제품 리스트 조회 -->
+	<!-- 메뉴 리스트에서 선택된 카테고리에 해당하는 제품 리스트 조회 -->
 	<select id="getCategoryProductList" parameterType="int" resultType="camelHashMap">
 		<![CDATA[
 			SELECT * 
-			  FROM T_SGJ_PRDCT A, T_SGJ_PRDCT_DETAIL B, T_SGJ_CATEGORY C
+			  FROM T_SGJ_PRDCT A, T_SGJ_PRDCT_DETAIL B, T_SGJ_CATEGORY C, T_SGJ_IMAGE D
 			 WHERE A.PRDCT_NO = B.PRDCT_NO
+			   AND B.PRDCT_CATEGORY_CD = C.CATEGORY_CD
+			   AND B.PRDCT_NO = D.PRDCT_NO
+			   AND B.PRDCT_DETAIL_NO = D.PRDCT_DETAIL_NO
 		]]>
 		<if test="categoryCd != 1">
-			AND B.PRDCT_CATEGORY_CD = C.CATEGORY_CD
 			AND B.PRDCT_CATEGORY_CD = #{categoryCd}
 		</if>
 	</select>
-	
 
 	<!-- 카테고리 정보 조회 -->
 	<select id="getCategoryInfo" parameterType="int" resultType="camelHashMap">
@@ -26,10 +27,18 @@
 			 WHERE CATEGORY_CD = #{categoryCd}
 		]]>
 	</select>	
+	
+	<!-- 카테고리 리스트 조회 -->
+	<select id="getCategoryList" resultType="camelHashMap">
+		<![CDATA[
+			SELECT * 
+			  FROM T_SGJ_CATEGORY
+		]]>
+	</select>
 
 
 	<!-- 제품 등록 -->
-	<insert id="insertProductDetail" parameterType="product">
+<!-- 	<insert id="insertProductDetail" parameterType="product">
 		INSERT INTO T_SGJ_PRDCT_DETAIL
 		VALUES(
 				#{prdctNo},
@@ -44,7 +53,5 @@
 				now(),
 				'Y'				
 			)
-	</insert>
-	
-	
+	</insert> -->
 </mapper>
