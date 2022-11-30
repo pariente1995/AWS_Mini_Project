@@ -1,5 +1,9 @@
 package com.sagaji.shoppingmall.service.cart.impl;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -11,17 +15,30 @@ public class CartDAO {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
-	public List<CartVO> getCartList(String) {
-		return mybatis.;
+	
+	public List<CartVO> getCartList(Map<String, String> paramMap) {
+		return mybatis.selectList("CartDAO.getCartList");
 	}
 	
-	public void deleteCart(Map<String, int> paramMap) {
-		return mybatis.;
+	public void deleteCart(String prdctNo, int prdctDetailNo) {
+		Map<String, Object> paramMap = new HashMap<String, Object>();
+		
+		paramMap.put("prdctNo", prdctNo);
+		paramMap.put("prdctDetailNo", prdctDetailNo);
+		
+		mybatis.delete("CartDAO.deleteCart", paramMap);
+		
 	}
 	
-	
-	public void insertCart(CartVO cartVO) {
-		mybatis.insert("CartDAO.addCart", cartVO);
+	public int insertCart(CartVO cartVO) {
+		int checkCartCnt = mybatis.selectOne("CartDAO.checkCartCnt", cartVO);
+		int result = 0;
+		if(checkCartCnt < 1)
+			result = mybatis.insert("CartDAO.insertCart", cartVO);
+		else
+			result = mybatis.insert("CartDAO.updateCartCnt", cartVO);
+		
+		return result;
 	}
 	
 

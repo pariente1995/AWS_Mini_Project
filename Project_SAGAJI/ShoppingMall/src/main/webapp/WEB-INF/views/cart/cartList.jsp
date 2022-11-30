@@ -85,7 +85,7 @@
       </tr>
       <tr>
         <th class="h">&emsp;제품 설명</th>
-        <td class="d" value="">펜던트전등갓, 양파 모양/화이트</td>
+        <td class="d">펜던트전등갓, 양파 모양/화이트</td>
       </tr>
       <tr>
         <td class="d">&emsp;
@@ -103,7 +103,7 @@
             <option name="prdcCnt" value="10">10</option>
           </select>
         </td>
-        <td><button id="delBtn">삭제</button></td>
+        <td><button><a href="/cart/deleteCart.do?몰랑=${cart. }" id="delBtn">삭제</a></button></td>
       </tr>
       <tr>
         <td colspan="4"><hr></td>
@@ -115,14 +115,14 @@
       <h3>주문내역</h3>
       <tr>
         <th>제품가격</th>
-        <td value="">\24,900</td>
+        <td>\24,900</td>
       </tr>
       <tr>
         <td colspan="2"><hr id="hr1"></td>
       </tr>
       <tr>
         <th>총 주문금액</th>
-        <td value="">\24,900</td>
+        <td>\24,900</td>
       </tr>
       <tr>
         <td colspan="2"><button id="orderBtn">주문하기</button></td>
