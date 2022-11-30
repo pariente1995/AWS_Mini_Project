@@ -20,23 +20,23 @@ public class CartController {
 	@Autowired
 	private CartService cartService;
 	
-	
+	//카트 목록 화면으로 이동
 	@ResponseBody
-	@RequestMapping(value="/.do", produces="application/text; charset=UTF-8")
+	@RequestMapping(value="/getCartList.do")
 	public String getCartList(Model model, @RequestParam Map<String, String> paramMap) {
 		List<CartVO> cartList = cartService.getCartList(paramMap);
 		
 		model.addAttribute("cartList", cartList);
 		
-		return null; 
+		return "cart/getCartList"; 
 	}
 	
 	//카트에 품목 삭제
-	@RequestMapping("/.do")
+	@RequestMapping("/deleteCart.do")
 	public String deleteCart(@RequestParam("prdctNo") String prdctNo, @RequestParam("prdctDetailNo") int prdctDetailNo) {
 	      cartService.deleteCart(prdctNo, prdctDetailNo);
 	      
-	      return null;
+	      return "redirect:/cart/getCartList.do";
 	   }
 	
 	//카트에 품목 추가

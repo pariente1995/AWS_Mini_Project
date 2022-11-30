@@ -26,19 +26,19 @@
 		)
 	</insert>
 
-	<!-- <select id="checkCartCnt">
-		COUNT(*)
+	<select id="checkCartCnt">
+		SELECT COUNT(*)
 			FROM T_SAGAJI_CART
-		WHERE USER_ID
-			AND PRDCT_NO
-			AND PRDCT_DETAIL_NO
-	</select> -->
+				WHERE USER_ID = {#userId}
+					AND PRDCT_NO = #{prdctNo}
+					AND PRDCT_DETAIL_NO = #{prdctDetailNo}
+	</select>
 	
-	<!-- <update id="updateCartCnt">
-		
-		set CART_CNT = CART_CNT + 1
-		 WHERE USER_ID
-			AND PRDCT_NO
-			AND PRDCT_DETAIL_NO
-	</update> -->
+	<update id="updateCartCnt">
+		UPDATE T_SAGAJI_CART
+			SET CART_CNT = CART_CNT + 1
+		 	WHERE USER_ID = #{userId}
+				AND PRDCT_NO = #{prdctNo}
+				AND PRDCT_DETAIL_NO = #{prdctDetailNo}
+	</update>
 </mapper>

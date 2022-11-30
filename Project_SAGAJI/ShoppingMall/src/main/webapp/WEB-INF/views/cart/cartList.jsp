@@ -76,58 +76,61 @@
     <h1>장바구니</h1>
     <button id="cartBtn">전체제품 삭제</button>
     <br><br>
+    <form id="searchForm" action="/cart/getCartList.do" method="post">
     <table id="T1">
       <tr>
         <th rowspan="3" id="prdcImg"><img src="images/침대.png"></th>
         <th class="h">&emsp;제품이름</th>
-        <td class="d" value="">RISBYN 리스뷘</td>
+        <td class="d">${cart.prdctNo }</td>
         <th>\24,900</th>
       </tr>
       <tr>
         <th class="h">&emsp;제품 설명</th>
-        <td class="d">펜던트전등갓, 양파 모양/화이트</td>
+        <td class="d"><%-- ${ } --%></td>
       </tr>
       <tr>
         <td class="d">&emsp;
           <select id="prdcCnt">
-            <option value="">-- 수량 --</option>
-            <option name="prdcCnt" value="1">1</option>
-            <option name="prdcCnt" value="2">2</option>
-            <option name="prdcCnt" value="3">3</option>
-            <option name="prdcCnt" value="4">4</option>
-            <option name="prdcCnt" value="5">5</option>
-            <option name="prdcCnt" value="6">6</option>
-            <option name="prdcCnt" value="7">7</option>
-            <option name="prdcCnt" value="8">8</option>
-            <option name="prdcCnt" value="9">9</option>
-            <option name="prdcCnt" value="10">10</option>
+            <option>-- 수량 --</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
           </select>
         </td>
-        <td><button><a href="/cart/deleteCart.do?몰랑=${cart. }" id="delBtn">삭제</a></button></td>
+        <td><a href="/cart/deleteCart.do?cartNo=${cart.cartNo }" id="delBtn"><button>삭제</button></a></td>
       </tr>
       <tr>
         <td colspan="4"><hr></td>
       </tr>
     </table>
     
-
     <table id="T2">
-      <h3>주문내역</h3>
+      <tr>
+      	<td><h3>주문내역</h3><td>
+      </tr>
       <tr>
         <th>제품가격</th>
-        <td>\24,900</td>
+        <td><%-- ${ } --%></td>
       </tr>
       <tr>
         <td colspan="2"><hr id="hr1"></td>
       </tr>
       <tr>
         <th>총 주문금액</th>
-        <td>\24,900</td>
+        <td><%-- ${ } --%></td>
       </tr>
       <tr>
-        <td colspan="2"><button id="orderBtn">주문하기</button></td>
+        <td colspan="2"><a href="/오더브이오없는데에ㅔㅔㅔㅔㅔ/getOrderList.do"><button id="orderBtn">주문하기</button></a></td>
       </tr>
     </table>
+  </form>
   </div>
 
 <!-- 세혁님 디자인 페이지 -->
@@ -136,6 +139,7 @@
 <!-- 각자 스크립트 작성 부분 -->
 <script>
 	$(function() {
+		//주문하기 버튼 클릭 시 주문페이지로 이동
 		$("#cartBtn").on("click", function(){
 			
 		})
