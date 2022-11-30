@@ -337,7 +337,7 @@
         		<li>
         			<div id="main-header-login">
           			<img src="${pageContext.request.contextPath}/images/person.png" id="personImg">
-          			<a href="/user/myinfo.do">${loginUser.userId }님 환영합니다.</a>
+          			<a href="/user/myInfo.do">${loginUser.userId }님 환영합니다.</a>
         			</div>
         			
 				</li>

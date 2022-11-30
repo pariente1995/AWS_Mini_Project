@@ -125,7 +125,7 @@
                             <div class="input_wrapper">
                                 <input type="text" name="userId" id="userId" value="${loginUser.userId}" style="background: #cfcfcf;" readonly>
                                 <span class="input_border"></span>
-                            </div>&emsp;
+                            </div>
                         </div>
                     </div>
     
