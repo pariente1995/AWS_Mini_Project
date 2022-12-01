@@ -50,6 +50,10 @@ public class ProductServiceImpl implements ProductService {
 		productDAO.updateProduct(map);
 	}
 	
+	public void updateProductDetail(Map<String,Object> map) {
+		productDAO.updateProductDetail(map);
+	}
+	
 	public void useYnProduct(Map<String,Object> map) {
 		productDAO.useYnProduct(map);
 	}

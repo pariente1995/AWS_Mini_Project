@@ -133,10 +133,12 @@
 	<update id="updateProduct" parameterType="map">
 		UPDATE T_SGJ_PRDCT
 		SET PRDCT_NM = #{prdctNm}	
-		SET PRDCT_INFO = #{prdctInfo}	
+			,PRDCT_INFO = #{prdctInfo}	
 		WHERE PRDCT_NO = #{prdctNo}
-		
-			
+	</update>
+	
+	<!-- 제품 수정 -->
+	<update id="updateProductDetail" parameterType="map">
 	  	UPDATE T_SGJ_PRDCT_DETAIL
 		SET PRDCT_SIZE = #{prdctSize}
 			,PRDCT_COLOR = #{prdctColor}
@@ -173,6 +175,8 @@
 		select 
 			A.PRDCT_NO
 			,A.PRDCT_NM
+			,A.PRDCT_INFO
+			,B.PRDCT_DETAIL_NO
 			,B.PRDCT_COLOR
 			,B.PRDCT_CATEGORY_CD
 			,B.PRDCT_MATERIAL

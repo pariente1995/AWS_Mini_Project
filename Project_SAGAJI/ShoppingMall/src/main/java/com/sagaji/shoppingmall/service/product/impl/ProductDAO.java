@@ -44,6 +44,10 @@ public class ProductDAO {
 		mybatis.update("ProductDAO.updateProduct", map);
 	}
 	
+	public void updateProductDetail(Map<String,Object> map) {
+		mybatis.update("ProductDAO.updateProductDetail", map);
+	}
+	
 	public void useYnProduct(Map<String,Object> map) {
 		mybatis.update("ProductDAO.useYnProduct", map);
 	}

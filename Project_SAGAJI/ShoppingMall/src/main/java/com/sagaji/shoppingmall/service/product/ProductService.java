@@ -28,6 +28,9 @@ public interface ProductService {
 	//제품 수정
 	public void updateProduct(Map<String,Object> map);
 	
+	//제품수정상세
+	public void updateProductDetail(Map<String,Object> map);
+	
 	//제품 삭제
 	public void useYnProduct(Map<String,Object> map);
 	
