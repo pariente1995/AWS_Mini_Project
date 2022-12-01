@@ -23,7 +23,7 @@
         box-sizing: inherit;
         outline: none;
     }
-     /* 오른쪽사이드 */
+     /* section2 */
      .section2 {
         display: flex;
         min-height: 100vh;
@@ -33,7 +33,7 @@
     }
 
 
-    /* ========== section2 - 오른쪽사이드 ========== */
+    /* ========== section2  ========== */
     .content {
         width: 1000px;
         margin: auto;
@@ -80,25 +80,7 @@
         border-bottom: 1px solid #444444;
         padding: 10px;
     }
-    tr {height: 40px;}
-
-    /* 정보수정 버튼 */
-    .btn5 {
-        width:70px;
-        min-height: 2rem;
-        border: none;
-        border-radius: 10px;
-        background: #0058A3;;
-        color: white;
-        font-size: 0.7em;
-        font-weight: 400;
-        cursor: pointer;
-    }
-    span {
-        display: flex;
-    }
-
-    
+    tr {height: 40px;}   
         
 </style>
 <script src="${pageContext.request.contextPath }/js/jquery-3.6.1.min.js"></script>
@@ -111,19 +93,19 @@
 
     <div class="form-wrapper">
         <!-- ★action 수정하기 -->
-        <form id="" action="/user/login.do" method="post">
+        <form id="loginForm" action="/user/login.do" method="post">
 
             <!-- ========== 오른쪽사이드 ========== -->
             <div class="section2">
                 <div class="content">
                     
-                    <h1 style="font-size: 3em;">회원관리</h1>
+                    <h1 style="height: 2em; font-size: 3em;">회원관리</h1>
                     <div class="search">
-                        <select name="searchCondition" style="width: 100px; height: 2.3em; border-radius: 10px;">
+                        <select name="searchCondition" style="width: 100px; height: 2em; margin-right: 15px; border-radius: 10px;">
                             <option value="이름">이름</option>
                             <option value="전화변호">전화번호</option>
                         </select>&ensp;
-                        <input type="text" name="searchKeyword" value="" style="width: 500px; height: 2em; border-radius: 10px;">&ensp;
+                        <input type="text" name="searchKeyword" value="" style="width: 500px; height: 2em; margin-right: 15px; border-radius: 10px;">&ensp;
                         <button type="submit" class="btn4" id="btSearch">
                         <span class="btn_inner">검색</span>
                         </button>
@@ -132,12 +114,11 @@
                     <table>
                         <tr style="background-color:rgb(234, 234, 234);">
                             <td width="10%">번호</td>
+                            <td width="15%"><a>아이디</a></td>
                             <td width="15%">이름</td>
-                            <td width="15%">아이디</td>
-                            <td width="15%">권한</td>
+                            <td width="30%">권한</td>
                             <td width="15%">상태</td>
                             <td width="15%">가입일</td>
-                            <td width="15%">회원관리</td>
                         </tr>
             
                         <tr>
@@ -147,19 +128,10 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td style="text-align: center;">
-                                <span>
-                                    <button type="submit" class="btn5" id="btSearch">
-                                        <span class="btn_inner">정보수정</span>
-                                    </button>
-                                    <a href="#" id="settiong"><img src="image/setting.png" style="height: 30px;"></a>
-                                </span>
-                            </td>
                         </tr>
             
                         <tr>
                             <td>2</td>
-                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
