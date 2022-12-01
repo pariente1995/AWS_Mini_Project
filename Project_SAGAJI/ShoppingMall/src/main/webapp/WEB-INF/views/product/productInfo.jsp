@@ -4,120 +4,80 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>신규 제품 등록 - SAGAJI </title>
+    <title>제품 상세 정보 - SAGAJI </title>
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
-    body {
-        font-family: 'Noto Sans KR', sans-serif;
-        box-sizing: border-box;
-        margin: 0;
-    }
-
-    /* ========== 영역 ========== */
-      #container{
+  #container{
     /* 페이지 영역 */
     margin: 50px 20px 20px 50px;
     width: 1500px;
     border: 1px solid black;
-    padding-left: 200px;
+    padding-left: 100px;
+  }
+  #mainimg{
+    /* 메인 이미지 영역 */
+    width: 500px; height: 450px;
+    float: left;
+    margin: 50px 70px 50px 10px;
+    border: 0.5px solid gray;
+  }
+  #subimg{
+    /* 옵션 이미지 영역 */
+    border: 0.5px solid gray;
+    margin: 5px 5px 5px 5px;
+    width: 50px; height: 50px;
+
+  }
+  .p1{
+    /* 제품 정보 영역 */
+    margin: 80px;
+    
+  }
+  .p2{
+    /* 하단 제품 소개글 영역 */
+    padding-left: 10px;
+    width: 500px;
+    clear: both;
   }
   #sub{
     /* 메뉴 이름 왼쪽 여백 */
     margin-left: 120px;
-  }
-  #prdct{
-    /* 드롭다운 메뉴 영역 */
-    margin-left: 7px;
-    width: 250px;
-    height: 28px;
+    
   }
   #btn{
-    float: right;
-    margin-right: 650px;
-    width: 100px;
+    border-radius: 50px;
+    width: 120px;
     height: 40px;
     border: 0px;
     background-color: #0058A3;
     color: white;
   }
 </style>
-<script src="${pageContext.request.contextPath }/js/jquery-3.6.1.min.js"></script>
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-</head>
-<body>
-    <div id="container">
-    <h1 style="margin-left: 10px;">제품 상세 수정</h1> <!-- ${categroyMap }  -->
-    <br>
+
+<!-- 헤더 페이지 -->
+<jsp:include page="${pageContext.request.contextPath}/header.jsp"></jsp:include>
+
+<!-- 각자 디자인한 UI -->
+  <div id="container">
+      <img id="mainimg" src="img/main.PNG" > 
+      <p class="p1">
+        <h2 name="">제품 이름란</h2>
+        <h3>제품 설명란</h3>
+        <h2>제품 가격란</h2>
+        <h2>옵션</h2>
+        <h4>옵션 설정값 란</h4>
+        <img id="subimg" src="img/sub1.PNG"> <img id="subimg" src="img/sub2.PNG"> <img id="subimg" src="img/sub3.PNG"><br>
+        <br><br><button id="btn">구매하기</button>
+      </p>
+
+
+      <p class="p2">
+        컴퓨터 프로그래밍에서 매개변수(영어: parameter 파라미터[*])란 변수의 특별한 한 종류로서, 함수 등과 같은 서브루틴[1]의 인풋으로 제공되는 여러 데이터 중 하나를 가리키기 위해 사용된다. 여기서 서브루틴의 인풋으로 제공되는 여러 데이터들을 전달인자(argument)라고 부른다. 보통 매개변수의 목록은 서브루틴의 정의 부분에 포함되며, 매번 서브루틴이 호출될 때마다 해당 호출에서 사용된 전달인자들을 각각에 해당하는 매개변수에 대입시켜 준다.
+      </p>
+
     
-    <h2 id="sub">등록일 <input id="insert" name="regdate" type="text" value="${categroyMap.PRDCT_RGST_DATE }" style="margin-left: 40px; width: 200px; height: 23px" disabled></h2>
-    <h2 id="sub">수정일 <input id="insert" name="updatedate" type="text" value="${categroyMap.PRDCT_MODF_DATE }"  style="margin-left: 40px; width: 200px; height: 23px" disabled></h2>
-    <h2 id="sub">제품 번호 <input id="insert" type="text" value="${categroyMap.PRDCT_NO }" style="margin-left: 7px; width: 400px; height: 23px" disabled></h2>
-    <!-- <div class="dropdown">    
-      <h2 id="sub">제품 목록
-          <select id="prdct" >
-            <option value="none" hidden>제품 카테고리를 선택하세요.</option>
-            <option value="korean">옷장</option>
-            <option value="english">테이블</option>
-            <option value="chinese">침대</option>
-            <option value="spanish">가구</option>
-            <option value="spanish">소파</option>
-          </select>
-      </h2>
-    </div> -->
-    <h2 id="sub">제품 이름 <input id="insert" type="text" value="${categroyMap.PRDCT_NM }" style="margin-left: 7px; width: 200px; height: 23px" ></h2> 
-    <h2 id="sub">제품 사이즈
-    <label>
-      <input type="radio" name="size" value="S" checked />
-      <span>S</span>
-    </label>
-    <label>
-      <input type="radio" name="size" value="M" style="margin-left: 39px;"/>
-      <span>M</span>
-    </label>
-    <label>
-      <input type="radio" name="size" value="L" style="margin-left: 30px;"/>
-      <span>L</span>
-    </label>
-    </h2>
-    <h2 id="sub" >제품 색상
-      <label style="margin-left: 23px;">
-        <input type="radio" name="color" value="red" <c:if test="${categroyMap.PRDCT_COLOR eq red}" > checked </c:if> />    
-        <span>빨강</span>
-      </label>
-      <label>
-        <input type="radio" name="color" value="blue" <c:if test="${categroyMap.PRDCT_COLOR eq blue}" > checked </c:if> />
-        <span>파랑</span>
-      </label>
-      <label>
-        <input type="radio" name="color" value="green" <c:if test="${categroyMap.PRDCT_COLOR eq green}" > checked </c:if> />
-        <span>초록</span>
-      </label>
-      </h2>
-    <h2 id="sub">제품 소재
-      <label style="margin-left: 23px;">
-        <input type="radio" name="material" value="tree" checked />
-        <span>나무</span>
-      </label>
-      <label>
-        <input type="radio" name="material" value="metal" />
-        <span>메탈</span>
-      </label>
-      <label>
-        <input type="radio" name="material" value="fabric" />
-        <span>페브릭</span>
-      </label>
-      </h2> 
-      <h2 id="sub">가격 <input id="insert" type="text" name="price" value="${categroyMap.PRDCT_PRICE }" style="margin-left: 65px; width: 200px; height: 23px"></h2> 
-      <h2 id="sub">재고 <input id="insert" type="text" name="prdctRemain" value="${categroyMap.PRDTC_REMAIN }" style="margin-left: 65px; width: 200px; height: 23px"></h2>
-      <h2 id="sub" >상세 내용 <input id="insert" type="text" name="pdcinfo" value="${categroyMap.PRDTC_INFO }" style="margin-left: 7px; width: 500px; height: 80px"></h2> 
-      <h2 id="sub">첨부파일 <input id="insert" type="text" name="pdcphoto" style="margin-left: 17px; width: 300px; height: 23px">
-        <button style="height: 30px;">첨부파일</button>
-      </h2>
-      <br>
-      <button id="btn">수정하기</button>
-      <br><br><br>
   </div>
-    
+<!-- 푸터 페이지 -->
+<jsp:include page="${pageContext.request.contextPath}/footer.jsp"></jsp:include>
     <script>
     
 	  

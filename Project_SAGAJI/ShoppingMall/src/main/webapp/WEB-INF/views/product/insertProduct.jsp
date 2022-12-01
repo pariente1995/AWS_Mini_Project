@@ -94,11 +94,11 @@
 		        <span>빨강</span>
 		      </label>
 		      <label>
-		        <input type="radio" name="prdctColor" value=""A0002" />
+		        <input type="radio" name="prdctColor" value="A0002" />
 		        <span>파랑</span>
 		      </label>
 		      <label>
-		        <input type="radio" name="prdctColor" value=""A0003" />
+		        <input type="radio" name="prdctColor" value="A0003" />
 		        <span>초록</span>
 		      </label>
 		      </h2>
@@ -125,7 +125,7 @@
 		      <br>
 		      <button id="btn" type="submit">등록하기</button>
 		      <br><br><br>
-		    </form>
+		  </form>
 	  </div>
     
     <script>
@@ -153,8 +153,10 @@
 					}
 				})
 			});
+	    	
 	    });
 	    
+	   
 	
         
     </script>

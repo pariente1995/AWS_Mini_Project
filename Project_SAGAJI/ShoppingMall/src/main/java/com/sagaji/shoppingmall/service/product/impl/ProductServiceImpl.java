@@ -58,7 +58,14 @@ public class ProductServiceImpl implements ProductService {
 		productDAO.updateProduct(map);
 	}
 	
+<<<<<<< HEAD
+	public void updateProductDetail(Map<String,Object> map) {
+		productDAO.updateProductDetail(map);
+	}
+	
+=======
 	@Override
+>>>>>>> ec93d6e1545a7ccd16959667046b1c8db0a288a1
 	public void useYnProduct(Map<String,Object> map) {
 		productDAO.useYnProduct(map);
 	}
