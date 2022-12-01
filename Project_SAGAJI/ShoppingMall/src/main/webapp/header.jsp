@@ -362,7 +362,7 @@
             <a href="/"><img src="${pageContext.request.contextPath}/images/logo.png" class="logoImg"></a>
           </div>
           <div id="search-wrapper">
-	          <form id="main-search-form" action="/product/getSearchList.do" method="post">
+	          <form id="main-search-form" action="/product/getSearchList.do" method="get">
 	            <img src="${pageContext.request.contextPath}/images/search.png" id="searchImg">
 	            <input type="text" name="searchKeyword" id="searchKeyword" placeholder="검색어 입력">
 	          </form>
@@ -505,15 +505,17 @@
       		-> 제품명, 카테고리만 검색
       	*/
       	function searchAjax() {
+      		let searchKeyword = $("#searchKeyword").val();
+      		//console.log(searchKeyword);
+      		
     		$.ajax({
-    			url:"/product/getSearchList.do",
-    			type: "post",
-    			data: $("#main-search-form").serialize(),
+    			url:"/product/getSearchList.do?searchKeyword=" + searchKeyword,
+    			type: "get",
     			success: function(obj) {
-    				console.log(obj);
+    				//console.log(obj);
     			},
     			error: function(e) {
-    				console.log(e);
+    				//console.log(e);
     			}
     		});
       	}
