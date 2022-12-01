@@ -81,16 +81,16 @@
     </h2>
     <h2 id="sub" >제품 색상
       <label style="margin-left: 23px;">
-        <input type="radio" name="color" value="black" <c:if test="${categroyMap.PRDCT_COLOR eq black}" > checked </c:if> />    
-        <span>블랙</span>
+        <input type="radio" name="color" value="red" <c:if test="${categroyMap.PRDCT_COLOR eq red}" > checked </c:if> />    
+        <span>빨강</span>
       </label>
       <label>
-        <input type="radio" name="color" value="brown" <c:if test="${categroyMap.PRDCT_COLOR eq brown}" > checked </c:if> />
-        <span>브라운</span>
+        <input type="radio" name="color" value="blue" <c:if test="${categroyMap.PRDCT_COLOR eq blue}" > checked </c:if> />
+        <span>파랑</span>
       </label>
       <label>
-        <input type="radio" name="color" value="white" <c:if test="${categroyMap.PRDCT_COLOR eq white}" > checked </c:if> />
-        <span>화이트</span>
+        <input type="radio" name="color" value="green" <c:if test="${categroyMap.PRDCT_COLOR eq green}" > checked </c:if> />
+        <span>초록</span>
       </label>
       </h2>
     <h2 id="sub">제품 소재
@@ -120,7 +120,8 @@
     
     <script>
     
-	   
+	  
+    
         
     </script>
 </body>

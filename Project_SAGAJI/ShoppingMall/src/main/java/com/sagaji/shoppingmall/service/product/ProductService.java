@@ -25,7 +25,6 @@ public interface ProductService {
 	//제품저장상세 ,  옵션 추가
 	public void insertProductDetail(Map<String,Object> map);
 	
-	
 	//제품 수정
 	public void updateProduct(Map<String,Object> map);
 	

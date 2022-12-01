@@ -54,7 +54,7 @@
 		    <br>
 		    <!-- <h2 id="sub">등록일 <input id="insert" name="prdctDate" type="text" style="margin-left: 40px; width: 200px; height: 23px"></h2> -->
 		    <h2 id="sub">제품 번호 <input id="prdctNo" name="prdctNo" type="text" style="margin-left: 7px; width: 400px; height: 23px">
-		    	<button type="button" class="btn1" id="btnIdCheck">
+		    	<button type="button" class="btn1" id="btnNoCheck">
                 	<span class="btn_inner">중복체크</span>
                 </button>
             </h2>
@@ -90,29 +90,29 @@
 		    </h2>
 		    <h2 id="sub" >제품 색상
 		      <label style="margin-left: 23px;">
-		        <input type="radio" name="prdctColor" value="red" checked />
+		        <input type="radio" name="prdctColor" value="A0001" checked />
 		        <span>빨강</span>
 		      </label>
 		      <label>
-		        <input type="radio" name="prdctColor" value="blue" />
+		        <input type="radio" name="prdctColor" value=""A0002" />
 		        <span>파랑</span>
 		      </label>
 		      <label>
-		        <input type="radio" name="prdctColor" value="green" />
+		        <input type="radio" name="prdctColor" value=""A0003" />
 		        <span>초록</span>
 		      </label>
 		      </h2>
 		    <h2 id="sub">제품 소재
 		      <label style="margin-left: 23px;">
-		        <input type="radio" name="prdctMaterial" value="tree" checked />
+		        <input type="radio" name="prdctMaterial" value="B0001" checked />
 		        <span>나무</span>
 		      </label>
 		      <label>
-		        <input type="radio" name="prdctMaterial" value="metal" />
+		        <input type="radio" name="prdctMaterial" value="B0002" />
 		        <span>메탈</span>
 		      </label>
 		      <label>
-		        <input type="radio" name="prdctMaterial" value="fabric" />
+		        <input type="radio" name="prdctMaterial" value="B0003" />
 		        <span>페브릭</span>
 		      </label>
 		      </h2> 
@@ -134,7 +134,7 @@
 	    	var checkNo = false;
 	    	$("#btn").attr("disabled", false);
 	    	//id 중복체크
-			$("#btnIdCheck").on("click", function() {				
+			$("#btnNoCheck").on("click", function() {				
 				$.ajax({
 					url: "/product/noCheck.do",
 					type: "post",
