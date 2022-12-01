@@ -5,18 +5,34 @@
 	
 <mapper namespace="CartDAO">
 	<!-- 장바구니 담기 -->
-	<select id="getCartList" parameterType="map" resultType="cart">
-		SELECT *
-			FROM T_SAGAJI_CART
+	<select id="getCartList" parameterType="string" resultType="camelHashMap">
+		SELECT A.*
+			 , D.PRDCT_NM
+		     , D.PRDCT_INFO
+		     , D.PRDCT_PRICE
+			FROM T_SGJ_CART A,
+				 (
+					 SELECT B.PRDCT_NM
+						     , B.PRDCT_INFO
+							 , C.PRDCT_PRICE
+		                     , B.PRDCT_NO
+		                     , C.PRDCT_DETAIL_NO
+						FROM T_SGJ_PRDCT B,
+							T_SGJ_PRDCT_DETAIL C
+						WHERE B.PRDCT_NO = C.PRDCT_NO
+				 ) D
+			WHERE A.USER_ID = #{userId}
+		      AND A.PRDCT_NO = D.PRDCT_NO
+		      AND A.PRDCT_DETAIL_NO = D.PRDCT_DETAIL_NO
 	</select>
 	
 	<delete id="deleteCart" parameterType="int">
-		DELETE FROM T_SAGAJI_CART
-			WHERE CART_NO = #{prdctDetailNo}
+		DELETE FROM T_SGJ_CART
+			WHERE CART_NO = #{cartNo}
 	</delete>
 	
 	<insert id="insertCart" parameterType="cart">
-		INSERT INTO T_SAGAJI_CART
+		INSERT INTO T_SGJ_CART
 		VALUES (
 			#{userId},
 			#{prdctNo},
@@ -26,16 +42,16 @@
 		)
 	</insert>
 
-	<select id="checkCartCnt">
+	<select id="checkCartCnt" parameterType="cart" resultType="int">
 		SELECT COUNT(*)
-			FROM T_SAGAJI_CART
-				WHERE USER_ID = {#userId}
+			FROM T_SGJ_CART
+				WHERE USER_ID = #{userId}
 					AND PRDCT_NO = #{prdctNo}
 					AND PRDCT_DETAIL_NO = #{prdctDetailNo}
 	</select>
 	
-	<update id="updateCartCnt">
-		UPDATE T_SAGAJI_CART
+	<update id="updateCartCnt" parameterType="cart">
+		UPDATE T_SGJ_CART
 			SET CART_CNT = CART_CNT + 1
 		 	WHERE USER_ID = #{userId}
 				AND PRDCT_NO = #{prdctNo}

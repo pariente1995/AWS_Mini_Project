@@ -143,7 +143,7 @@
 		            </div>
 		            <div class="main-prd-disc-cart">
 		              <img src="${pageContext.request.contextPath}/images/heart-empty.png" class="prd-heart-img">
-		              <img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img">
+		              <img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img" onclick="insertCart('${pop.prdctNo}', '${pop.prdctDetailNo }')">
 		            </div>
 		          </div>
 		        </div>
@@ -176,7 +176,7 @@
                           </div>
                           <div class="main-prd-disc-cart">
                               <img src="${pageContext.request.contextPath}/images/heart-empty.png" class="prd-heart-img">
-                              <img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img">
+                              <img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img" onclick="insertCart('${newList.prdctNo}', '${newList.prdctDetailNo }')">
                           </div>
                       </div>
                   </div>
@@ -284,33 +284,59 @@
 	    $(".main-prd-info").on("click",function() {
 	
 	    });
-	    
-	    function insertCart(prdctNo, prdctDetailNo) {
-	    	//로그인 체크
-	    	//로그인 안한 사람은 로그인페이지로
-	    	//const loginUserId = '${loginUser.userId}';
-	    	//if(loginUserId != null && loginUserId != '') => ajax 실행
-	    	//else => window.location.href = "/user/login.do";
-	    	$.ajax({
-				url: "/cart/insertCart.do",
-				type: "post",
-				data: {
-					prdctNo: prdctNo,
-					prdctDetailNo: prdctDetailNo
-				},
-				success: function(obj) {
-					if(obj == 1) {
-						alert("장바구니에 등록했습니다.");
-					} else {
-						alert("장바구니 등록에 실패했습니다. 관리자에게 문의해주세요.");
-					}
-				},
-				error: function(e) {
-					console.log(e);
-				}
-			});
-    	}
 	});
+	
+	function insertCart(prdctNo, prdctDetailNo) {
+		console.log('111111');
+    	//로그인 체크
+    	//로그인 안한 사람은 로그인페이지로
+    	const loginUserId = '${loginUser.userId}';
+    	//if(loginUserId != null && loginUserId != '') => ajax 실행
+    	//else => window.location.href = "/user/login.do";
+    	if(loginUserId != null && loginUserId != '') {
+    		console.log(loginUserId);
+    		$.ajax({
+    			url: "/cart/insertCart.do",
+    			type: "post",
+    			data: {
+    				prdctNo: prdctNo,
+    				prdctDetailNo: prdctDetailNo
+    			},
+    			success: function(obj) {
+    				if(obj == 1) {
+    					alert("장바구니에 등록했습니다.");
+    				} else {
+    					alert("장바구니 등록에 실패했습니다. 관리자에게 문의해주세요.");
+    				}
+    			},
+    			error: function(e) {
+    				console.log(e);
+    			}
+    		});
+    	} else {
+    		window.location.href = "/user/login.do";
+    		
+    	}
+    	
+    	/* $.ajax({
+			url: "/cart/insertCart.do",
+			type: "post",
+			data: {
+				prdctNo: prdctNo,
+				prdctDetailNo: prdctDetailNo
+			},
+			success: function(obj) {
+				if(obj == 1) {
+					alert("장바구니에 등록했습니다.");
+				} else {
+					alert("장바구니 등록에 실패했습니다. 관리자에게 문의해주세요.");
+				}
+			},
+			error: function(e) {
+				console.log(e);
+			}
+		}); */
+	}
 </script>
 
 <%-- 푸터 페이지 --%>
