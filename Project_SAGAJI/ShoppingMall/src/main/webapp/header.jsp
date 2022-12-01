@@ -82,7 +82,7 @@
     }
 
     /* 돋보기 아이콘 및 검색어 입력 영역*/
-    #main-header-search #search-wrapper {
+    #main-header-search #main-search-form {
       width: 900px;
       height: 55px;
       display: flex;
@@ -92,11 +92,11 @@
       border-radius: 20px;
     }
 
-    #main-header-search #search-wrapper:hover {
+    #main-header-search #main-search-form:hover {
       background-color: #DFDFDF;
     }
 
-    #search-wrapper #searchKeyword {
+    #main-search-form #searchKeyword {
       width: 920px;
       height: 30px;
       margin: 10px;
@@ -104,9 +104,7 @@
       background-color: #f3f1f1;
       background: transparent;
       /* input 테그 클릭 시, 기본적으로 생기는 테두리 제거 */
-      outline: none;
-      /* input 태그 자동완성 선택 시, 배경색 변경되는 부분 막기 */
-      
+      outline: none; 
     }
 
     #main-header-login {
@@ -354,8 +352,10 @@
             <a href="/"><img src="${pageContext.request.contextPath}/images/logo.png" class="logoImg"></a>
           </div>
           <div id="search-wrapper">
-            <img src="${pageContext.request.contextPath}/images/search.png" id="searchImg">
-            <input type="text" name="searchKeyword" id="searchKeyword" placeholder="검색어 입력">
+	          <form id="main-search-form" action="/product/getSearchList.do" method="post">
+	            <img src="${pageContext.request.contextPath}/images/search.png" id="searchImg">
+	            <input type="text" name="searchKeyword" id="searchKeyword" placeholder="검색어 입력">
+	          </form>
           </div>
         </div>
         <c:choose>
@@ -480,6 +480,31 @@
 				console.log(e);
 			}
 		});
+      	
+      	// 검색어 입력 후 엔터키 입력 시, 검색어에 따른 조회
+      	$("#searchKeyword").on("keyup", function(key) {
+	        if(key.keyCode==13) {
+	        	searchAjax();
+	        }
+    	});
+      	
+      	/* 
+      		검색어 입력에 따른 조회 부분
+      		-> 제품명, 카테고리만 검색
+      	*/
+      	function searchAjax() {
+    		$.ajax({
+    			url:"/product/getSearchList.do",
+    			type: "post",
+    			data: $("#main-search-form").serialize(),
+    			success: function(obj) {
+    				console.log(obj);
+    			},
+    			error: function(e) {
+    				console.log(e);
+    			}
+    		});
+      	}
       	
       	/*
       	아래부분 주석처리 후, img 태그를 a태그 감쌈.

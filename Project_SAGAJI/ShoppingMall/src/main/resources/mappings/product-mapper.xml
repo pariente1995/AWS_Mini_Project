@@ -72,6 +72,22 @@
 			 LIMIT 12
 		]]>
 	</select>
+	
+	<!-- 제품 리스트 조회 -->
+	<select id="getProductList" parameterType="string" resultType="camelHashMap">
+		<![CDATA[
+			SELECT A.PRDCT_NO, B.PRDCT_DETAIL_NO, A.PRDCT_NM, A.PRDCT_RGST_DATE, B.PRDCT_PRICE, D.PRDCT_IMAGE_NM, D.PRDCT_IMAGE_TYPE
+			  FROM T_SGJ_PRDCT A, T_SGJ_PRDCT_DETAIL B, T_SGJ_CATEGORY C, T_SGJ_IMAGE D
+			 WHERE A.PRDCT_NO = B.PRDCT_NO
+			   AND B.PRDCT_CATEGORY_CD = C.CATEGORY_CD
+			   AND B.PRDCT_NO = D.PRDCT_NO
+			   AND B.PRDCT_DETAIL_NO = D.PRDCT_DETAIL_NO
+		]]>
+		<if test="searchKeyword != '' and searchKeyword != null">
+			OR A.PRDCT_NM LIKE '%#{searchKeyword}%'
+			OR B.PRDCT_CATEGORY_CD LIKE '%#{searchKeyword}%'
+		</if>
+	</select>
 
 	<!-- 제품 등록 -->
 	<insert id="insertProduct" parameterType="map">
