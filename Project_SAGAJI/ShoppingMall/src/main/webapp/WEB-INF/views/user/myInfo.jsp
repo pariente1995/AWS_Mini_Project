@@ -339,18 +339,14 @@ body {
 					e.preventDefault();
 					return;
 				}
-			});
-
-			// 내정보 수정 후 alert창 
-			$("#btnUpdateUser").click("submit", function() {
+				
 				document.myInfoForm.action = " ${path}/user/updateUser.do";
 				document.myInfoForm.submit();
-				if (!pwValidation || !pwCheck) {
-
-				} else {
+				if (pwValidation && pwCheck) {
 					alert("내정보를 수정하였습니다. 다시 로그인해주시길 바랍니다.");
 				}
 			});
+
 			/* ========== withdrawUser_submit ========== */
 			$("#btnWithdrawUser").click("submit", function() {
 				document.myInfoForm.action = " ${path}/user/withdrawUser.do";

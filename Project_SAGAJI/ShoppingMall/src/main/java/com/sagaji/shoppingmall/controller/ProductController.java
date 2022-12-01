@@ -55,63 +55,77 @@ public class ProductController {
 		return jsonStr;
 	}
 	
-	// 제품 등록
-			@RequestMapping("/insertProduct.do")
-			public String insertProduct(@RequestParam Map<String, Object> paramMap)  {
-			/*
-				map.put("prdctNo","1");	//제품번호
-				map.put("prdctDetailNo","4");	//제품 상세번호
-				map.put("prdctNm","쇼파"); //제품명
-				map.put("prdctCategoryCd","옷장"); //카테고리
-				map.put("prdctSize","S"); //사이즈
-				map.put("prdctColor","red"); //색상
-				map.put("prdctMaterial","tree"); //소재
-				map.put("prdctPrice","366000"); //가격
-				map.put("prdctRemain","제품 ㅇㅇㅇㅇ"); //설명
-			*/			
-			//제품등록
-			productService.insertProduct(paramMap);
-					
-			//제품등록상세
-			productService.insertProductDetail(paramMap);
+		// 제품 등록
+		@RequestMapping("/insertProduct.do")
+		public String insertProduct(@RequestParam Map<String, Object> paramMap)  {
+		System.out.println("test=============="+paramMap);
 				
+		//제품등록
+		productService.insertProduct(paramMap);
 				
-			System.out.println();
-			return "redirect://product/getCategoryProductList.do";
-			}
+		//제품등록상세
+		productService.insertProductDetail(paramMap);
 			
-			// 제품 수정
-			@PostMapping("/updateProduct.do")
-			public String updateProduct(@RequestParam Map<String, Object> paramMap) {
-				
+			
+		//System.out.println();
+		//return "redirect://product/getCategoryProductList.do";
+		return "redirect://localhost:8099";
+		}
 		
+		
+		
+		// 제품 옵션 추가
+		@PostMapping("/optionProduct.do")
+		public String optionProduct(@RequestParam Map<String, Object> paramMap) {
 			
-			productService.updateProduct(paramMap);
+			
+	
+		productService.insertProductDetail(paramMap);
+	
+		return "product/productlist";
+		}
+		
+		
+		
+		@PostMapping("/useYnProduct.do")
+		public String deleteProduct(@RequestParam Map<String, Object> paramMap) {
+			
+		Map<String, Object> map = new HashMap<>();
+			
+		// 제품 삭제
+		productService.useYnProduct(map);
+		return "product/productlist";
+		
+		}
+		
+		
+		@RequestMapping("/getCategoryProductDetail.do")
+		public String getCategoryProductDetail(Model model) {
 
-			return "product/productlist";
-			}
-			
-			// 제품 옵션 추가
-			@PostMapping("/optionProduct.do")
-			public String optionProduct(@RequestParam Map<String, Object> paramMap) {
+		return "product/insertProduct";
+		}
+		
+		// 제품 수정
+		@RequestMapping("/getUpdateDetail.do")
+		public String updateProduct(@RequestParam Map<String, Object> paramMap, Model model) {
+		paramMap.put("prdctNo", "PRDCT20221128_12");
 				
-				
+		// 카테고리 조회
+		Map<String, Object> categroyMap = productService.getUpdateDetail(paramMap);
+		model.addAttribute("categroyMap", categroyMap);
+		return "product/updateProduct";
+		}
+		
+		
+		
+		@PostMapping("/noCheck.do")
+		@ResponseBody
+		public int noCheck(@RequestParam Map<String, Object> paramMap) throws JsonProcessingException {
 			
-			productService.insertProductDetail(paramMap);
-
-			return "product/productlist";
-			}
-			
-			
-			
-			@PostMapping("/useYnProduct.do")
-			public String deleteProduct(@RequestParam Map<String, Object> paramMap) {
-				
-			Map<String, Object> map = new HashMap<>();
-				
-			// 제품 삭제
-			productService.useYnProduct(map);
-			return "product/productlist";
-			
-			}
-}
+		int idCnt = productService.noCheck(paramMap);
+		
+		
+		return idCnt;
+		}
+		
+	}
