@@ -78,15 +78,16 @@
     <br><br>
     <form id="searchForm" action="/cart/getCartList.do" method="post">
     <table id="T1">
+    	<c:forEach items="${cartList }" var="cart">
       <tr>
         <th rowspan="3" id="prdcImg"><img src="images/침대.png"></th>
         <th class="h">&emsp;제품이름</th>
-        <td class="d">${cart.prdctNo }</td>
-        <th>\24,900</th>
+        <td class="d">${cart.prdctNm }</td>
+        <th>\<c:out value="${cart.prdctPrice }"></c:out></th>
       </tr>
       <tr>
         <th class="h">&emsp;제품 설명</th>
-        <td class="d"><%-- ${ } --%></td>
+        <td class="d">${cart.prdctInfo }</td>
       </tr>
       <tr>
         <td class="d">&emsp;
@@ -109,6 +110,7 @@
       <tr>
         <td colspan="4"><hr></td>
       </tr>
+      </c:forEach>
     </table>
     
     <table id="T2">
@@ -140,8 +142,20 @@
 <script>
 	$(function() {
 		//주문하기 버튼 클릭 시 주문페이지로 이동
-		$("#cartBtn").on("click", function(){
-			
+		$("#ordertBtn").on("click", function(){
+			$ajax({
+				url: "/order/orderList.do",
+				type: "post",
+				data: {
+					
+				},
+				success: function(obj) {
+    				
+    			},
+    			error: function(e) {
+    				console.log(e);
+    			}
+			});
 		})
 	});
 </script>
