@@ -7,7 +7,7 @@
 <!-- 본인들이 맡은 페이지 스타일 -->
 <style>
 	#container { width: 1500px; margin: 0 auto;}
-    h1 { text-align: left;}
+    h1 { margin-left: 128px;}
     /* 전체제품 삭제 버튼 */
     #cartBtn {
       border: 0;
@@ -80,10 +80,10 @@
     <table id="T1">
     	<c:forEach items="${cartList }" var="cart">
       <tr>
-        <th rowspan="3" id="prdcImg"><img src="images/침대.png"></th>
+        <th rowspan="3" id="prdcImg"><img src="${pageContext.request.contextPath}/images/${cart.prdctImageNm}${cart.prdctImageType}"></th>
         <th class="h">&emsp;제품이름</th>
         <td class="d">${cart.prdctNm }</td>
-        <th>\<c:out value="${cart.prdctPrice }"></c:out></th>
+        <th><c:out value="${cart.prdctPrice }"></c:out>원</th>
       </tr>
       <tr>
         <th class="h">&emsp;제품 설명</th>
@@ -92,7 +92,8 @@
       <tr>
         <td class="d">&emsp;
           <select id="prdcCnt">
-            <option>-- 수량 --</option>
+            <option>${cart.cartCnt }</option>
+            <option value="0">-----</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -105,7 +106,7 @@
             <option value="10">10</option>
           </select>
         </td>
-        <td><a href="/cart/deleteCart.do?cartNo=${cart.cartNo }" id="delBtn"><button>삭제</button></a></td>
+        <td><a href="/cart/deleteCart.do?prdctNo=${cart.prdctNo }&prdctDetailNo=${cart.prdctDetailNo}" id="delBtn"><button>삭제</button></a></td>
       </tr>
       <tr>
         <td colspan="4"><hr></td>
@@ -157,5 +158,12 @@
     			}
 			});
 		})
+		
+		$("#delBtn").on("click", function(){
+			console.log("${cart.prdctNo }");
+			console.log("${cart.prdctDetailNo }");
+		
+		})
+			
 	});
 </script>

@@ -10,6 +10,10 @@
 			 , D.PRDCT_NM
 		     , D.PRDCT_INFO
 		     , D.PRDCT_PRICE
+		     , D.PRDCT_IMAGE_NM
+		     , D.PRDCT_IMAGE_TYPE
+		     , D.PRDCT_NO
+		     , D.PRDCT_DETAIL_NO
 			FROM T_SGJ_CART A,
 				 (
 					 SELECT B.PRDCT_NM
@@ -17,18 +21,24 @@
 							 , C.PRDCT_PRICE
 		                     , B.PRDCT_NO
 		                     , C.PRDCT_DETAIL_NO
+		                     , D.PRDCT_IMAGE_NM
+		                     , D.PRDCT_IMAGE_TYPE
 						FROM T_SGJ_PRDCT B,
-							T_SGJ_PRDCT_DETAIL C
+							T_SGJ_PRDCT_DETAIL C,
+							T_SGJ_IMAGE D
 						WHERE B.PRDCT_NO = C.PRDCT_NO
+						  AND C.PRDCT_NO = D.PRDCT_NO
+						  AND C.PRDCT_DETAIL_NO = D.PRDCT_DETAIL_NO
 				 ) D
 			WHERE A.USER_ID = #{userId}
 		      AND A.PRDCT_NO = D.PRDCT_NO
-		      AND A.PRDCT_DETAIL_NO = D.PRDCT_DETAIL_NO
+		      AND A.PRDCT_DETAIL_NO = D.PRDCT_DETAIL_NO 
 	</select>
 	
-	<delete id="deleteCart" parameterType="int">
+	<delete id="deleteCart" parameterType="map">
 		DELETE FROM T_SGJ_CART
-			WHERE CART_NO = #{cartNo}
+			WHERE PRDCT_NO = #{prdctNo}
+			  AND PRDCT_DETAIL_NO = #{prdctDetailNo}	
 	</delete>
 	
 	<insert id="insertCart" parameterType="cart">
