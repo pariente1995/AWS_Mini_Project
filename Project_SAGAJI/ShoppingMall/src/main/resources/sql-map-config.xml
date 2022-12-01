@@ -15,6 +15,7 @@
 		 <typeAlias type="com.sagaji.shoppingmall.vo.UserVO" alias="user"></typeAlias>
 		 <typeAlias type="com.sagaji.shoppingmall.common.CamelHashMap" alias="camelHashMap"></typeAlias>
 		 <typeAlias type="com.sagaji.shoppingmall.vo.CartVO" alias="cart"></typeAlias>
+		 <typeAlias type="com.sagaji.shoppingmall.vo.QuestionVO" alias="question"></typeAlias>
 	</typeAliases>
 	
 	<!-- 사용할 SQL 매퍼 위치 지정 -->
@@ -23,5 +24,6 @@
 		<mapper resource="mappings/product-mapper.xml"></mapper>
 		<mapper resource="mappings/cart-mapper.xml"></mapper>
 		<mapper resource="mappings/user-mapper.xml"></mapper>
+		<mapper resource="mappings/question-mapper.xml"></mapper>
 	</mappers>
 </configuration>
