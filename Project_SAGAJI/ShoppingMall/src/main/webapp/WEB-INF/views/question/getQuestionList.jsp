@@ -96,9 +96,21 @@ tr {
 				<c:forEach items="${QuestionList}" var="question"> 
 				<tr>
 					<td> ${question.questionNo}</td>
-					<td> ${question.questionTitle}</td>
+					<c:choose>
+						<c:when test="${question.questionSecretYn == 'Y' }">
+							<c:if test="${loginUser.userId == question.userId }">
+								<td> ${question.questionTitle}</td>
+							</c:if>
+							<c:if test="${loginUser.userId != question.userId }">
+								<td><img src="${pageContext.request.contextPath }/images/lock.jpg" alt="사진자리"> 비밀글입니다.</td>
+							</c:if>
+						</c:when>
+						<c:otherwise>
+							<td> ${question.questionTitle}</td>
+						</c:otherwise>
+					</c:choose>
 					<td> ${question.questionRgstDate}</td>
-					<td> ${user.userId}</td>
+					<td> ${question.userId}</td>
 					<td> ${question.questionState}</td>
 				</tr>
 				</c:forEach>

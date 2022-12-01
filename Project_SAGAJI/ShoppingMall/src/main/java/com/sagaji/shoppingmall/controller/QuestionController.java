@@ -82,6 +82,7 @@ public class QuestionController {
 	// 게시글 등록
 	@PostMapping("/insertQuestion.do")
 	public String insertQuestion(QuestionVO questionVO) {
+		System.out.println(questionVO.getUserId());
 		QuestionService.insertQuestion(questionVO);
 
 		// 등록 후 게시글 목록으로 이동

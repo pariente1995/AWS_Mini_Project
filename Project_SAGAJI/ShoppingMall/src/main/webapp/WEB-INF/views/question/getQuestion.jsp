@@ -100,10 +100,12 @@
 		<br>
 		<br>
 
-		<form method="post" action="/question/insertQuestion.do">
-		<div id="b">
+		<form id="insertQuestionForm" method="post" action="/question/insertQuestion.do">
+		<input type="hidden" name="userId" id="userId" value="${loginUser.userId}">
+		<input type="hidden" name="questionSecretYn" id="questionSecretYn">
+ 		<div id="b">
 			<div id="check">
-				<input type="checkbox"> 비밀글&emsp;
+				<input id="secretCheck" type="checkbox"> 비밀글&emsp;
 			</div>
 			<br>
 			<br> <b>제목</b> &emsp;&emsp;&ensp; <input type="text" name="questionTitle" id="questionTitle" value="${question.questionTitle}">
@@ -166,6 +168,13 @@
 					}
 					
 					$("#btnAtt")[0].files = dt.files;
+				});
+				
+				$("#insertQuestionForm").on("submit", function(e) {
+					
+					if($("#secretCheck")[0].checked) {
+						$("#questionSecretYn").val('Y');
+					}
 				});
 			});
 			
