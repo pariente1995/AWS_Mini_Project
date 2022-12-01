@@ -55,6 +55,7 @@ public class ProductController {
 		return jsonStr;
 	}
 	
+<<<<<<< HEAD
 	// 검색어 입력에 따른 조회
 	// 제품명, 카테고리명으로만 검색
 	@PostMapping(value="/getSearchList.do", produces="application/text; charset=UTF-8")
@@ -76,20 +77,23 @@ public class ProductController {
 	}
 	
 	// 제품 등록
+=======
+		// 제품 등록
+>>>>>>> 9f52c8f5a4287086cff74ff393e6ce70372018c4
 		@RequestMapping("/insertProduct.do")
 		public String insertProduct(@RequestParam Map<String, Object> paramMap)  {
-			System.out.println("test=============="+paramMap);
-					
-			//제품등록
-			productService.insertProduct(paramMap);
-					
-			//제품등록상세
-			productService.insertProductDetail(paramMap);
+		System.out.println("test=============="+paramMap);
 				
+		//제품등록
+		productService.insertProduct(paramMap);
 				
-			//System.out.println();
-			//return "redirect://product/getCategoryProductList.do";
-			return "redirect://localhost:8099";
+		//제품등록상세
+		productService.insertProductDetail(paramMap);
+			
+			
+		//System.out.println();
+		//return "redirect://product/getCategoryProductList.do";
+		return "redirect://localhost:8099";
 		}
 		
 		
@@ -99,10 +103,10 @@ public class ProductController {
 		public String optionProduct(@RequestParam Map<String, Object> paramMap) {
 			
 			
-		
-			productService.insertProductDetail(paramMap);
-		
-			return "product/productlist";
+	
+		productService.insertProductDetail(paramMap);
+	
+		return "product/productlist";
 		}
 		
 		
@@ -110,11 +114,11 @@ public class ProductController {
 		@PostMapping("/useYnProduct.do")
 		public String deleteProduct(@RequestParam Map<String, Object> paramMap) {
 			
-			Map<String, Object> map = new HashMap<>();
-				
-			// 제품 삭제
-			productService.useYnProduct(map);
-			return "product/productlist";
+		Map<String, Object> map = new HashMap<>();
+			
+		// 제품 삭제
+		productService.useYnProduct(map);
+		return "product/productlist";
 		
 		}
 		
@@ -122,9 +126,10 @@ public class ProductController {
 		@RequestMapping("/getCategoryProductDetail.do")
 		public String getCategoryProductDetail(Model model) {
 
-			return "product/insertProduct";
+		return "product/insertProduct";
 		}
 		
+<<<<<<< HEAD
 		/*
 		 * // 제품 수정
 		 * 
@@ -148,5 +153,29 @@ public class ProductController {
 		 * 
 		 * return idCnt; }
 		 */
+=======
+		// 제품 수정
+		@RequestMapping("/getUpdateDetail.do")
+		public String updateProduct(@RequestParam Map<String, Object> paramMap, Model model) {
+		paramMap.put("prdctNo", "PRDCT20221128_12");
+				
+		// 카테고리 조회
+		Map<String, Object> categroyMap = productService.getUpdateDetail(paramMap);
+		model.addAttribute("categroyMap", categroyMap);
+		return "product/updateProduct";
+		}
+		
+		
+		
+		@PostMapping("/noCheck.do")
+		@ResponseBody
+		public int noCheck(@RequestParam Map<String, Object> paramMap) throws JsonProcessingException {
+			
+		int idCnt = productService.noCheck(paramMap);
+		
+		
+		return idCnt;
+		}
+>>>>>>> 9f52c8f5a4287086cff74ff393e6ce70372018c4
 		
 	}
