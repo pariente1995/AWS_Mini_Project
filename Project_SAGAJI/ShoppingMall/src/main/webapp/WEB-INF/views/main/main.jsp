@@ -7,7 +7,6 @@
 
 <style>
    #main-page-wrapper {
-   	   max-width: 1500px;
        margin-left: 90px;
        margin-right: 50px;
        padding: 10px 50px;
@@ -309,6 +308,13 @@
 				error: function(e) {
 					console.log(e);
 				}
+			},
+			error: function(e) {
+				console.log(e);
+			}
+		});
+    }
+    // 화면 오픈 시, 인기제품 및 신제품 조회 -> ajax 사용?
 			});
 	    }
 	});
