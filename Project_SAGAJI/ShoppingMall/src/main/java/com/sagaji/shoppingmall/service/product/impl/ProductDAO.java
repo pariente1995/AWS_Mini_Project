@@ -47,4 +47,12 @@ public class ProductDAO {
 	public void useYnProduct(Map<String,Object> map) {
 		mybatis.update("ProductDAO.useYnProduct", map);
 	}
+	
+	public int noCheck(Map<String, Object> map) {
+		return mybatis.selectOne("ProductDAO.noCheck", map);
+	}
+	
+	public Map<String, Object> getUpdateDetail(Map<String, Object> map){
+		return mybatis.selectOne("ProductDAO.getUpdateDetail", map);
+	}
 }

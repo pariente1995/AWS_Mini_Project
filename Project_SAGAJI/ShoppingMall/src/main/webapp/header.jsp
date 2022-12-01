@@ -420,6 +420,7 @@
 		        </c:when>
 	            <c:when test="${loginUser.userType eq 'ADMIN'}">
 	            	<li>
+	            		<a href="/product/getCategoryProductDetail.do">제품 등록 &nbsp;</a>
 		            	<a href="#">관리자</a>
 		            </li>
 	            </c:when>
