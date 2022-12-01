@@ -79,12 +79,14 @@
 			(
 				PRDCT_NO
 				,PRDCT_NM
+				,PRDCT_INFO
 				,PRDCT_RGST_DATE
 				,PRDCT_USE_YN
 			)
 		VALUES(
 				#{prdctNo}
 				,#{prdctNm}
+				,#{prdctInfo}
 				,now()
 				,'Y'
 			)
@@ -108,9 +110,12 @@
 		VALUES(
 				#{prdctNo}
 				,(
-					SELECT IFNULL(MAX(PRDCT_DETAIL_NO), 0) + 1 
-						FROM PRDCT_DETAIL_NO
+					SELECT A.NUM FROM 
+					(
+						SELECT IFNULL(MAX(PRDCT_DETAIL_NO), 0) + 1  AS NUM
+						FROM T_SGJ_PRDCT_DETAIL
 						WHERE PRDCT_NO = #{prdctNo}
+					) A
 				 )
 				,#{prdctCategoryCd}
 				,#{prdctSize}
@@ -127,7 +132,8 @@
 	<!-- 제품 수정 -->
 	<update id="updateProduct" parameterType="map">
 		UPDATE T_SGJ_PRDCT
-		SET PRDCT_NM = #{prdctNm}		
+		SET PRDCT_NM = #{prdctNm}	
+		SET PRDCT_INFO = #{prdctInfo}	
 		WHERE PRDCT_NO = #{prdctNo}
 		
 			
@@ -149,8 +155,37 @@
 		WHERE PRDCT_NO = #{prdctNo}
 		
 	  	UPDATE T_SGJ_PRDCT_DETAIL
-		SET PRDCT_USE_YN = #{prdctUseYn}
+		SET PRDCT_USE_YN = 'N'
 		WHERE PRDCT_NO = #{prdctNo}
 		AND	  PRDCT_DETAIL_NO = #{prdctDetailNo}
 	</update>
+	
+	<!-- 번호중복 -->
+	<select id="noCheck" parameterType="String" resultType="int">
+		<![CDATA[
+			SELECT COUNT(*) 
+			  FROM T_SGJ_PRDCT
+			 WHERE PRDCT_NO = #{prdctNo}
+		]]>
+	</select>	
+	
+	<select id="getUpdateDetail" parameterType="map" resultType="map">
+		select 
+			A.PRDCT_NO
+			,A.PRDCT_NM
+			,B.PRDCT_COLOR
+			,B.PRDCT_CATEGORY_CD
+			,B.PRDCT_MATERIAL
+			,B.PRDCT_PRICE
+			,B.PRDCT_REMAIN
+			,DATE_FORMAT(A.PRDCT_RGST_DATE, '%Y-%m-%d') AS PRDCT_RGST_DATE
+			,DATE_FORMAT(B.PRDCT_MODF_DATE, '%Y-%m-%d') AS PRDCT_MODF_DATE
+		from 
+			t_sgj_prdct A
+			INNER JOIN t_sgj_prdct_detail B
+			ON A.PRDCT_NO = B.PRDCT_NO
+			WHERE A.PRDCT_NO = #{prdctNo}	
+	</select>
+	
+	
 </mapper>
