@@ -16,8 +16,8 @@ public class CartDAO {
 	private SqlSessionTemplate mybatis;
 	
 	
-	public List<CartVO> getCartList(Map<String, String> paramMap) {
-		return mybatis.selectList("CartDAO.getCartList");
+	public List<Map<String, Object>> getCartList(String userId) {
+		return mybatis.selectList("CartDAO.getCartList", userId);
 	}
 	
 	public void deleteCart(String prdctNo, int prdctDetailNo) {
@@ -36,7 +36,7 @@ public class CartDAO {
 		if(checkCartCnt < 1)
 			result = mybatis.insert("CartDAO.insertCart", cartVO);
 		else
-			result = mybatis.insert("CartDAO.updateCartCnt", cartVO);
+			result = mybatis.update("CartDAO.updateCartCnt", cartVO);
 		
 		return result;
 	}

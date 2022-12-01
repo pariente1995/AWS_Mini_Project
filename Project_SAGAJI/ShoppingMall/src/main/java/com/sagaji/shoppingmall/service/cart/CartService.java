@@ -6,7 +6,7 @@ import java.util.Map;
 import com.sagaji.shoppingmall.vo.CartVO;
 
 public interface CartService {
-	List<CartVO> getCartList(Map<String, String> paramMap);
+	List<Map<String, Object>> getCartList(String userId);
 	
 	void deleteCart(String prdctNo, int prdctDetailNo);
 	
