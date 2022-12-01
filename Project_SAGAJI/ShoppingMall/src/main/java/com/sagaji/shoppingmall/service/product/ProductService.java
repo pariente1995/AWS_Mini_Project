@@ -18,6 +18,9 @@ public interface ProductService {
 	
 	// 신제품 조회
 	List<Map<String, Object>> getNewProductList();
+	
+	// 제품 리스트 조회
+	List<Map<String, Object>> getProductList(String searchKeyword);
 
 	//제품저장
 	public void insertProduct(Map<String,Object> map);
