@@ -84,8 +84,8 @@
 			   AND B.PRDCT_DETAIL_NO = D.PRDCT_DETAIL_NO
 		]]>
 		<if test="searchKeyword != '' and searchKeyword != null">
-			OR A.PRDCT_NM LIKE CONCAT('%', #{searchKeyword}, '%')
-			OR B.PRDCT_CATEGORY_CD LIKE CONCAT('%', #{searchKeyword}, '%')
+			AND (A.PRDCT_NM LIKE CONCAT('%', #{searchKeyword}, '%')
+			OR C.CATEGORY_NM LIKE CONCAT('%', #{searchKeyword}, '%'))
 		</if>
 	</select>
 

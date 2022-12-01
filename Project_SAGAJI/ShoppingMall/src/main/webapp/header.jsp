@@ -81,8 +81,8 @@
       margin-right: 40px;
     }
 
-    /* 돋보기 아이콘 및 검색어 입력 영역*/
-    #main-header-search #main-search-form {
+    /* 돋보기 아이콘 및 검색어 입력 영역 */
+	#main-header-search #main-search-form {
       width: 900px;
       height: 55px;
       display: flex;
@@ -92,11 +92,11 @@
       border-radius: 20px;
     }
 
-    #main-header-search #main-search-form:hover {
+	#main-header-search #main-search-form:hover {
       background-color: #DFDFDF;
     }
 
-    #main-search-form #searchKeyword {
+	#main-search-form #searchKeyword {
       width: 920px;
       height: 30px;
       margin: 10px;
@@ -318,10 +318,12 @@
        cursor: pointer;
     }
     
+    /* input 태그 자동완성 관련 강제로 배경색 변경되는 부분 안되도록 수정 */
     input:-webkit-autofill{
 		transition: background-color 5000s;
 	}
 	
+	/* input 태그 자동완성 관련 강제로 배경색 변경되는 부분 안되도록 수정 */
 	input:-webkit-autofill:hover,
 	input:-webkit-autofill:focus,
 	input:-webkit-autofill:active {
@@ -362,7 +364,7 @@
             <a href="/"><img src="${pageContext.request.contextPath}/images/logo.png" class="logoImg"></a>
           </div>
           <div id="search-wrapper">
-	          <form id="main-search-form" action="/product/getSearchList.do" method="get">
+	          <form id="main-search-form" action="/product/getSearchList.do" method="post">
 	            <img src="${pageContext.request.contextPath}/images/search.png" id="searchImg">
 	            <input type="text" name="searchKeyword" id="searchKeyword" placeholder="검색어 입력">
 	          </form>
@@ -494,31 +496,12 @@
 		});
       	
       	// 검색어 입력 후 엔터키 입력 시, 검색어에 따른 조회
-      	$("#searchKeyword").on("keyup", function(key) {
+      	// -> 제품명, 카테고리명으로만 검색
+      	$("#searchKeyword").on("keydown", function(key) {
 	        if(key.keyCode==13) {
-	        	searchAjax();
+	        	$("#main-search-form").submit();
 	        }
     	});
-      	
-      	/* 
-      		검색어 입력에 따른 조회 부분
-      		-> 제품명, 카테고리만 검색
-      	*/
-      	function searchAjax() {
-      		let searchKeyword = $("#searchKeyword").val();
-      		//console.log(searchKeyword);
-      		
-    		$.ajax({
-    			url:"/product/getSearchList.do?searchKeyword=" + searchKeyword,
-    			type: "get",
-    			success: function(obj) {
-    				//console.log(obj);
-    			},
-    			error: function(e) {
-    				//console.log(e);
-    			}
-    		});
-      	}
       	
       	/*
       	아래부분 주석처리 후, img 태그를 a태그 감쌈.

@@ -7,7 +7,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -58,13 +57,15 @@ public class ProductController {
 	
 	// 검색어 입력에 따른 조회
 	// 제품명, 카테고리명으로만 검색
-	@GetMapping(value="/getSearchList.do", produces="application/text; charset=UTF-8")
+	@PostMapping(value="/getSearchList.do", produces="application/text; charset=UTF-8")
 	public String getSearchList(@RequestParam("searchKeyword") String searchKeyword, Model model) {
+		// 검색어에 해당하는 조회 결과값 가져오기
 		List<Map<String, Object>> productList = productService.getProductList(searchKeyword);
-		System.out.println(searchKeyword);
+		
 		model.addAttribute("productList", productList);
 		model.addAttribute("searchKeyword", searchKeyword);
-		System.out.println(model);
+		
+		// 제품리스트 조회 화면으로 이동
 		return "product/getProductList";
 	}
 

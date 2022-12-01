@@ -98,7 +98,7 @@
 <jsp:include page="${pageContext.request.contextPath }/header.jsp"></jsp:include>
 
 <div id="product-container">
-	<h1>${searchKeyword}와(과) 일치하는 항목 표시</h1>
+	<h1>"${searchKeyword}"와(과) 일치하는 항목 표시</h1>
     <hr/>
     
 	<%-- 제품 리스트 --%>
