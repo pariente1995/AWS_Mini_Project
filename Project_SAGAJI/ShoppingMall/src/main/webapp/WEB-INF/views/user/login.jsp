@@ -153,7 +153,7 @@
 	<div class="form-wrapper">
         <!-- ★action 수정하기 -->
         <form id="loginForm" action="/user/login.do" method="post">
-            <input type="hidden" id="loginMsg" value="${loginMsg }">
+            <input type="hidden" id="joinMsg" value="${joinMsg }">
     
             <!-- ========== 왼쪽사이드 ========== -->
             <div class="section1">
@@ -224,8 +224,8 @@
 	<script>
 		$(function() {
 			//로그인 성공 시 메시지 출력
-			if($("#loginMsg").val() != "" && $("#loginMsg").val() != null) {
-				alert($("#loginMsg").val());
+			if($("#joinMsg").val() != "" && $("#joinMsg").val() != null) {
+				alert($("#joinMsg").val());
 			}
 			
 			var pwValidation = false;

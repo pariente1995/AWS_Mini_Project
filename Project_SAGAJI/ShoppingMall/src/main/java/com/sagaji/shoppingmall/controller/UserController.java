@@ -30,6 +30,7 @@ public class UserController {
 	@PostMapping(value = "/join.do", produces = "application/text; charset=UTF-8")
 	public String join(UserVO userVO, Model model) {
 		int joinResult = userService.join(userVO);
+
 		if (joinResult == 0) {
 			model.addAttribute("joinMsg", "회원가입에 실패하셨습니다. 관리자에게 문의해주세요.");
 			return "user/join";
@@ -114,7 +115,7 @@ public class UserController {
 		session.invalidate();
 		userService.updateUser(userVO);
 
-		return "redirect:/";
+		return "redirect:/user/login";
 	}
 
 	// 7. 회원탈퇴(회원 사용 여부)
@@ -123,6 +124,6 @@ public class UserController {
 		session.invalidate();
 		userService.withdrawUser(userVO);
 
-		return "redirect:/user/login" ;
+		return "redirect:/" ;
 	}
 }
