@@ -115,7 +115,7 @@ public class UserController {
 		session.invalidate();
 		userService.updateUser(userVO);
 
-		return "redirect:/user/login";
+		return "redirect:/user/login.do";
 	}
 
 	// 7. 회원탈퇴(회원 사용 여부)
