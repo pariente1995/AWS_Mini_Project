@@ -7,7 +7,7 @@
 <!-- 본인들이 맡은 페이지 스타일 -->
 <style>
 	#container { width: 1500px; margin: 0 auto;}
-    h1 { margin-left: 128px;}
+    #hh1 { margin-left: 30px;}
     /* 전체제품 삭제 버튼 */
     #cartBtn {
       border: 0;
@@ -73,17 +73,26 @@
 
 <!-- 각자 디자인한 UI -->
 <div id="container">
-    <h1>장바구니</h1>
+    <h1 id="hh1">장바구니</h1>
     <button id="cartBtn">전체제품 삭제</button>
     <br><br>
     <form id="searchForm" action="/cart/getCartList.do" method="post">
     <table id="T1">
-    	<c:forEach items="${cartList }" var="cart">
+    <tr>
+    	<td></td>
+    </tr>
+    	<c:forEach items="${cartList }" var="cart" varStatus="status">
+    	<c:if test="${status.last }">
+    		<input type="hidden" id="cartListLength" value="${status.count }">
+    	</c:if>
+    	<fmt:parseNumber var="i" type="number" value="${cart.Cnt}" />
+    	<fmt:parseNumber var="j" type="number" value="${cart.prdctPrice}" />
+    	<input type="hidden" id="amount${status.index }" value="${i * j }">
       <tr>
         <th rowspan="3" id="prdcImg"><img src="${pageContext.request.contextPath}/images/${cart.prdctImageNm}${cart.prdctImageType}"></th>
         <th class="h">&emsp;제품이름</th>
         <td class="d">${cart.prdctNm }</td>
-        <th><c:out value="${cart.prdctPrice }"></c:out>원</th>
+        <th>￦<c:out value="${cart.prdctPrice }"></c:out></th>
       </tr>
       <tr>
         <th class="h">&emsp;제품 설명</th>
@@ -106,7 +115,7 @@
             <option value="10">10</option>
           </select>
         </td>
-        <td><a href="/cart/deleteCart.do?prdctNo=${cart.prdctNo }&prdctDetailNo=${cart.prdctDetailNo}" id="delBtn"><button>삭제</button></a></td>
+        <td><a href="/cart/deleteCart.do?prdctNo=${cart.prdctNo }&prdctDetailNo=${cart.prdctDetailNo}" ><input type="button" id="delBtn" value="삭제"></a></td>
       </tr>
       <tr>
         <td colspan="4"><hr></td>
@@ -120,17 +129,20 @@
       </tr>
       <tr>
         <th>제품가격</th>
-        <td><%-- ${ } --%></td>
+        <td id="totalAmount"></td>
       </tr>
       <tr>
         <td colspan="2"><hr id="hr1"></td>
       </tr>
       <tr>
         <th>총 주문금액</th>
-        <td><%-- ${ } --%></td>
+        <td id="totalAmount"></td>
       </tr>
       <tr>
-        <td colspan="2"><a href="/오더브이오없는데에ㅔㅔㅔㅔㅔ/getOrderList.do"><button id="orderBtn">주문하기</button></a></td>
+      	<td></td>
+      </tr>
+      <tr>
+        <td colspan="2"><a href="/오더브이오없는데에ㅔㅔㅔㅔㅔ/getOrderList.do"><input type="button" id="orderBtn" value="주문하기"></a></td>
       </tr>
     </table>
   </form>
@@ -142,6 +154,14 @@
 <!-- 각자 스크립트 작성 부분 -->
 <script>
 	$(function() {
+		let totalAmout = 0;
+		
+		for(let i = 0; i < $("#cartListLength").val(); i++) {
+			totalAmount += parseInt($("#amount" + i).val());
+		}
+		
+		$("#totalAmout").text(totalAmout);
+		
 		//주문하기 버튼 클릭 시 주문페이지로 이동
 		$("#ordertBtn").on("click", function(){
 			$ajax({
@@ -159,11 +179,6 @@
 			});
 		})
 		
-		$("#delBtn").on("click", function(){
-			console.log("${cart.prdctNo }");
-			console.log("${cart.prdctDetailNo }");
-		
-		})
 			
 	});
 </script>

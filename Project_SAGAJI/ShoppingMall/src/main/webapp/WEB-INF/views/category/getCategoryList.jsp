@@ -265,7 +265,7 @@
 			              </div>
 			              <div class="main-prd-disc-cart">
 			                <img src="${pageContext.request.contextPath }/images/heart-empty.png" class="prd-heart-img">
-			                <img src="${pageContext.request.contextPath }/images/cart.png" class="prd-cart-img" onclick="insertCart('${newList.prdctNo}', '${newList.prdctDetailNo }')">
+			                <img src="${pageContext.request.contextPath }/images/cart.png" class="prd-cart-img" onclick="insertCart('${cate.prdctNo}', '${cate.prdctDetailNo }')">
 			              </div>
 			            </div>
 			          </div>
