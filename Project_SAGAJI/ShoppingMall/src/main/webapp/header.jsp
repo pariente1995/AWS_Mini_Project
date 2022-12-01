@@ -419,7 +419,7 @@
             <c:choose>
             	<c:when test="${loginUser.userType eq 'USER'}">
             		<li>
-		              <a href="#">문의사항</a>
+		              <a href="/question/getQuestionList.do">문의사항</a>
 		            </li>
 		            <li>
 		              <a href="#">주문조회</a>
