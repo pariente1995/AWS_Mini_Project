@@ -53,4 +53,13 @@ public class ProductServiceImpl implements ProductService {
 	public void useYnProduct(Map<String,Object> map) {
 		productDAO.useYnProduct(map);
 	}
+	
+	@Override
+	public int noCheck(Map<String,Object> map) {
+		return productDAO.noCheck(map);
+	}
+	
+	public Map<String, Object> getUpdateDetail(Map<String, Object> map){
+		return productDAO.getUpdateDetail(map);
+	}
 }

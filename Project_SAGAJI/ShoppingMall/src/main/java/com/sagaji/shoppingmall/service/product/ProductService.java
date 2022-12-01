@@ -31,4 +31,11 @@ public interface ProductService {
 	
 	//제품 삭제
 	public void useYnProduct(Map<String,Object> map);
+	
+	//제품 번호 체크
+	public int noCheck(Map<String,Object> map);
+	
+	//제품상세 업데이트 화면
+	public Map<String, Object> getUpdateDetail(Map<String, Object> map);
+	
 }
