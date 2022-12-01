@@ -317,6 +317,16 @@
        height: 30px;
        cursor: pointer;
     }
+    
+    input:-webkit-autofill{
+		transition: background-color 5000s;
+	}
+	
+	input:-webkit-autofill:hover,
+	input:-webkit-autofill:focus,
+	input:-webkit-autofill:active {
+		background-color: #F3F1F1;
+	}
   </style>
   <script src="${pageContext.request.contextPath}/js/jquery-3.6.1.min.js"></script>
 </head>
