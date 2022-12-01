@@ -81,8 +81,8 @@
       margin-right: 40px;
     }
 
-    /* 돋보기 아이콘 및 검색어 입력 영역*/
-    #main-header-search #search-wrapper {
+    /* 돋보기 아이콘 및 검색어 입력 영역 */
+	#main-header-search #main-search-form {
       width: 900px;
       height: 55px;
       display: flex;
@@ -92,11 +92,11 @@
       border-radius: 20px;
     }
 
-    #main-header-search #search-wrapper:hover {
+	#main-header-search #main-search-form:hover {
       background-color: #DFDFDF;
     }
 
-    #search-wrapper #searchKeyword {
+	#main-search-form #searchKeyword {
       width: 920px;
       height: 30px;
       margin: 10px;
@@ -104,9 +104,7 @@
       background-color: #f3f1f1;
       background: transparent;
       /* input 테그 클릭 시, 기본적으로 생기는 테두리 제거 */
-      outline: none;
-      /* input 태그 자동완성 선택 시, 배경색 변경되는 부분 막기 */
-      
+      outline: none; 
     }
 
     #main-header-login {
@@ -319,6 +317,18 @@
        height: 30px;
        cursor: pointer;
     }
+    
+    /* input 태그 자동완성 관련 강제로 배경색 변경되는 부분 안되도록 수정 */
+    input:-webkit-autofill{
+		transition: background-color 5000s;
+	}
+	
+	/* input 태그 자동완성 관련 강제로 배경색 변경되는 부분 안되도록 수정 */
+	input:-webkit-autofill:hover,
+	input:-webkit-autofill:focus,
+	input:-webkit-autofill:active {
+		background-color: #F3F1F1;
+	}
   </style>
   <script src="${pageContext.request.contextPath}/js/jquery-3.6.1.min.js"></script>
 </head>
@@ -354,8 +364,10 @@
             <a href="/"><img src="${pageContext.request.contextPath}/images/logo.png" class="logoImg"></a>
           </div>
           <div id="search-wrapper">
-            <img src="${pageContext.request.contextPath}/images/search.png" id="searchImg">
-            <input type="text" name="searchKeyword" id="searchKeyword" placeholder="검색어 입력">
+	          <form id="main-search-form" action="/product/getSearchList.do" method="post">
+	            <img src="${pageContext.request.contextPath}/images/search.png" id="searchImg">
+	            <input type="text" name="searchKeyword" id="searchKeyword" placeholder="검색어 입력">
+	          </form>
           </div>
         </div>
         <c:choose>
@@ -409,7 +421,7 @@
             <c:choose>
             	<c:when test="${loginUser.userType eq 'USER'}">
             		<li>
-		              <a href="#">문의사항</a>
+		              <a href="/question/getQuestionList.do">문의사항</a>
 		            </li>
 		            <li>
 		              <a href="#">주문조회</a>
@@ -483,6 +495,14 @@
 				console.log(e);
 			}
 		});
+      	
+      	// 검색어 입력 후 엔터키 입력 시, 검색어에 따른 조회
+      	// -> 제품명, 카테고리명으로만 검색
+      	$("#searchKeyword").on("keydown", function(key) {
+	        if(key.keyCode==13) {
+	        	$("#main-search-form").submit();
+	        }
+    	});
       	
       	/*
       	아래부분 주석처리 후, img 태그를 a태그 감쌈.

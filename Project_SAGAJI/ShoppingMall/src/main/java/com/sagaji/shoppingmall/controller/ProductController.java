@@ -55,6 +55,20 @@ public class ProductController {
 		return jsonStr;
 	}
 	
+	// 검색어 입력에 따른 조회
+	// 제품명, 카테고리명으로만 검색
+	@PostMapping(value="/getSearchList.do", produces="application/text; charset=UTF-8")
+	public String getSearchList(@RequestParam("searchKeyword") String searchKeyword, Model model) {
+		// 검색어에 해당하는 조회 결과값 가져오기
+		List<Map<String, Object>> productList = productService.getProductList(searchKeyword);
+		
+		model.addAttribute("productList", productList);
+		model.addAttribute("searchKeyword", searchKeyword);
+		
+		// 제품리스트 조회 화면으로 이동
+		return "product/getProductList";
+	}
+
 		// 제품 등록
 		@RequestMapping("/insertProduct.do")
 		public String insertProduct(@RequestParam Map<String, Object> paramMap)  {
@@ -122,6 +136,30 @@ public class ProductController {
 		return "product/insertProduct";
 		}
 		
+		/*
+		 * // 제품 수정
+		 * 
+		 * @RequestMapping("/getUpdateDetail.do") public String
+		 * updateProduct(@RequestParam Map<String, Object> paramMap, Model model) {
+		 * paramMap.put("prdctNo", "PRDCT20221128_12");
+		 * 
+		 * // 카테고리 조회 Map<String, Object> categroyMap =
+		 * productService.getUpdateDetail(paramMap); model.addAttribute("categroyMap",
+		 * categroyMap); return "product/updateProduct"; }
+		 * 
+		 * 
+		 * 
+		 * @PostMapping("/noCheck.do")
+		 * 
+		 * @ResponseBody public int noCheck(@RequestParam Map<String, Object> paramMap)
+		 * throws JsonProcessingException {
+		 * 
+		 * int idCnt = productService.noCheck(paramMap);
+		 * 
+		 * 
+		 * return idCnt; }
+		 */
+
 		// 제품 수정
 		@RequestMapping("/getUpdateDetail.do")
 		public String getUpdateDetail(@RequestParam Map<String, Object> paramMap, Model model) {
@@ -143,5 +181,4 @@ public class ProductController {
 		
 		return idCnt;
 		}
-		
 	}
