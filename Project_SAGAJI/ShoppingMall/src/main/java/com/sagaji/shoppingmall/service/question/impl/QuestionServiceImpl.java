@@ -1,7 +1,7 @@
 package com.sagaji.shoppingmall.service.question.impl;
 
 import java.util.List;
-import java.util.Map;
+//import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,16 +36,16 @@ public class QuestionServiceImpl implements QuestionService{
 //		questionDAO.updateBoardCnt(boardNo);
 //	}
 //	
-//	@Override
-//	public void updateBoard(QuestionVO questionVO) {
-//		questionDAO.updateBoard(boardVO);
-//	}
-//	
-//	@Override
-//	public void deleteBoard(int boardNo) {
-//		questionDAO.deleteBoard(boardNo);
-//	}
-//	
+	@Override
+	public void updateQuestion(QuestionVO questionVO) {
+		questionDAO.updateQuestion(questionVO);
+	}
+	
+	@Override
+	public void deleteQuestion(int questionNo) {
+		questionDAO.deleteQuestion(questionNo);
+	}
+	
 //	@Override
 //	public int getBoardTotalCnt(Map<String, String> paramMap) {
 //		return questionDAO.getBoardTotalCnt(paramMap);

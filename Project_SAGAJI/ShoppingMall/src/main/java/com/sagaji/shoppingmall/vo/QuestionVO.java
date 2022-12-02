@@ -22,10 +22,13 @@ public class QuestionVO {
 	private String questionTitle;
 	private String questionContent;
 	private Date questionRgstDate;
+	private Date questionModfDate;
 	private String questionState;
 	private String questionAnswer;
 	private String userId;
 	private String questionSecretYn;
+	
+	
 	public int getQuestionNo() {
 		return questionNo;
 	}
@@ -49,6 +52,13 @@ public class QuestionVO {
 	}
 	public void setQuestionRgstDate(Date questionRgstDate) {
 		this.questionRgstDate = questionRgstDate;
+	}
+	
+	public Date getQuestionModfDate() {
+		return questionModfDate;
+	}
+	public void setQuestionModfDate(Date questionModfDate) {
+		this.questionModfDate = questionModfDate;
 	}
 	public String getQuestionState() {
 		return questionState;
@@ -74,18 +84,11 @@ public class QuestionVO {
 	public void setQuestionSecretYn(String questionSecretYn) {
 		this.questionSecretYn = questionSecretYn;
 	}
-	
-	
 	@Override
 	public String toString() {
 		return "QuestionVO [questionNo=" + questionNo + ", questionTitle=" + questionTitle + ", questionContent="
-				+ questionContent + ", questionRgstDate=" + questionRgstDate + ", questionState=" + questionState
-				+ ", questionAnswer=" + questionAnswer + ", userId=" + userId + ", questionSecretYn=" + questionSecretYn
-				+ "]";
+				+ questionContent + ", questionRgstDate=" + questionRgstDate + ", questionModfDate=" + questionModfDate
+				+ ", questionState=" + questionState + ", questionAnswer=" + questionAnswer + ", userId=" + userId
+				+ ", questionSecretYn=" + questionSecretYn + "]";
 	}
-	
-	
-	
-
-
 }

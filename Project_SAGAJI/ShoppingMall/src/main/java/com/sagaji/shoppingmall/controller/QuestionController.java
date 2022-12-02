@@ -33,29 +33,6 @@ public class QuestionController {
 
 	
 	//게시글 목록 화면으로 이동
-//		@RequestMapping("/getQuestionList.do")
-//		public String getBoardList(Model model, 
-//		@RequestParam 
-//		Map<String, String> paramMap, Criteria cri) {
-//			List<QuestionVO> QuestionList = QuestionService.getQuestionList(paramMap, cri);
-//			
-//			model.addAttribute("QuestionList", QuestionList);
-//			
-//			if(paramMap.get("searchCondition") != null && !paramMap.get("searchCondition").equals(""))
-//				model.addAttribute("searchCondition", paramMap.get("searchCondition"));
-//			
-//			if(paramMap.get("searchKeyword") != null && !paramMap.get("searchKeyword").equals(""))
-//				model.addAttribute("searchKeyword", paramMap.get("searchKeyword"));
-//			
-//			int total = QuestionService.getBoardTotalCnt(paramMap);
-//			
-//			System.out.println(total);
-//			model.addAttribute("pageVO", new PageVO(cri, total));
-//			
-//			return "board/getBoardList";
-//		}
-//		
-	
 	@RequestMapping("/getQuestionList.do")
 	public String getBoardList(Model model) {
 		
@@ -96,26 +73,27 @@ public class QuestionController {
 			
 			model.addAttribute("question", question);
 			
-			return "question/getQuestion";
+			return "question/detailQuestion";
 		} 
 	
 
-//	
-//	//게시글 수정
-//	@PostMapping("/updateQuestion.do")
-//	public String updateQuestion(QuestionVO questionVO) {
-//		questionService.updateQuestion(questionVO);
-//		
-//		return "redirect:/question/getQuestion.do?questionNo=" + questionVO.getQuestionNo();
-//	}
-//	
-//	//게시글 삭제
-//	@RequestMapping("/deleteQuestion.do")
-//	public String deleteQuestion(@RequestParam("questionNo") int questionNo) {
-//		questionService.deleteQuestion(questionNo);
-//		
-//		return "redirect:/question/getQuestionList.do";
-//	}
+	
+	//게시글 수정
+	@PostMapping("/updateQuestion.do")
+	public String updateQuestion(QuestionVO questionVO) {
+		QuestionService.updateQuestion(questionVO);
+		System.out.println(questionVO);
+		return "redirect:/question/getQuestion.do?questionNo=" + questionVO.getQuestionNo();
+	}
+	
+	//게시글 삭제
+	@RequestMapping("/deleteQuestion.do")
+	public String deleteQuestion(@RequestParam("questionNo") int questionNo) {
+		QuestionService.deleteQuestion(questionNo);
+		
+		return "redirect:/question/getQuestionList.do";
+	}
+	
 	
 	
 

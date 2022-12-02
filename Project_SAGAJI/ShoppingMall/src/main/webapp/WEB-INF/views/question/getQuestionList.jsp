@@ -65,7 +65,9 @@ tr {
 		<!-- header 부분 -->
 		<jsp:include page="${pageContext.request.contextPath}/header.jsp"></jsp:include>
 
-		<form action="/board/updateBoard.do" method="post">	
+
+		
+		
 	  <div id="container">
 
 
@@ -73,6 +75,8 @@ tr {
 		<h1>
 			<b>&emsp; 문의사항 목록</b>
 		</h1>
+		<br><br>
+		
 
 		<div id="b">
 
@@ -99,14 +103,14 @@ tr {
 					<c:choose>
 						<c:when test="${question.questionSecretYn == 'Y' }">
 							<c:if test="${loginUser.userId == question.userId }">
-								<td> ${question.questionTitle}</td>
+								<td><a href="/question/getQuestion.do?questionNo=${question.questionNo}" > ${question.questionTitle}</a></td>
 							</c:if>
 							<c:if test="${loginUser.userId != question.userId }">
 								<td><img src="${pageContext.request.contextPath }/images/lock.jpg" alt="사진자리"> 비밀글입니다.</td>
 							</c:if>
 						</c:when>
 						<c:otherwise>
-							<td> ${question.questionTitle}</td>
+							<td><a href="/question/getQuestion.do?questionNo=${question.questionNo}" > ${question.questionTitle}</a></td>
 						</c:otherwise>
 					</c:choose>
 					<td> ${question.questionRgstDate}</td>
@@ -123,7 +127,7 @@ tr {
 
 
 
-  </form>
+
 
 
 	<!-- 세혁님 디자인 페이지 -->
@@ -135,7 +139,7 @@ tr {
 
 		<script>
 			/* $(function() {
-					$(".pagination a").on("click", function(e) {
+					/* $(".pagination a").on("click", function(e) {
 						e.preventDefault();
 						
 						$("input[name='pageNum']").val($(this).attr("href"));
@@ -146,9 +150,24 @@ tr {
 						$("input[name='pageNum']").val(1);
 						
 						$("#searchForm").submit();
-					});
-				});
-					 */
+					}); */
+					
+					let sendData = {"questionNo" : "${questionNo}" }
+					$("#my").on("click", function(e) {
+						alert("my 버튼 눌림");
+						$.ajax({
+							url:"/question/getQuestionList.do",
+							type: "post",
+							data: sendData,
+							success: function(obj) {
+								
+							},
+							error(function(e) {
+								console.log(e);
+							})
+						})
+					})
+				}); */
 							
 				</script>
 
