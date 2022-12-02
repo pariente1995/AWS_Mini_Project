@@ -183,8 +183,16 @@
 		});
 		
 		// 상품 상세 조회
-		$(".main-prd-info").on("click",function(){
-			alert(1);
-		});
+		$(".main-prd-info").on("click",function() {
+			
+	    });
+	    
+	    $("div#top-prd").on("click",function() {
+	    	var sPrdctNo = $(this).data("prdctno");
+	    	var sPrdctDetailNo = $(this).data("prdctdetailno");
+	    	
+	    	location.href = "/product/getProductInfo.do?prdctNo="+sPrdctNo+"&prdctDetailNo="+sPrdctDetailNo; 
+			
+	    });
 	});
 </script>

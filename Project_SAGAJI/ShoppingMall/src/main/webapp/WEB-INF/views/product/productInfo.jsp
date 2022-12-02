@@ -12,8 +12,8 @@
 <style>
   #container{
     /* 페이지 영역 */
-    margin: 50px 20px 20px 50px;
-    width: 1250px;
+    margin: 50px 20px 20px 130px;
+    width: 1100px;
     border: 1px solid black;
     padding-left: 100px;
   }
@@ -49,11 +49,15 @@
   }
   #btn{
     border-radius: 50px;
-    width: 120px;
+    width: 200px;
     height: 40px;
     border: 0px;
     background-color: #0058A3;
     color: white;
+  }
+  .main-prd-disc-cart{
+  width: 10px; 
+  height: 10px;
   }
 </style>
 
@@ -73,13 +77,13 @@
         <h4>색상: 
         	<c:choose>
         		<c:when test="${infoMap.PRDCT_COLOR eq 'A0001' }">
-        			빨강
+        			브라운
         		</c:when>
         		<c:when test="${infoMap.PRDCT_COLOR eq 'A0002' }">
-        			파랑
+        			블랙
         		</c:when>
         		<c:when test="${infoMap.PRDCT_COLOR eq 'A0003' }">
-        			노랑
+        			화이트
         		</c:when>
         		<c:otherwise>
         			색깔없음
@@ -102,24 +106,27 @@
         		</c:otherwise>
         	</c:choose>
         </h4>
-        <img id="subimg" src="img/sub1.PNG"> <img id="subimg" src="img/sub2.PNG"> <img id="subimg" src="img/sub3.PNG"><br>
-        <br><br><button id="btn">구매하기</button>
-      </p>
-
-
+        <!--  <img id="subimg" src="img/sub1.PNG"> <img id="subimg" src="img/sub2.PNG"> <img id="subimg" src="img/sub3.PNG"><br> -->
+        <button id="btn">구매하기</button>
+        
+       &nbsp;&nbsp;&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/images/heart-empty.png" class="prd-heart-img" width="35" height="35" >
+       &nbsp;&nbsp;&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/images/cart.png" class="prd-cart-img" onclick="insertCart('${pop.prdctNo}', '${pop.prdctDetailNo }')" width="40" height="40">
+	   
+	  
       <p class="p2">
         ${infoMap.PRDCT_INFO }
       </p>
+      <br>
+		 <c:if test="${loginUser.userType eq 'ADMIN'}">
+			<a href="/product/getUpdateDetail.do?prdctNo=${infoMap.PRDCT_NO }">제품 수정</a>
+		 </c:if>
 
-    
+         
   </div>
 <!-- 푸터 페이지 -->
 <jsp:include page="${pageContext.request.contextPath}/footer.jsp"></jsp:include>
     <script>
-    
-	  
-    
-        
+         
     </script>
 </body>
 </html>

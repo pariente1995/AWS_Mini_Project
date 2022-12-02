@@ -131,9 +131,11 @@
     </div>
     <div class="main-prd" id="top-prd">
     	<c:forEach items="${popularProductList}" var="pop">
-    		<div class="main-prd-info" id="top-sub" data-prdctno="${pop.prdctNo}" data-prdctdetailno="${pop.prdctDetailNo}" }>
-		        <img src="${pageContext.request.contextPath}/images/${pop.prdctImageNm}${pop.prdctImageType}" 
-		        	data-imgnm="${pop.prdctImageNm}" data-ext="${pop.prdctImageType}" class="main-prd-img">
+    		<div class="main-prd-info" id="top-sub">
+    			<div id="imgTopArea">
+    				<img src="${pageContext.request.contextPath}/images/${pop.prdctImageNm}${pop.prdctImageType}" 
+		        	data-imgnm="${pop.prdctImageNm}" data-ext="${pop.prdctImageType}" data-prdctno="${pop.prdctNo}" data-prdctdetailno="${pop.prdctDetailNo}"  class="main-prd-img" />
+    			</div>
 		        <div class="main-prd-disc">
 		          <p class="prd-nm">${pop.prdctNm}</p>
 		          <p class="prd-size">${pop.prdctSize}</p>
@@ -164,9 +166,12 @@
       <div class="main-prd" id="new-prd">
           <div id="new-prd-slide">
           	<c:forEach items="${newProductList}" var="newList">
-              <div class="main-prd-info">
-                  <img src="${pageContext.request.contextPath}/images/${newList.prdctImageNm}${newList.prdctImageType}" 
-                  	data-imgnm="${newList.prdctImageNm}" data-ext="${newList.prdctImageType}" class="main-prd-img">
+              <div class="main-prd-info" id="new_sub">
+                  <div id="imgNewArea">
+                  	<img src="${pageContext.request.contextPath}/images/${newList.prdctImageNm}${newList.prdctImageType}" 
+                  	data-imgnm="${newList.prdctImageNm}" data-ext="${newList.prdctImageType}" data-prdctno="${newList.prdctNo}" data-prdctdetailno="${newList.prdctDetailNo}" class="main-prd-img">
+                  </div>
+                  
                   <div class="main-prd-disc">
                       <p class="prd-nm">${newList.prdctNm}</p>
                       <p class="prd-size">${newList.prdctSize}</p>
@@ -285,7 +290,20 @@
 	
 	    });
 	    
-	    $("div#top-sub").on("click",function() {
+	    $("div#top-sub #imgTopArea img").on("click",function() {
+	    	var sPrdctNo = $(this).data("prdctno");
+	    	var sPrdctDetailNo = $(this).data("prdctdetailno");
+	    	
+	    	location.href = "/product/getProductInfo.do?prdctNo="+sPrdctNo+"&prdctDetailNo="+sPrdctDetailNo; 
+			
+	    });
+	    
+	    // 신상품 상세 조회
+	    $(".main-prd-title").on("click",function() {
+	
+	    });
+	    
+	    $("div#new_sub #imgNewArea img").on("click",function() {
 	    	var sPrdctNo = $(this).data("prdctno");
 	    	var sPrdctDetailNo = $(this).data("prdctdetailno");
 	    	

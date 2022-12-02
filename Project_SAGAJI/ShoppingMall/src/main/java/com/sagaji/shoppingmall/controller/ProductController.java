@@ -100,7 +100,7 @@ public class ProductController {
 				
 			//System.out.println();
 			//return "redirect://product/getCategoryProductList.do";
-			return "redirect://localhost:8099";
+			return "redirect:getProductInfo.do?prdctNo=" + paramMap.get("prdctNo") + "&prdctDetailNo=" + paramMap.get("prdctDetailNo");
 		}
 		
 		// 제품 등록
@@ -175,10 +175,9 @@ public class ProductController {
 		// 제품 수정
 		@RequestMapping("/getUpdateDetail.do")
 		public String getUpdateDetail(@RequestParam Map<String, Object> paramMap, Model model) {
-			//paramMap.put("prdctNo", "PRDCT_S_02");
-				System.out.println("test================="+paramMap);	
-			Map<String, Object> categroyMap = productService.getUpdateDetail(paramMap);
-			model.addAttribute("categroyMap", categroyMap);
+				//System.out.println("test================="+paramMap);	
+			Map<String, Object> categoryMap = productService.getUpdateDetail(paramMap);
+			model.addAttribute("categoryMap", categoryMap);
 			return "product/updateProduct";
 		}
 		

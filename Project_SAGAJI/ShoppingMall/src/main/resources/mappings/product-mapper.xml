@@ -156,12 +156,14 @@
 	<!-- 제품 수정 -->
 	<update id="updateProductDetail" parameterType="map">
 	  	UPDATE T_SGJ_PRDCT_DETAIL
-		SET PRDCT_SIZE = #{prdctSize}
-			,PRDCT_COLOR = #{prdctColor}
-			,PRDCT_MATERIAL = #{prdctMaterial}
-			,PRDCT_PRICE = #{prdctPrice}
-			,PRDCT_REMAIN = #{prdctRemain}
-			,PRDCT_MODF_DATE = NOW()
+		<set> 
+			<if test="prdctSize != null and prdctSize != ''">PRDCT_SIZE = #{prdctSize},</if>
+			<if test="prdctColor != null and prdctColor != ''">PRDCT_COLOR = #{prdctColor},</if>
+			<if test="prdctMaterial != null and prdctMaterial != ''">PRDCT_MATERIAL = #{prdctMaterial},</if>
+			<if test="prdctPrice != null and prdctPrice != ''">PRDCT_PRICE = #{prdctPrice},</if>
+			<if test="prdctRemain != null and prdctRemain != ''">PRDCT_REMAIN = #{prdctRemain},</if>
+			PRDCT_MODF_DATE = NOW()
+		</set>
 		WHERE PRDCT_NO = #{prdctNo}
 		AND	  PRDCT_DETAIL_NO = #{prdctDetailNo}
 	</update>
@@ -198,6 +200,7 @@
 			,B.PRDCT_MATERIAL
 			,B.PRDCT_PRICE
 			,B.PRDCT_REMAIN
+			,B.PRDCT_SIZE
 			,DATE_FORMAT(A.PRDCT_RGST_DATE, '%Y-%m-%d') AS PRDCT_RGST_DATE
 			,DATE_FORMAT(B.PRDCT_MODF_DATE, '%Y-%m-%d') AS PRDCT_MODF_DATE
 		from 
