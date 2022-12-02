@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -99,10 +100,9 @@ public class UserController {
 	// 5. 내정보 이동
 	@GetMapping("/myInfo.do")
 	public String myInfoView(HttpSession session) {
-
 		return "user/myInfo";
 	}
-
+	
 	@PostMapping("/myInfo.do")
 	public String myInfo(UserVO userVO) {
 		userService.myInfo(userVO);

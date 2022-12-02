@@ -81,6 +81,16 @@
         padding: 10px;
     }
     tr {height: 40px;}   
+    
+    table #table-userId {
+    	text-decoration: none;
+    	color: black;
+    }
+    
+    table #table-userId:hover {
+    	text-decoration: underline;
+    	font-weight: bold;
+    }
         
 </style>
 <script src="${pageContext.request.contextPath }/js/jquery-3.6.1.min.js"></script>
@@ -89,7 +99,7 @@
 <!-- header 페이지 -->
     <jsp:include page="${pageContext.request.contextPath}/header.jsp"></jsp:include>
     
-<!-- my_info 페이지 -->
+<!-- user_info 페이지 -->
 
     <div class="form-wrapper">
         <!-- ★action 수정하기 -->
@@ -122,20 +132,19 @@
                         </tr>
             			<c:forEach items="${userList}" var="user">
             				<tr>
-	                            <td>${user.userId}</td>
+	                            <td><a href="/admin/getUserInfo.do?userId=${user.userId}" id="table-userId">${user.userId}</a></td>
 	                            <td>${user.userNm}</td>
 	                            <td>${user.userType}</td>
 	                            <td>${user.userUseYn}</td>
-	                            <td>${user.userRegstDate}</td>
+	                            <td>${user.userRgstDate}</td>
 	                        </tr>
             			</c:forEach>
-                        
-            
-                       
                     </table>
                 </div>
             </div>
         </form>
     </div>
+    <!-- footer 페이지 -->
+	<jsp:include page="${pageContext.request.contextPath}/footer.jsp"></jsp:include>
 </body>
 </html>
