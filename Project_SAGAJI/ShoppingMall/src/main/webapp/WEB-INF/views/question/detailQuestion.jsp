@@ -175,19 +175,17 @@
 	<script>
 	
 
-	/* $(function() {
+	$(function() {
 		//세션, 리퀘스트 스코프에 담겨진 데이터를 빼오는 방식
 		const loginUserId = '${loginUser.userId}';
-		const WriterUserId = '${question.userId}';
-		
 		
 		//게시글 작성자와 로그인 유저가 다르면 게시글 수정 못하게 설정
-		if(loginUserId == WriterUserId || loginUserId == 'admin') {
+		if(loginUserId == 'admin') {
 			
 			$("#questionAnswer").attr("readonly", false);
 		
 		}		
-	});  */
+	});
 	</script>
 
 

@@ -115,7 +115,14 @@ tr {
 					</c:choose>
 					<td> ${question.questionRgstDate}</td>
 					<td> ${question.userId}</td>
-					<td> ${question.questionState}</td>
+					<c:choose>
+						<c:when test="${question.questionAnswer eq null }">
+							<td> ${question.questionState}</td>
+						</c:when>
+						<c:otherwise>
+							<td> 답변완료</td>
+						</c:otherwise>	
+					</c:choose>
 				</tr>
 				</c:forEach>
 

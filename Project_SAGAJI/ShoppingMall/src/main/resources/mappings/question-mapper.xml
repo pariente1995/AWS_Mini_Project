@@ -47,6 +47,7 @@
 		UPDATE T_SGJ_QUESTION
 		   SET QUESTION_TITLE = #{questionTitle},
 			   QUESTION_CONTENT = #{questionContent},
+			   QUESTION_ANSWER = #{questionAnswer},
 			   QUESTION_MODF_DATE = NOW()
 		 WHERE QUESTION_NO = #{questionNo}
 		   AND USER_ID = #{userId}
