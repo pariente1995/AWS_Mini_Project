@@ -31,13 +31,13 @@ public class QuestionDAO {
 		return mybatis.selectOne("QuestionDAO.getQuestion", questionNo);
 	}
 
-//	
-//	public void updateBoard(BoardVO questionVO) {
-//		mybatis.update("QuestionDAO.updateBoard", questionVO);
-//	}
-//	
-//	public void deleteBoard(int boardNo) {
-//		mybatis.delete("BoardDAO.deleteBoard", questionNo);
-//	}
+
+	public void updateQuestion(QuestionVO questionVO) {
+		mybatis.update("QuestionDAO.updateQuestion", questionVO);
+	}
+	
+	public void deleteQuestion(int questionNo) {
+		mybatis.delete("QuestionDAO.deleteQuestion", questionNo);
+	}
 
 }

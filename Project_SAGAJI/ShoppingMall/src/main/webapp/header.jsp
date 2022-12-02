@@ -435,7 +435,7 @@
 	            	<li>
 	            		<a href="/product/getCategoryProductDetail.do">제품 등록 &nbsp;</a>
 	            		<a href="#">제품리스트 &nbsp;</a>
-	            		<a href="#">문의사항 &nbsp;</a>
+	            		<a href="/question/getQuestionList.do">문의사항 &nbsp;</a>
 	            		<a href="/admin/userList.do">회원관리 &nbsp;</a>
 		            </li>
 	            </c:when>
