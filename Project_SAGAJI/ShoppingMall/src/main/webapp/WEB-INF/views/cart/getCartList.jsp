@@ -123,7 +123,7 @@
       </tr>
       <tr>
         <th>제품가격</th>
-        <td></td>
+        <td>${totalPrice }원</td>
       </tr>
       <tr>
         <td colspan="2"><hr id="hr1"></td>
