@@ -330,6 +330,7 @@
 		background-color: #F3F1F1;
 	}
   </style>
+  <link rel="icon" href="${pageContext.request.contextPath }/favicon.ico">
   <script src="${pageContext.request.contextPath}/js/jquery-3.6.1.min.js"></script>
 </head>
 <body>

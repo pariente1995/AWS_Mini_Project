@@ -41,5 +41,8 @@ public class CartDAO {
 		return result;
 	}
 	
-
+	public String getCartTotalPrice(String userId) {
+		// TODO Auto-generated method stub
+		return mybatis.selectOne("CartDAO.getCartTotalPrice", userId);
+	}
 }

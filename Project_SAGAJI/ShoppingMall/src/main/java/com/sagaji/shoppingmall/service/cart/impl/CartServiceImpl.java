@@ -29,4 +29,9 @@ public class CartServiceImpl implements CartService {
 		return cartDAO.insertCart(cartVO);
 	}
 
+	@Override
+	public String getCartTotalPrice(String userId) {
+		// TODO Auto-generated method stub
+		return cartDAO.getCartTotalPrice(userId);
+	}
 }
