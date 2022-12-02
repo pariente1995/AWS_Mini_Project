@@ -93,13 +93,13 @@
         <h4>재질: 
         	<c:choose>
         		<c:when test="${infoMap.PRDCT_MATERIAL eq 'B0001' }">
-        			나무
+        			목재
         		</c:when>
         		<c:when test="${infoMap.PRDCT_MATERIAL eq 'B0002' }">
         			메탈
         		</c:when>
         		<c:when test="${infoMap.PRDCT_MATERIAL eq 'B0003' }">
-        			페브릭
+        			원목
         		</c:when>
         		<c:otherwise>
         			재질없음

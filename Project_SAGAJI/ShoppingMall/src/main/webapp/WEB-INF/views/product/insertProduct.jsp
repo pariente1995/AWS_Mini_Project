@@ -103,7 +103,7 @@
 		    <h2 id="sub">제품 소재
 		      <label style="margin-left: 23px;">
 		        <input type="radio" name="prdctMaterial" value="B0001" checked />
-		        <span>나무</span>
+		        <span>목재</span>
 		      </label>
 		      <label>
 		        <input type="radio" name="prdctMaterial" value="B0002" />
@@ -111,7 +111,7 @@
 		      </label>
 		      <label>
 		        <input type="radio" name="prdctMaterial" value="B0003" />
-		        <span>페브릭</span>
+		        <span>원목</span>
 		      </label>
 		      </h2> 
 		      <h2 id="sub">가격 <input id="insert" type="text" name="prdctPrice" style="margin-left: 65px; width: 200px; height: 23px"></h2> 

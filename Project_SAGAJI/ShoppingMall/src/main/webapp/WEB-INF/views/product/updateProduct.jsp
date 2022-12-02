@@ -138,7 +138,7 @@
 	      		checked
 	      	</c:if>
 	        >
-	        <span>나무</span>
+	        <span>목재</span>
 	      </label>
 	      <label>
 	        <input type="radio" name="prdctMaterial" value="B0002" 
@@ -154,7 +154,7 @@
 	      		checked
 	      	</c:if>
 	        >
-	        <span>페브릭</span>
+	        <span>원목</span>
 	      </label>
 	      </h2> 
 	      <h2 id="sub">가격 <input id="insert" type="text" name="prdctPrice" value="${categoryMap.PRDCT_PRICE }" style="margin-left: 65px; width: 200px; height: 23px"></h2> 
