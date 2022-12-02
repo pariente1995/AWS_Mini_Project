@@ -367,7 +367,7 @@
           <div id="search-wrapper">
 	          <form id="main-search-form" action="/product/getSearchList.do" method="post">
 	            <img src="${pageContext.request.contextPath}/images/search.png" id="searchImg">
-	            <input type="text" name="searchKeyword" id="searchKeyword" placeholder="검색어 입력">
+	            <input type="text" name="searchKeyword" id="searchKeyword" placeholder="검색어 입력" value="${searchKeyword}">
 	          </form>
           </div>
         </div>
