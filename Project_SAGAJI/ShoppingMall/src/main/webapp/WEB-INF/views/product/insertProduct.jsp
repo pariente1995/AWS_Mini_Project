@@ -16,8 +16,8 @@
     /* ========== 영역 ========== */
      #container{
     /* 페이지 영역 */
-    margin: 50px 20px 20px 20px;
-    width: 1250px;
+    margin: 50px 20px 20px 130px;
+    width: 1100px;
     border: 1px solid black;
     padding-left: 200px;
   }
@@ -89,15 +89,15 @@
 		    <h2 id="sub" >제품 색상
 		      <label style="margin-left: 23px;">
 		        <input type="radio" name="prdctColor" value="A0001" checked />
-		        <span>빨강</span>
+		        <span>브라운</span>
 		      </label>
 		      <label>
 		        <input type="radio" name="prdctColor" value="A0002" />
-		        <span>파랑</span>
+		        <span>블랙</span>
 		      </label>
 		      <label>
 		        <input type="radio" name="prdctColor" value="A0003" />
-		        <span>초록</span>
+		        <span>화이트</span>
 		      </label>
 		      </h2>
 		    <h2 id="sub">제품 소재
