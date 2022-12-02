@@ -62,7 +62,7 @@ public class ProductServiceImpl implements ProductService {
 	public void updateProductDetail(Map<String,Object> map) {
 		productDAO.updateProductDetail(map);
 	}
-	
+
 	@Override
 	public void useYnProduct(Map<String,Object> map) {
 		productDAO.useYnProduct(map);
@@ -76,5 +76,10 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Map<String, Object> getUpdateDetail(Map<String, Object> map){
 		return productDAO.getUpdateDetail(map);
+	}
+	
+	@Override
+	public Map<String, Object> getProductInfo(Map<String, Object> map){
+		return productDAO.getProductInfo(map);
 	}
 }

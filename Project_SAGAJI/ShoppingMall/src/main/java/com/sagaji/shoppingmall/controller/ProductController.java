@@ -117,6 +117,18 @@ public class ProductController {
 			return "redirect://localhost:8099";
 		}
 		
+		// 제품 상세 조회
+		@RequestMapping("/getProductInfo.do")
+		public String getProductInfo(@RequestParam Map<String, Object> paramMap, Model model )  {
+			System.out.println("test=============="+paramMap);
+		
+			Map<String, Object> infoMap = productService.getProductInfo(paramMap);
+			
+			model.addAttribute("infoMap", infoMap);
+			
+			return "product/productInfo";
+		}
+		
 		
 		@PostMapping("/useYnProduct.do")
 		public String deleteProduct(@RequestParam Map<String, Object> paramMap) {
@@ -125,7 +137,7 @@ public class ProductController {
 			
 		// 제품 삭제
 		productService.useYnProduct(map);
-		return "product/productlist";
+		return "product/productList";
 		
 		}
 		
@@ -163,8 +175,8 @@ public class ProductController {
 		// 제품 수정
 		@RequestMapping("/getUpdateDetail.do")
 		public String getUpdateDetail(@RequestParam Map<String, Object> paramMap, Model model) {
-			paramMap.put("prdctNo", "PRDCT20221128_23");
-					
+			//paramMap.put("prdctNo", "PRDCT_S_02");
+				System.out.println("test================="+paramMap);	
 			Map<String, Object> categroyMap = productService.getUpdateDetail(paramMap);
 			model.addAttribute("categroyMap", categroyMap);
 			return "product/updateProduct";

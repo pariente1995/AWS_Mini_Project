@@ -131,7 +131,7 @@
     </div>
     <div class="main-prd" id="top-prd">
     	<c:forEach items="${popularProductList}" var="pop">
-    		<div class="main-prd-info">
+    		<div class="main-prd-info" id="top-sub" data-prdctno="${pop.prdctNo}" data-prdctdetailno="${pop.prdctDetailNo}" }>
 		        <img src="${pageContext.request.contextPath}/images/${pop.prdctImageNm}${pop.prdctImageType}" 
 		        	data-imgnm="${pop.prdctImageNm}" data-ext="${pop.prdctImageType}" class="main-prd-img">
 		        <div class="main-prd-disc">
@@ -284,6 +284,17 @@
 	    $(".main-prd-info").on("click",function() {
 	
 	    });
+	    
+	    $("div#top-sub").on("click",function() {
+	    	var sPrdctNo = $(this).data("prdctno");
+	    	var sPrdctDetailNo = $(this).data("prdctdetailno");
+	    	
+	    	location.href = "/product/getProductInfo.do?prdctNo="+sPrdctNo+"&prdctDetailNo="+sPrdctDetailNo; 
+			
+	    });
+	    
+	    
+	    
 	});
 	
 	function insertCart(prdctNo, prdctDetailNo) {

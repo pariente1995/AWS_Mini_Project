@@ -43,4 +43,7 @@ public interface ProductService {
 	//제품상세 업데이트 화면
 	public Map<String, Object> getUpdateDetail(Map<String, Object> map);
 	
+	//제품 상세화면
+	public Map<String, Object> getProductInfo(Map<String, Object> map);
+	
 }

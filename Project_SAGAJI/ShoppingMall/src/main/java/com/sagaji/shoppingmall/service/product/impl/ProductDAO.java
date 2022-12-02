@@ -63,4 +63,8 @@ public class ProductDAO {
 	public Map<String, Object> getUpdateDetail(Map<String, Object> map){
 		return mybatis.selectOne("ProductDAO.getUpdateDetail", map);
 	}
+	
+	public Map<String, Object> getProductInfo(Map<String, Object> map){
+		return mybatis.selectOne("ProductDAO.getProductInfo", map);
+	}
 }

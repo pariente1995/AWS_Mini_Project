@@ -58,9 +58,7 @@
                 	<span class="btn_inner">중복체크</span>
                 </button>
             </h2>
-
-                
-
+          
 		    <div class="dropdown">    
 		      <h2 id="sub">제품 목록
 		          <select id="prdct" name="prdctCategoryCd">
