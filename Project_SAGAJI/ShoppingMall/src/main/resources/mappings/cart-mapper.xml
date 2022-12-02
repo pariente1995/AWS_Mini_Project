@@ -14,6 +14,7 @@
 		     , D.PRDCT_IMAGE_TYPE
 		     , D.PRDCT_NO
 		     , D.PRDCT_DETAIL_NO
+		     , (D.PRDCT_PRICE * A.CART_CNT) AS TOTAL
 			FROM T_SGJ_CART A,
 				 (
 					 SELECT B.PRDCT_NM
@@ -67,4 +68,17 @@
 				AND PRDCT_NO = #{prdctNo}
 				AND PRDCT_DETAIL_NO = #{prdctDetailNo}
 	</update>
+	
+	<select id="getCartTotalPrice" parameterType="string" resultType="string">
+		SELECT FORMAT(SUM(C.TMP), 0) AS TOTAL_PRICE
+			FROM (
+					SELECT (A.CART_CNT * B.PRDCT_PRICE) AS TMP
+						 FROM T_SGJ_CART A
+							, T_SGJ_PRDCT_DETAIL B
+						WHERE A.USER_ID = #{userId}
+						  AND A.PRDCT_NO = B.PRDCT_NO
+						  AND A.PRDCT_DETAIL_NO = B.PRDCT_DETAIL_NO
+						GROUP BY A.PRDCT_NO, A.PRDCT_DETAIL_NO
+				 ) C
+	</select>
 </mapper>

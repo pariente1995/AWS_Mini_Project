@@ -37,8 +37,10 @@ public class CartController {
 		 }
 		 
 		 List<Map<String, Object>> cartList =cartService.getCartList(loginUser.getUserId());
+		 String totalPrice = cartService.getCartTotalPrice(loginUser.getUserId());
 		 
 		 model.addAttribute("cartList", cartList);
+		 model.addAttribute("totalPrice", totalPrice);
 		 
 		 return "cart/getCartList";
 	 

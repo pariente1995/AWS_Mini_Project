@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%-- fmt --%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%-- functions --%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <style>
     #product-container {
@@ -92,13 +94,32 @@
     .main-prd-disc-amount, .main-prd-disc-cart {
       display: inline-block;
     }
+    
+    #product-container h1 {
+    	margin-bottom: 20px;
+    }
+    
+    #product-container p {
+    	margin-top: 0;
+    	padding-top: 0;
+    	color: gray;
+    }
 </style>
 
 <%-- 헤더 페이지 --%>
 <jsp:include page="${pageContext.request.contextPath }/header.jsp"></jsp:include>
 
 <div id="product-container">
-	<h1>"${searchKeyword}"와(과) 일치하는 항목 표시</h1>
+	<c:choose>
+	    <c:when test="${fn:length(productList) == 0}">
+	        <h1>"${searchKeyword}"에 대한 검색 결과가 없습니다.</h1>
+	        <p>다른 검색어를 사용하여 다시 시도해주세요.</p>
+	    </c:when>
+	    <c:otherwise>
+	    	<h1>"${searchKeyword}"와(과) 일치하는 항목 표시</h1>
+	    	<p><fmt:formatNumber value="${fn:length(productList)}" pattern="#,###" />건의 제품을 찾았습니다.</p>
+	    </c:otherwise>
+	</c:choose>
     <hr/>
     
 	<%-- 제품 리스트 --%>

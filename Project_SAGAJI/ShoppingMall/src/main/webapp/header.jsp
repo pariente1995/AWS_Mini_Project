@@ -330,6 +330,7 @@
 		background-color: #F3F1F1;
 	}
   </style>
+  <link rel="icon" href="${pageContext.request.contextPath }/favicon.ico">
   <script src="${pageContext.request.contextPath}/js/jquery-3.6.1.min.js"></script>
 </head>
 <body>
@@ -366,7 +367,7 @@
           <div id="search-wrapper">
 	          <form id="main-search-form" action="/product/getSearchList.do" method="post">
 	            <img src="${pageContext.request.contextPath}/images/search.png" id="searchImg">
-	            <input type="text" name="searchKeyword" id="searchKeyword" placeholder="검색어 입력">
+	            <input type="text" name="searchKeyword" id="searchKeyword" placeholder="검색어 입력" value="${searchKeyword}">
 	          </form>
           </div>
         </div>

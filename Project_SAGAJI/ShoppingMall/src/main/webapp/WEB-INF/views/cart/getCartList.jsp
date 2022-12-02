@@ -82,15 +82,9 @@
     	<td></td>
     </tr>
     	<c:forEach items="${cartList }" var="cart" varStatus="status">
-    	<c:if test="${status.last }">
-    		<input type="hidden" id="cartListLength" value="${status.count }">
-    	</c:if>
-    	<fmt:parseNumber var="i" type="number" value="${cart.Cnt}" />
-    	<fmt:parseNumber var="j" type="number" value="${cart.prdctPrice}" />
-    	<input type="hidden" id="amount${status.index }" value="${i * j }">
       <tr>
         <th rowspan="3" id="prdcImg"><img src="${pageContext.request.contextPath}/images/${cart.prdctImageNm}${cart.prdctImageType}"></th>
-        <th class="h">&emsp;제품이름</th>
+        <th class="h">&emsp;제품 이름</th>
         <td class="d">${cart.prdctNm }</td>
         <th>￦<c:out value="${cart.prdctPrice }"></c:out></th>
       </tr>
@@ -129,14 +123,14 @@
       </tr>
       <tr>
         <th>제품가격</th>
-        <td id="totalAmount"></td>
+        <td></td>
       </tr>
       <tr>
         <td colspan="2"><hr id="hr1"></td>
       </tr>
       <tr>
         <th>총 주문금액</th>
-        <td id="totalAmount"></td>
+        <td>${totalPrice }원</td>
       </tr>
       <tr>
       	<td></td>
@@ -153,15 +147,7 @@
 
 <!-- 각자 스크립트 작성 부분 -->
 <script>
-	$(function() {
-		let totalAmout = 0;
-		
-		for(let i = 0; i < $("#cartListLength").val(); i++) {
-			totalAmount += parseInt($("#amount" + i).val());
-		}
-		
-		$("#totalAmout").text(totalAmout);
-		
+	$(function() {		
 		//주문하기 버튼 클릭 시 주문페이지로 이동
 		$("#ordertBtn").on("click", function(){
 			$ajax({
