@@ -87,7 +87,23 @@
       
     ]]>
 	</update>
+	
+	<!-- 8. 회원리스트 -->
+	<select id="userList" resultType="user">
+		SELECT
+			USER_ID,
+		    USER_NM,
+		    USER_TYPE,
+		    USER_USE_YN,
+		    USER_RGST_DATE
+		FROM T_SGJ_USER
 
+	</select>
 
+	<select id="getUserInfo" parameterType="string" resultType="user">
+		SELECT *
+		FROM T_SGJ_USER
+		WHERE USER_ID = #{userId}
+	</select>
 
 </mapper>

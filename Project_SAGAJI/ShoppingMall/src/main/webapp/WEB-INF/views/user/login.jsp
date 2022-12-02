@@ -199,9 +199,7 @@
                             </div>
                         </div>
                     </div>
-                    <p id="pwValidation" style="color: red; font-size: 0.8rem;">
-                        비밀번호는 영문자, 숫자, 특수문자 조합의 9자리 이상으로 입력해주세요.
-                    </p>
+                    
     
                     <!-- login button -->
                     <div>
@@ -262,20 +260,7 @@
 					}
 				});
 			});
-			function validatePassword(character) {
-				return /^(?=.*[a-zA-Z])(?=.*[!@#$%^&*+=-])(?=.*[0-9]).{9,}$/.test(character);
-			}
-			$("#userPw").on("change", function() {
-				//비밀번호 유효성 처리
-				if(!validatePassword($("#userPw").val())) {
-					pwValidation = false;
-					$("#pwValidation").show();
-					$("#userPw").focus();
-				} else {
-					pwValidation = true;
-					$("#pwValidation").hide();
-				}
-			});
+			
 		});
 	
 	</script>

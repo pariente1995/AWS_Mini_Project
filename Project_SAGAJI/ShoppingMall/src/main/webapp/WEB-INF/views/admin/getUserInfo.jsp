@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>내정보 - SAGAJI</title>
+<title>회원정보 수정 - SAGAJI</title>
 <style>
 @import
 	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap')
@@ -146,14 +146,14 @@ th {
 	<!-- my_info 페이지 -->
 	<div class="form-wrapper">
 		<!-- ★action 수정하기 -->
-		<form id="myInfoForm" name="myInfoForm" method="post">
+		<form id="userInfoForm" name="userInfoForm" method="post">
 
 			<input type="hidden" id="insertMsg" value="${insertMsg }">
 
 			<!-- ========== 오른쪽사이드 ========== -->
 			<div class="section2">
 				<div class="content">
-					<h1 style="margin-bottom: 100px; font-size: 3em;">내 정보 수정</h1>
+					<h1 style="margin-bottom: 100px; font-size: 3em;">회원정보 수정</h1>
 					<!-- userId -->
 					<div>
 						<div class="label_wrapper1">
@@ -162,7 +162,7 @@ th {
 						<div class="input  label_wrapper2">
 							<div class="input_wrapper">
 								<input type="text" name="userId" id="userId"
-									value="${loginUser.userId}" style="background: #cfcfcf;"
+									value="${userInfo.userId}" style="background: #cfcfcf;"
 									readonly> <span class="input_border"></span>
 							</div>
 						</div>
@@ -175,7 +175,7 @@ th {
 						</div>
 						<div class="input  label_wrapper2">
 							<div class="input_wrapper">
-								<input type="password" name="userPw" id="userPw" value=""
+								<input type="password" name="userPw" id="userPw" value="${userInfo.userPw}"
 									required placeholder="비밀번호를 입력하세요."> <span
 									class="input_border"></span>
 							</div>
@@ -191,7 +191,7 @@ th {
 						</div>
 						<div class="input  label_wrapper2">
 							<div class="input_wrapper">
-								<input type="password" name="userPw2" id="userPw2" value=""
+								<input type="password" name="userPw2" id="userPw2" value="${userInfo.userPw}"
 									required placeholder="비밀번호를 한 번 더 입력하세요."> <span
 									class="input_border"></span>
 							</div>
@@ -207,7 +207,7 @@ th {
 						<div class="input  label_wrapper2">
 							<div class="input_wrapper">
 								<input type="text" name="userNm" id="userNm"
-									value="${loginUser.userNm}" required placeholder="이름을 입력하세요.">
+									value="${userInfo.userNm}" required placeholder="이름을 입력하세요.">
 								<span class="input_border"></span>
 							</div>
 						</div>
@@ -221,7 +221,7 @@ th {
 						<div class="input  label_wrapper2">
 							<div class="input_wrapper">
 								<input type="email" name="userEmail" id="userEmail"
-									value="${loginUser.userEmail}" required
+									value="${userInfo.userEmail}" required
 									placeholder="이메일을 입력하세요."> <span class="input_border"></span>
 							</div>
 						</div>
@@ -235,7 +235,7 @@ th {
 						<div class="input  label_wrapper2">
 							<div class="input_wrapper">
 								<input type="text" name="userAddr1" id="userAddr1"
-									value="${loginUser.userAddr1}" required placeholder="도로명주소"
+									value="${userInfo.userAddr1}" required placeholder="도로명주소"
 									style="background: #cfcfcf;" readonly> <span
 									class="input_border"></span>
 							</div>
@@ -256,7 +256,7 @@ th {
 						<div class="input  label_wrapper2">
 							<div class="input_wrapper">
 								<input type="text" name="userAddr2" id="userAddr2"
-									value="${loginUser.userAddr2}" required
+									value="${userInfo.userAddr2}" required
 									placeholder=" 상세주소를 입력하세요."> <span class="input_border"></span>
 							</div>
 						</div>
@@ -270,7 +270,7 @@ th {
 						<div class="input  label_wrapper2">
 							<div class="input_wrapper">
 								<input type="text" name="userTel" id="userTel"
-									value="${loginUser.userTel}" placeholder="숫자만 입력하세요.">
+									value="${userInfo.userTel}" placeholder="숫자만 입력하세요.">
 								<span class="input_border"></span>
 							</div>
 						</div>
@@ -283,24 +283,41 @@ th {
 						<div class="input  label_wrapper2">
 							<div class="input_wrapper">
 								<input type="text" name="userRgstDate" id="userRgstDate"
-									value="${loginUser.userRgstDate}" style="background: #cfcfcf;"
+									value="${userInfo.userRgstDate}" style="background: #cfcfcf;"
 									readonly> <span class="input_border"></span>
 							</div>
 						</div>
 					</div>
+					
+					<!-- ========== 관리자 로인후 노출되는 페이지 -->
+					<!-- userUseYn : Y 또는 N -->
+					<!-- userType : USER 또는 ADMIN -->
+					<div>
+						<div class="label_wrapper1">
+							<label for="userRgstDate" >내정보는 관리자 권한으로 데이터를 수정할 수 있습니다.</label>
+						</div>
+					</div>
+					<table>
+					    <tr>
+					      <th>사용권한</th>
+					      <th>사용여부</th>
+					    </tr>
+					    <tr>
+					      <td>
+					        <input type="radio" name="userType" id="USER" value="USER"><label for="USER">사용자</label>
+					        <input type="radio" name="userType" id="ADMIN" value="ADMIN"><label for="ADMIN">관리자</label>
+					      </td>
+					      <td>
+					        <input type="radio" name="userUseYn" id="Y" value="Y"><label for="Y">사용중</label>
+					        <input type="radio" name="userUseYn" id="N" value="N"><label for="N">미사용중</label>
+					      </td>
+					    </tr>
+					  </table>
 					<div style="float: right; margin-top: 32px;">
-						<!-- delete button -->
-						<button type="submit" class="btn1" id="btnWithdrawUser"
-							value="withdrawUser"
-							style="border: 1px solid #0058A3; background-color: white; color: #0058A3; font-weight: 700;">
-							<span class="btn_inner">회원탈퇴</span>
-						</button>
-						&emsp;
-
 						<!-- update button -->
 						<button type="submit" class="btn1" id="btnUpdateUser"
 							value="updateUser">
-							<span class="btn_inner">정보수정</span>
+							<span class="btn_inner">회원정보 수정</span>
 						</button>
 					</div>
 				</div>
@@ -382,19 +399,13 @@ th {
 					return;
 				}
 				
-				document.myInfoForm.action = " ${path}/user/updateUser.do";
-				document.myInfoForm.submit();
+				document.userInfoForm.action = " ${path}/admin/updateUserInfo.do";
+				document.userInfoForm.submit();
 				if (pwValidation && pwCheck) {
 					alert("내정보를 수정하였습니다. 다시 로그인해주시길 바랍니다.");
 				}
 				
 				
-			});
-
-			/* ========== withdrawUser_submit ========== */
-			$("#btnWithdrawUser").click("submit", function() {
-				document.myInfoForm.action = " ${path}/user/withdrawUser.do";
-				document.myInfoForm.submit();
 			});
 		});
 

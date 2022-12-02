@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,6 +81,16 @@
         padding: 10px;
     }
     tr {height: 40px;}   
+    
+    table #table-userId {
+    	text-decoration: none;
+    	color: black;
+    }
+    
+    table #table-userId:hover {
+    	text-decoration: underline;
+    	font-weight: bold;
+    }
         
 </style>
 <script src="${pageContext.request.contextPath }/js/jquery-3.6.1.min.js"></script>
@@ -89,11 +99,11 @@
 <!-- header 페이지 -->
     <jsp:include page="${pageContext.request.contextPath}/header.jsp"></jsp:include>
     
-<!-- my_info 페이지 -->
+<!-- user_info 페이지 -->
 
     <div class="form-wrapper">
         <!-- ★action 수정하기 -->
-        <form id="loginForm" action="/user/login.do" method="post">
+        <form id="userListForm" action="/admin/useList.do" method="post">
 
             <!-- ========== 오른쪽사이드 ========== -->
             <div class="section2">
@@ -113,35 +123,28 @@
                     
                     <table>
                         <tr style="background-color:rgb(234, 234, 234);">
-                            <td width="10%">번호</td>
-                            <td width="15%"><a>아이디</a></td>
-                            <td width="15%">이름</td>
-                            <td width="30%">권한</td>
-                            <td width="15%">상태</td>
-                            <td width="15%">가입일</td>
+                       
+                            <td width="20%"><a>아이디</a></td>
+                            <td width="20%">이름</td>
+                            <td width="20%">권한</td>
+                            <td width="20%">상태</td>
+                            <td width="20%">가입일</td>
                         </tr>
-            
-                        <tr>
-                            <td>1</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-            
-                        <tr>
-                            <td>2</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+            			<c:forEach items="${userList}" var="user">
+            				<tr>
+	                            <td><a href="/admin/getUserInfo.do?userId=${user.userId}" id="table-userId">${user.userId}</a></td>
+	                            <td>${user.userNm}</td>
+	                            <td>${user.userType}</td>
+	                            <td>${user.userUseYn}</td>
+	                            <td>${user.userRgstDate}</td>
+	                        </tr>
+            			</c:forEach>
                     </table>
                 </div>
             </div>
         </form>
     </div>
+    <!-- footer 페이지 -->
+	<jsp:include page="${pageContext.request.contextPath}/footer.jsp"></jsp:include>
 </body>
 </html>
