@@ -438,7 +438,7 @@
 	            		<a href="#">회원관리 &nbsp;</a>
 		            </li>
 	            </c:when>
-            </c:choose>
+	        </c:choose>
           </ul>
         </div>
         <hr/>

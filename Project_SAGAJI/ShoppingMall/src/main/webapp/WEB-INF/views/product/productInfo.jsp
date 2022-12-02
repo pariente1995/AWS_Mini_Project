@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%-- jstl --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%-- fmt --%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +13,7 @@
   #container{
     /* 페이지 영역 */
     margin: 50px 20px 20px 50px;
-    width: 1500px;
+    width: 1250px;
     border: 1px solid black;
     padding-left: 100px;
   }
@@ -58,20 +62,53 @@
 
 <!-- 각자 디자인한 UI -->
   <div id="container">
-      <img id="mainimg" src="img/main.PNG" > 
+      <img id="mainimg" src="${pageContext.request.contextPath}/images/${infoMap.IMG}" > 
+      
       <p class="p1">
-        <h2 name="">제품 이름란</h2>
-        <h3>제품 설명란</h3>
-        <h2>제품 가격란</h2>
+        <h2>${infoMap.PRDCT_NM }</h2>
+        <h3>${infoMap.PRDCT_INFO }</h3>
+        <h2>￦ ${infoMap.PRDCT_PRICE }</h2>
         <h2>옵션</h2>
-        <h4>옵션 설정값 란</h4>
+        <h4>사이즈: ${infoMap.PRDCT_SIZE }</h4>
+        <h4>색상: 
+        	<c:choose>
+        		<c:when test="${infoMap.PRDCT_COLOR eq 'A0001' }">
+        			빨강
+        		</c:when>
+        		<c:when test="${infoMap.PRDCT_COLOR eq 'A0002' }">
+        			파랑
+        		</c:when>
+        		<c:when test="${infoMap.PRDCT_COLOR eq 'A0003' }">
+        			노랑
+        		</c:when>
+        		<c:otherwise>
+        			색깔없음
+        		</c:otherwise>
+        	</c:choose>
+        </h4>
+        <h4>재질: 
+        	<c:choose>
+        		<c:when test="${infoMap.PRDCT_MATERIAL eq 'B0001' }">
+        			나무
+        		</c:when>
+        		<c:when test="${infoMap.PRDCT_MATERIAL eq 'B0002' }">
+        			메탈
+        		</c:when>
+        		<c:when test="${infoMap.PRDCT_MATERIAL eq 'B0003' }">
+        			페브릭
+        		</c:when>
+        		<c:otherwise>
+        			재질없음
+        		</c:otherwise>
+        	</c:choose>
+        </h4>
         <img id="subimg" src="img/sub1.PNG"> <img id="subimg" src="img/sub2.PNG"> <img id="subimg" src="img/sub3.PNG"><br>
         <br><br><button id="btn">구매하기</button>
       </p>
 
 
       <p class="p2">
-        컴퓨터 프로그래밍에서 매개변수(영어: parameter 파라미터[*])란 변수의 특별한 한 종류로서, 함수 등과 같은 서브루틴[1]의 인풋으로 제공되는 여러 데이터 중 하나를 가리키기 위해 사용된다. 여기서 서브루틴의 인풋으로 제공되는 여러 데이터들을 전달인자(argument)라고 부른다. 보통 매개변수의 목록은 서브루틴의 정의 부분에 포함되며, 매번 서브루틴이 호출될 때마다 해당 호출에서 사용된 전달인자들을 각각에 해당하는 매개변수에 대입시켜 준다.
+        ${infoMap.PRDCT_INFO }
       </p>
 
     

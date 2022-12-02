@@ -205,6 +205,33 @@
 			INNER JOIN t_sgj_prdct_detail B
 			ON A.PRDCT_NO = B.PRDCT_NO
 			WHERE A.PRDCT_NO = #{prdctNo}	
+			<!-- AND	  B.PRDCT_DETAIL_NO = #{prdctDetailNo} -->
+	</select>
+	
+	<select id="getProductInfo" parameterType="map" resultType="map">
+		select 
+			A.PRDCT_NO
+			,A.PRDCT_NM
+			,A.PRDCT_INFO
+			,B.PRDCT_DETAIL_NO
+			,B.PRDCT_SIZE
+			,B.PRDCT_COLOR
+			,B.PRDCT_CATEGORY_CD
+			,B.PRDCT_MATERIAL
+			,B.PRDCT_PRICE
+			,B.PRDCT_REMAIN
+			,DATE_FORMAT(A.PRDCT_RGST_DATE, '%Y-%m-%d') AS PRDCT_RGST_DATE
+			,DATE_FORMAT(B.PRDCT_MODF_DATE, '%Y-%m-%d') AS PRDCT_MODF_DATE
+			,(SELECT CONCAT(S.PRDCT_IMAGE_NM, S.PRDCT_IMAGE_TYPE )
+				FROM t_sgj_image S 
+	            WHERE S.PRDCT_NO = A.PRDCT_NO
+	            AND S.PRDCT_DETAIL_NO = B.PRDCT_DETAIL_NO) AS IMG
+		from 
+			t_sgj_prdct A
+			INNER JOIN t_sgj_prdct_detail B
+			ON A.PRDCT_NO = B.PRDCT_NO
+			WHERE A.PRDCT_NO = #{prdctNo}	
+			AND	  B.PRDCT_DETAIL_NO = #{prdctDetailNo}
 	</select>
 	
 	

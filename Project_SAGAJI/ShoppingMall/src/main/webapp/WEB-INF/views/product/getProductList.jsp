@@ -163,7 +163,7 @@
 		
 		// 상품 상세 조회
 		$(".main-prd-info").on("click",function(){
-		
+			alert(1);
 		});
 	});
 </script>
