@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -93,7 +93,7 @@
 
     <div class="form-wrapper">
         <!-- ★action 수정하기 -->
-        <form id="loginForm" action="/user/login.do" method="post">
+        <form id="userListForm" action="/admin/useList.do" method="post">
 
             <!-- ========== 오른쪽사이드 ========== -->
             <div class="section2">
@@ -113,31 +113,25 @@
                     
                     <table>
                         <tr style="background-color:rgb(234, 234, 234);">
-                            <td width="10%">번호</td>
-                            <td width="15%"><a>아이디</a></td>
-                            <td width="15%">이름</td>
-                            <td width="30%">권한</td>
-                            <td width="15%">상태</td>
-                            <td width="15%">가입일</td>
+                       
+                            <td width="20%"><a>아이디</a></td>
+                            <td width="20%">이름</td>
+                            <td width="20%">권한</td>
+                            <td width="20%">상태</td>
+                            <td width="20%">가입일</td>
                         </tr>
+            			<c:forEach items="${userList}" var="user">
+            				<tr>
+	                            <td>${user.userId}</td>
+	                            <td>${user.userNm}</td>
+	                            <td>${user.userType}</td>
+	                            <td>${user.userUseYn}</td>
+	                            <td>${user.userRegstDate}</td>
+	                        </tr>
+            			</c:forEach>
+                        
             
-                        <tr>
-                            <td>1</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-            
-                        <tr>
-                            <td>2</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                       
                     </table>
                 </div>
             </div>

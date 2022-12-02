@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -101,6 +101,37 @@ body {
 .btn_inner {
 	border-radius: 64px;
 	justify-content: center;
+}
+table {
+      width: 100%;
+      border: 1px solid #444444;
+      border-collapse: collapse;
+      text-align: center;
+    }
+    td {
+      height: 40px;
+      border: 1px solid #444444;
+      border-collapse: collapse;
+      text-align: center;} 
+    th {
+      border: 1px solid #444444;
+      padding: 10px;
+    }
+/* 테이블 */
+table {
+  width: 100%;
+  border: 1px solid #444444;
+  border-collapse: collapse;
+  text-align: center;
+}
+td {
+  height: 40px;
+  border: 1px solid #444444;
+  border-collapse: collapse;
+  text-align: center;} 
+th {
+  border: 1px solid #444444;
+  padding: 10px;
 }
 </style>
 <script src="${pageContext.request.contextPath }/js/jquery-3.6.1.min.js"></script>
@@ -244,8 +275,65 @@ body {
 							</div>
 						</div>
 					</div>
-
-
+					<!-- userRgstDate : 가입일자 -->
+					<div>
+						<div class="label_wrapper1">
+							<label for="userRgstDate">가입일자</label>
+						</div>
+						<div class="input  label_wrapper2">
+							<div class="input_wrapper">
+								<input type="text" name="userRgstDate" id="userRgstDate"
+									value="${loginUser.userRgstDate}" style="background: #cfcfcf;"
+									readonly> <span class="input_border"></span>
+							</div>
+						</div>
+					</div>
+					
+					<table style="display:none">
+					    <tr>
+					      <th>사용권한</th>
+					      <th>사용여부</th>
+					    </tr>
+					    <tr>
+					      <td>
+					        <input type="radio" name="userType" id="USER" value="USER" checked><label for="USER">사용자</label>
+					        <input type="radio" name="userType" id="ADMIN" value="ADMIN"><label for="ADMIN">관리자</label>
+					      </td>
+					      <td>
+					        <input type="radio" name="userUseYn" id="Y" value="Y" checked><label for="Y">사용중</label>
+					        <input type="radio" name="userUseYn" id="N" value="N"><label for="N">미사용중</label>
+					      </td>
+					    </tr>
+					  </table>
+					
+					<!-- ========== 관리자 로인후 노출되는 페이지 -->
+					<!-- userUseYn : Y 또는 N -->
+					<!-- userType : USER 또는 ADMIN -->
+					<c:choose>
+						<c:when test="${loginUser.userType eq 'ADMIN'}">
+							<div>
+								<div class="label_wrapper1">
+									<label for="userRgstDate" >내정보는 관리자 권한으로 데이터를 수정할 수 있습니다.</label>
+								</div>
+							</div>
+							<table>
+							    <tr>
+							      <th>사용권한</th>
+							      <th>사용여부</th>
+							    </tr>
+							    <tr>
+							      <td>
+							        <input type="radio" name="userType" id="USER" value="USER"><label for="USER">사용자</label>
+							        <input type="radio" name="userType" id="ADMIN" value="ADMIN"><label for="ADMIN">관리자</label>
+							      </td>
+							      <td>
+							        <input type="radio" name="userUseYn" id="Y" value="Y"><label for="Y">사용중</label>
+							        <input type="radio" name="userUseYn" id="N" value="N"><label for="N">미사용중</label>
+							      </td>
+							    </tr>
+							  </table>
+						</c:when>
+					</c:choose>
 					<div style="float: right; margin-top: 32px;">
 						<!-- delete button -->
 						<button type="submit" class="btn1" id="btnWithdrawUser"
@@ -345,6 +433,8 @@ body {
 				if (pwValidation && pwCheck) {
 					alert("내정보를 수정하였습니다. 다시 로그인해주시길 바랍니다.");
 				}
+				
+				
 			});
 
 			/* ========== withdrawUser_submit ========== */

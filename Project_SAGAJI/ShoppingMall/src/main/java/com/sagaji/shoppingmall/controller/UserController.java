@@ -111,7 +111,9 @@ public class UserController {
 
 	// 6. 내정보 수정
 	@PostMapping("/updateUser.do")
+	
 	public String updateUser(HttpSession session, UserVO userVO) {
+		System.out.println(userVO.getUserType() + userVO.getUserUseYn());
 		session.invalidate();
 		userService.updateUser(userVO);
 

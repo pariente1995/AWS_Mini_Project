@@ -71,7 +71,9 @@
 	      	USER_EMAIL = #{userEmail},
 	      	USER_ADDR1 = #{userAddr1},
 	      	USER_ADDR2 = #{userAddr2},
-	      	USER_MODF_DATE = NOW()
+	      	USER_MODF_DATE = NOW(),
+	      	USER_TYPE = #{userType},
+	      	USER_USE_YN =#{userUseYn}
 	    WHERE 
 	      	USER_ID = #{userId}
    	]]>
