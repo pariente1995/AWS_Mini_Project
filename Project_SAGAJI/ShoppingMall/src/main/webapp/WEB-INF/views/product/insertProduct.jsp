@@ -63,11 +63,11 @@
 		      <h2 id="sub">제품 목록
 		          <select id="prdct" name="prdctCategoryCd">
 		            <option value="none" hidden>제품 카테고리를 선택하세요.</option>
-		            <option value="1">옷장</option>
-		            <option value="2">테이블</option>
-		            <option value="3">침대</option>
-		            <option value="4">가구</option>
-		            <option value="5">소파</option>
+		            <option value="2">옷장</option>
+		            <option value="3">테이블</option>
+		            <option value="4">침대</option>
+		            <option value="5">가구</option>
+		            <option value="6">소파</option>
 		          </select>
 		      </h2>
 		    </div>
